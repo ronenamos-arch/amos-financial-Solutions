@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="fyLIxTOXtlFr5ZegoM9zA4SnXqstM-P1Tt2ILsOTezI" />
+    <title>רונן עמוס - רואה חשבון טכנולוגי | AI, אוטומציה ו-Power BI</title>
+    <meta name="description" content="רונן עמוס, רואה חשבון טכנולוגי עם 10+ שנות ניסיון, מציע פתרונות AI, אוטומציה פיננסית ודשבורדים ב-Power BI לעצמאיים ועסקים קטנים. קבעו פגישת ייעוץ חינם לשדרוג הניהול הפיננסי שלכם." />
+    <meta name="keywords" content="רואה חשבון טכנולוגי, AI בחשבונאות, אוטומציה פיננסית, Power BI, עצמאיים, עסקים קטנים, ייעוץ פיננסי, דוחות כספיים" />
+    <meta name="author" content="רונן עמוס">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "רונן עמוס - פתרונות פיננסיים",
+      "url": "https://www.amosfinancialsolutions.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+972-50-5500344",
+        "contactType": "customer service"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "צבי 8",
+        "addressLocality": "רמת גן",
+        "postalCode": "5250508",
+        "addressCountry": "IL"
+      },
+      "sameAs": [
+        "https://www.facebook.com/AmosFinancialServices?locale=he_IL",
+        "https://www.linkedin.com/in/ronenamoscpa/",
+        "https://instagram.com/ronen_financial_services"
+      ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #2c5282;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #2c5282;
+            border-bottom-color: #38a169;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 .highlight {
+            color: #38a169;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #38a169 0%, #2c5282 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(56, 161, 105, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Services Sections */
+        .services-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #718096;
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #38a169;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: #38a169;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .service-link {
+            color: #2c5282;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .service-link:hover {
+            text-decoration: underline;
+        }
+
+        /* About Section */
+        .about-section {
+            background: #f7fafc;
+            padding: 5rem 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text h2 .highlight {
+            color: #38a169;
+        }
+
+        .about-text p {
+            color: #4a5568;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Blog Section */
+        .blog-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .blog-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #4a5568;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #38a169;
+            border-color: #38a169;
+            color: white;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-title {
+            font-size: 1.2rem;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-excerpt {
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, #2c5282 0%, #38a169 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-white {
+            background: white;
+            color: #2c5282;
+        }
+
+        .cta-white:hover {
+            background: #f7fafc;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #38a169;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-details h4 {
+            color: #2d3748;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details p {
+            color: #4a5568;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links h4 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-2px);
+        }
+
+        .instagram { background: #E4405F; }
+        .facebook { background: #1877F2; }
+        .linkedin { background: #0A66C2; }
+
+        /* Contact Form */
+        .contact-form {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 20px;
+        }
+
+        .contact-form h3 {
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #38a169;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #2c5282 0%, #38a169 100%);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 5rem 0;
+            background: #f7fafc;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: right;
+            font-size: 1.1rem;
+            color: #2d3748;
+            font-weight: 500;
+        }
+
+        .faq-question:hover {
+            background: #f7fafc;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: #4a5568;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #38a169;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #a0aec0;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #4a5568;
+            padding-top: 1rem;
+            text-align: center;
+            color: #a0aec0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-filters {
+                justify-content: flex-start;
+                overflow-x: auto;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <span>🏦</span>
+                <span>רונן עמוס</span>
+                <small>פתרונות פיננסיים לעסקים</small>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">בית</a></li>
+                <li><a href="#services">שירותים</a></li>
+                <li><a href="#about">אודות</a></li>
+                <li><a href="#blog">בלוג</a></li>
+                <li><a href="#faq">שאלות נפוצות</a></li>
+                <li><a href="#contact">יצירת קשר</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>שירותי <span class="highlight">חשבונאות טכנולוגית</span><br>מותאמים לצרכים שלכם</h1>
+            <p>כרואה חשבון טכנולוגי, אני מציע שירותים שמשלבים אינטלגנציה מלאכותית, אוטומציה פיננסית ושילוב של מערכות חכמות כמו Power BI, למידע נוסף על חשיבות הדיגיטציה, קראו את המדריך שלנו למעבר לחשבונאות דיגיטלית.</p>
+            <a href="#contact" class="cta-button">קבעו פגישת ייעוץ חינם</a>
+        </div>
+    </section>
+
+    <!-- Services Section - Small Business -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">עבור עסקים קטנים</h2>
+            <p class="section-subtitle">שירותים מקיפים לעסקים עד 15 עובדים</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>אוטומציה פיננסית כוללת</h3>
+                    <p>שכר, תביעות וחווזות אוטומטיים</p>
+                    <a href="#" class="service-link">לפרטים והצעת מחיר ←</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>דשבורדים מתקדמים ב-Power BI</h3>
+                    <p>KPI's וחזרויות</p>
+                    <a href="#" class="service-link">לפרטים והצעת מחיר ←</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>ייעוץ דיגיטלי לעסקים</h3>
+                    <p>אינטגרציה עם מערכות קיימות</p>
+                    <a href="#" class="service-link">לפרטים והצעת מחיר ←</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3>טכנולוגיות חכמה עם AI</h3>
+                    <p>ניתוח נתוני לקיגני במגמות</p>
+                    <a href="#" class="service-link">לפרטים והצעת מחיר ←</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section - Freelancers -->
+    <section class="services-section" style="background: #f7fafc;">
+        <div class="container">
+            <h2 class="section-title">עבור עצמאיים</h2>
+            <p class="section-subtitle">פתרונות מותאמים לעצמאיים ופרילנסרים</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>ניהול חשבונות אוטומטי</h3>
+                    <p>אוטומציה פיננסית סגורה לעיבוד חשבוניות</p>
+                    <a href="#" class="service-link">לפרטים והצעת מחיר ←</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>דוחות ויזואלים ב-Power BI</h3>
+                    <p>דשבורדים אינטראקטיביים בזמן אמת</p>
+                    <a href="#" class="service-link">לפרטים והצעת מחיר ←</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>דיגיטציה של התהליכים</h3>
+                    <p>מעבר להכלים דיגיטליים מלאים</p>
+                    <a href="#" class="service-link">לפרטים והצעת מחיר ←</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3>ייעוץ AI בחשבונאות</h3>
+                    <p>ניתוח אישית ואופטימיזציה של מסים</p>
+                    <a href="#" class="service-link">לפרטים והצעת מחיר ←</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2><span class="highlight">רונן עמוס</span><br>רואה חשבון טכנולוגי<br>שמשדרג את הניהול<br>הפיננסי שלכם</h2>
+                    <p>יותר מ-10 שנות ניסיון בשילוב טכנולוגיה מתקדמת עם שירותי חשבונאות מקצועיים</p>
+                    <div style="margin-top: 2rem;">
+                        <a href="#services" class="cta-button" style="margin-left: 1rem;">צפה בשירותים שלנו</a>
+                        <a href="#contact" class="cta-button cta-white">קבעו פגישת ייעוץ חינם</a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&h=400&fit=crop&crop=center" alt="רונן עמוס רואה חשבון טכנולוגי">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <h2 class="section-title">בלוג חשבונאות טכנולוגית</h2>
+            <p class="section-subtitle">טיפים מעשיים, מדריכים מקצועיים וחדשות מעולם החשבונאות הדיגיטלית</p>
+            
+            <div class="blog-filters">
+                <button class="filter-btn active">הכל</button>
+                <button class="filter-btn">טכנולוגיה</button>
+                <button class="filter-btn">אבטחה</button>
+                <button class="filter-btn">כלים דיגיטליים</button>
+                <button class="filter-btn">טיפים</button>
+                <button class="filter-btn">עצמאיים</button>
+                <button class="filter-btn">דמטסטיקה</button>
+            </div>
+            
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="AI בחשבונאות" class="blog-image">
+                    <div class="blog-content">
+                        <h3 class="blog-title">דמטסציה במקום החובה - AI בבקרה הכספים</h3>
+                        <p class="blog-excerpt">חקרו איך טכנולוגיות בינה מלאכותית יכולות לשפר את דייקנות הדוחות הכספיים ולחסוך זמן רב</p>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop" alt="Power BI דשבורדים" class="blog-image">
+                    <div class="blog-content">
+                        <h3 class="blog-title">מדריך מלא: בניית דשבורד Power BI מקצועי</h3>
+                        <p class="blog-excerpt">למדו איך לבנות דשבורד אינטראקטיבי שיספק לכם תובנות מיידיות על מצב העסק</p>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=200&fit=crop" alt="אוטומציה פיננסית" class="blog-image">
+                    <div class="blog-content">
+                        <h3 class="blog-title">5 דרכים לאוטומציה פיננסית שיחסכו לכם זמן</h3>
+                        <p class="blog-excerpt">גלו איך אוטומציה יכולה להפוך את הניהול הכספי שלכם ליעיל יותר ולמדויק יותר</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>בואו נדבר על הצעד הבא של העסק שלכם</h2>
+            <p>חייגו לשמוע איך AI ואוטומציה יכולים לחסוך לכם זמן וכסף? בואו נקבע שיחת ייעוץ חינם.</p>
+            <a href="#contact" class="cta-button cta-white">קבעו פגישת ייעוץ חינם</a>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title">שאלות נפוצות</h2>
+            <p class="section-subtitle">תשובות לשאלות הנפוצות ביותר שאנו מקבלים</p>
+            
+            <div class="faq-item">
+                <button class="faq-question">כמה זמן לוקח להטמיע אוטומציה פיננסית?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    התהליך לוקח בדרך כלל 2-4 שבועות, תלוי במורכבות העסק ובמערכות הקיימות.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">האם השירותים מתאימים לעסקים קטנים?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    בהחלט! אנו מתמחים בפתרונות לעצמאיים ועסקים עד 15 עובדים.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">מה כלול בשירת הייעוץ הרגיוני?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    ניתוח הצרכים שלכם, הצעת פתרונות מותאמים וקביעת תוכנית מפורטת.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">האם יש תמיכה שוטפת?
+                    <span>+</span>
+                </button>
+                <div class="faq-answer">
+                    כן, אנו מספקים תמיכה שוטפת ועדכונים למערכות כדי להבטיחות הפתרונות שלכם.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>פרטי התקשרות</h3>
+                    <p>נשמח לשמוע ממך ולעזור לכם לשדרג את הניהול הפיננסי של העסק</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>אימייל</h4>
+                            <p>ronenamoscpa@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>טלפון</h4>
+                            <p>050-5500344</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>כתובת</h4>
+                            <p>צבי 8, רמת גן</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div class="contact-details">
+                            <h4>שעות פעילות</h4>
+                            <p>א-ה: 9:00-18:00, י: 9:00-13:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <h4>עקבו אחרינו</h4>
+                        <div class="social-icons">
+                            <a href="https://instagram.com/ronen_financial_services" class="social-icon instagram">📷</a>
+                            <a href="https://www.facebook.com/AmosFinancialServices" class="social-icon facebook">📘</a>
+                            <a href="https://www.linkedin.com/in/ronenamoscpa/" class="social-icon linkedin">💼</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>שלחו לנו הודעה</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">שם מלא *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">טלפון *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">אימייל *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">הודעה *</label>
+                            <textarea id="message" name="message" rows="5" placeholder="ספרו לנו על הצרכים והאתגרים הפיננסיים שלכם..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">שלח הודעה</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>קישורים מהירים</h3>
+                    <p><a href="#home">בית</a></p>
+                    <p><a href="#services">שירותים</a></p>
+                    <p><a href="#about">אודות</a></p>
+                    <p><a href="#contact">יצירת קשר</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>מידע ומשפטי</h3>
+                    <p><a href="#">מדיניות פרטיות</a></p>
+                    <p><a href="#">הגדרת עוגיות</a></p>
+                    <p><a href="#">אודר אישי</a></p>
+                    <p><a href="#">שירותים</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>פרטי התקשרות</h3>
+                    <p>רונן עמוס</p>
+                    <p>ronenamoscpa@gmail.com</p>
+                    <p>050-5500344</p>
+                    <p>צבי 8, רמת גן</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>רונן עמוס פתרונות פיננסיים</h3>
+                    <p>שירותי חשבונאות התכתה בשילוב AI</p>
+                    <p>אוטומציה ב-Power BI לעצמאיים ועסקים קטנים.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>מוכנים להתחיל לחסוך זמן וכסף?</p>
+                <p>הצטרפו לשרותו לעסקים שכבר נהנים מהצעד הבא בחשבונאות הדיגיטלית.</p>
+                <a href="#contact" class="cta-button">קבעו פגישת ייעוץ חינם</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = answer.classList.contains('active');
+                
+                // Close all other answers
+                document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
+                    otherAnswer.classList.remove('active');
+                });
+                
+                document.querySelectorAll('.faq-question span').forEach(span => {
+                    span.textContent = '+';
+                });
+                
+                // Toggle current answer
+                if (!isActive) {
+                    answer.classList.add('active');
+                    question.querySelector('span').textContent = '-';
+                }
+            });
+        });
+
+        // Blog filter functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Here you would implement actual filtering logic
+                // For now, we'll just show all articles
+            });
+        });
+
+        // Contact form submission
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const phone = formData.get('phone');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            // Simple validation
+            if (!name || !phone || !email || !message) {
+                alert('אנא מלאו את כל השדות הנדרשים');
+                return;
+            }
+            
+            // Create WhatsApp message
+            const whatsappMessage = `שלום רונן,%0A%0Aשם: ${name}%0Aטלפון: ${phone}%0Aאימייל: ${email}%0A%0Aהודעה: ${message}`;
+            const whatsappUrl = `https://wa.me/972505500344?text=${whatsappMessage}`;
+            
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form
+            this.reset();
+            alert('תודה! ההודעה נשלחה בוואטסאפ');
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and cards
+        document.querySelectorAll('section, .service-card, .blog-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+        
