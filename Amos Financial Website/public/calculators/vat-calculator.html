@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבון מע"מ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: right;
+            background-color: #f9fafb;
+            padding: 20px;
+            color: #333;
+        }
+        .calculator-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        h2 {
+            color: #1e3a8a;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #4a5568;
+        }
+        input[type="number"], select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1em;
+            color: #2d3748;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e0f2f7;
+            border-radius: 8px;
+            border: 1px solid #90cdf4;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #2c5282;
+            text-align: center;
+        }
+        .result span {
+            color: #10b981;
+            font-size: 1.2em;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+        button {
+            flex-grow: 1;
+            padding: 12px 20px;
+            background-color: #1e3a8a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #153066;
+            transform: translateY(-2px);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        button.reset {
+            background-color: #e2e8f0;
+            color: #4a5568;
+        }
+        button.reset:hover {
+            background-color: #cbd5e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <h2>מחשבון מע"מ</h2>
+
+        <div class="form-group">
+            <label for="amount">סכום:</label>
+            <input type="number" id="amount" placeholder="הכנס סכום" value="0">
+        </div>
+
+        <div class="form-group">
+            <label for="vatRate">שיעור מע"מ (%):</label>
+            <input type="number" id="vatRate" value="17" step="0.1">
+        </div>
+
+        <div class="form-group">
+            <label for="calculationType">סוג חישוב:</label>
+            <select id="calculationType">
+                <option value="add">הוסף מע"מ</option>
+                <option value="subtract">הפחת מע"מ</option>
+            </select>
+        </div>
+
+        <div class="button-group">
+            <button onclick="calculateVat()">חשב</button>
+            <button class="reset" onclick="resetCalculator()">אפס</button>
+        </div>
+
+        <div class="result" id="result">
+            תוצאה: <span>0.00</span> ש"ח
+        </div>
+    </div>
+
+    <script>
+        function calculateVat() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const vatRate = parseFloat(document.getElementById('vatRate').value);
+            const calculationType = document.getElementById('calculationType').value;
+            let result = 0;
+
+            if (isNaN(amount) || isNaN(vatRate)) {
+                document.getElementById('result').innerHTML = 'תוצאה: <span>אנא הזן מספרים חוקיים</span>';
+                return;
+            }
+
+            if (calculationType === 'add') {
+                result = amount * (1 + vatRate / 100);
+            } else { // subtract
+                result = amount / (1 + vatRate / 100);
+            }
+
+            document.getElementById('result').innerHTML = `תוצאה: <span>${result.toFixed(2)}</span> ש"ח`;
+        }
+
+        function resetCalculator() {
+            document.getElementById('amount').value = '0';
+            document.getElementById('vatRate').value = '17';
+            document.getElementById('calculationType').value = 'add';
+            document.getElementById('result').innerHTML = 'תוצאה: <span>0.00</span> ש"ח';
+        }
+
+        // Initial calculation on load
+        window.onload = calculateVat;
+        document.getElementById('amount').addEventListener('input', calculateVat);
+        document.getElementById('vatRate').addEventListener('input', calculateVat);
+        document.getElementById('calculationType').addEventListener('change', calculateVat);
+    </script>
+</body>
+</html>

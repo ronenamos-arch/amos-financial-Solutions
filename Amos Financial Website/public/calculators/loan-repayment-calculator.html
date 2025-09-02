@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבון החזרי הלוואה</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: right;
+            background-color: #f9fafb;
+            padding: 20px;
+            color: #333;
+        }
+        .calculator-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        h2 {
+            color: #1e3a8a;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #4a5568;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1em;
+            color: #2d3748;
+        }
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e0f2f7;
+            border-radius: 8px;
+            border: 1px solid #90cdf4;
+            color: #2c5282;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .result-item span:first-child {
+            font-weight: bold;
+        }
+        .result-item span:last-child {
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+        button {
+            flex-grow: 1;
+            padding: 12px 20px;
+            background-color: #1e3a8a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #153066;
+            transform: translateY(-2px);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        button.reset {
+            background-color: #e2e8f0;
+            color: #4a5568;
+        }
+        button.reset:hover {
+            background-color: #cbd5e0;
+        }
+        #amortizationSchedule {
+            margin-top: 25px;
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        #amortizationSchedule th, #amortizationSchedule td {
+            border: 1px solid #e2e8f0;
+            padding: 10px;
+            text-align: center;
+        }
+        #amortizationSchedule th {
+            background-color: #f0f4f8;
+            color: #2c5282;
+            font-weight: bold;
+        }
+        #amortizationSchedule tbody tr:nth-child(even) {
+            background-color: #f7fafc;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <h2>מחשבון החזרי הלוואה</h2>
+
+        <div class="form-group">
+            <label for="loanAmount">סכום הלוואה (ש"ח):</label>
+            <input type="number" id="loanAmount" placeholder="לדוגמה: 100000" value="100000">
+        </div>
+
+        <div class="form-group">
+            <label for="annualInterestRate">ריבית שנתית (%):</label>
+            <input type="number" id="annualInterestRate" placeholder="לדוגמה: 5" value="5" step="0.1">
+        </div>
+
+        <div class="form-group">
+            <label for="loanTerm">תקופת הלוואה (חודשים):</label>
+            <input type="number" id="loanTerm" placeholder="לדוגמה: 60" value="60">
+        </div>
+
+        <div class="button-group">
+            <button onclick="calculateLoan()">חשב</button>
+            <button class="reset" onclick="resetCalculator()">אפס</button>
+        </div>
+
+        <div class="result-section">
+            <div class="result-item">
+                <span>החזר חודשי:</span> <span id="monthlyPayment">0.00 ש"ח</span>
+            </div>
+            <div class="result-item">
+                <span>סה"כ ריבית:</span> <span id="totalInterest">0.00 ש"ח</span>
+            </div>
+            <div class="result-item">
+                <span>סה"כ תשלום:</span> <span id="totalPayment">0.00 ש"ח</span>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 30px; text-align: center; color: #1e3a8a;">לוח סילוקין</h3>
+        <table id="amortizationSchedule">
+            <thead>
+                <tr>
+                    <th>חודש</th>
+                    <th>החזר חודשי</th>
+                    <th>ריבית</th>
+                    <th>קרן</th>
+                    <th>יתרת קרן</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Amortization rows will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function calculateLoan() {
+            const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+            const annualInterestRate = parseFloat(document.getElementById('annualInterestRate').value);
+            const loanTerm = parseInt(document.getElementById('loanTerm').value);
+
+            if (isNaN(loanAmount) || isNaN(annualInterestRate) || isNaN(loanTerm) || loanAmount <= 0 || loanTerm <= 0) {
+                document.getElementById('monthlyPayment').textContent = '0.00 ש"ח';
+                document.getElementById('totalInterest').textContent = '0.00 ש"ח';
+                document.getElementById('totalPayment').textContent = '0.00 ש"ח';
+                document.getElementById('amortizationSchedule').getElementsByTagName('tbody')[0].innerHTML = '';
+                return;
+            }
+
+            const monthlyInterestRate = (annualInterestRate / 100) / 12;
+
+            let monthlyPayment;
+            if (monthlyInterestRate === 0) {
+                monthlyPayment = loanAmount / loanTerm;
+            } else {
+                monthlyPayment = loanAmount * monthlyInterestRate / (1 - Math.pow(1 + monthlyInterestRate, -loanTerm));
+            }
+
+            let totalInterest = 0;
+            let totalPayment = monthlyPayment * loanTerm;
+
+            let remainingBalance = loanAmount;
+            const scheduleBody = document.getElementById('amortizationSchedule').getElementsByTagName('tbody')[0];
+            scheduleBody.innerHTML = ''; // Clear previous schedule
+
+            for (let i = 1; i <= loanTerm; i++) {
+                const interestPayment = remainingBalance * monthlyInterestRate;
+                const principalPayment = monthlyPayment - interestPayment;
+                remainingBalance -= principalPayment;
+                totalInterest += interestPayment;
+
+                // Adjust for last payment rounding
+                if (i === loanTerm) {
+                    monthlyPayment += remainingBalance; // Add remaining small balance due to rounding
+                    principalPayment += remainingBalance;
+                    remainingBalance = 0;
+                }
+
+                const row = scheduleBody.insertRow();
+                row.insertCell(0).textContent = i;
+                row.insertCell(1).textContent = monthlyPayment.toFixed(2) + ' ש"ח';
+                row.insertCell(2).textContent = interestPayment.toFixed(2) + ' ש"ח';
+                row.insertCell(3).textContent = principalPayment.toFixed(2) + ' ש"ח';
+                row.insertCell(4).textContent = Math.max(0, remainingBalance).toFixed(2) + ' ש"ח';
+            }
+
+            document.getElementById('monthlyPayment').textContent = monthlyPayment.toFixed(2) + ' ש"ח';
+            document.getElementById('totalInterest').textContent = totalInterest.toFixed(2) + ' ש"ח';
+            document.getElementById('totalPayment').textContent = totalPayment.toFixed(2) + ' ש"ח';
+        }
+
+        function resetCalculator() {
+            document.getElementById('loanAmount').value = '100000';
+            document.getElementById('annualInterestRate').value = '5';
+            document.getElementById('loanTerm').value = '60';
+            document.getElementById('monthlyPayment').textContent = '0.00 ש"ח';
+            document.getElementById('totalInterest').textContent = '0.00 ש"ח';
+            document.getElementById('totalPayment').textContent = '0.00 ש"ח';
+            document.getElementById('amortizationSchedule').getElementsByTagName('tbody')[0].innerHTML = '';
+            calculateLoan(); // Recalculate with default values
+        }
+
+        window.onload = calculateLoan;
+        document.getElementById('loanAmount').addEventListener('input', calculateLoan);
+        document.getElementById('annualInterestRate').addEventListener('input', calculateLoan);
+        document.getElementById('loanTerm').addEventListener('input', calculateLoan);
+    </script>
+</body>
+</html>

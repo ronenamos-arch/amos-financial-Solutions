@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבון שכר נטו-ברוטו</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: right;
+            background-color: #f9fafb;
+            padding: 20px;
+            color: #333;
+        }
+        .calculator-container {
+            max-width: 550px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        h2 {
+            color: #1e3a8a;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #4a5568;
+        }
+        input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1em;
+            color: #2d3748;
+        }
+        .result-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e0f2f7;
+            border-radius: 8px;
+            border: 1px solid #90cdf4;
+            color: #2c5282;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .result-item span:first-child {
+            font-weight: bold;
+        }
+        .result-item span:last-child {
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+        button {
+            flex-grow: 1;
+            padding: 12px 20px;
+            background-color: #1e3a8a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #153066;
+            transform: translateY(-2px);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        button.reset {
+            background-color: #e2e8f0;
+            color: #4a5568;
+        }
+        button.reset:hover {
+            background-color: #cbd5e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <h2>מחשבון שכר נטו-ברוטו (לדוגמה)</h2>
+
+        <div class="form-group">
+            <label for="grossSalary">שכר ברוטו (ש"ח):</label>
+            <input type="number" id="grossSalary" placeholder="לדוגמה: 10000" value="10000">
+        </div>
+
+        <div class="form-group">
+            <label for="taxRate">שיעור מס הכנסה (%, לדוגמה):</label>
+            <input type="number" id="taxRate" placeholder="לדוגמה: 14" value="14" step="0.1">
+        </div>
+
+        <div class="form-group">
+            <label for="socialSecurity">ביטוח לאומי ובריאות (%, לדוגמה):</label>
+            <input type="number" id="socialSecurity" placeholder="לדוגמה: 7" value="7" step="0.1">
+        </div>
+
+        <div class="form-group">
+            <label for="pension">הפרשה לפנסיה (%, לדוגמה):</label>
+            <input type="number" id="pension" placeholder="לדוגמה: 6" value="6" step="0.1">
+        </div>
+
+        <div class="button-group">
+            <button onclick="calculateSalary()">חשב</button>
+            <button class="reset" onclick="resetCalculator()">אפס</button>
+        </div>
+
+        <div class="result-section">
+            <div class="result-item">
+                <span>מס הכנסה משוער:</span> <span id="estimatedTax">0.00 ש"ח</span>
+            </div>
+            <div class="result-item">
+                <span>ביטוח לאומי ובריאות משוער:</span> <span id="estimatedSocialSecurity">0.00 ש"ח</span>
+            </div>
+            <div class="result-item">
+                <span>הפרשה לפנסיה משוערת:</span> <span id="estimatedPension">0.00 ש"ח</span>
+            </div>
+            <hr style="border: none; border-top: 1px solid #90cdf4; margin: 15px 0;">
+            <div class="result-item">
+                <span>שכר נטו משוער:</span> <span id="netSalary">0.00 ש"ח</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateSalary() {
+            const grossSalary = parseFloat(document.getElementById('grossSalary').value);
+            const taxRate = parseFloat(document.getElementById('taxRate').value);
+            const socialSecurityRate = parseFloat(document.getElementById('socialSecurity').value);
+            const pensionRate = parseFloat(document.getElementById('pension').value);
+
+            if (isNaN(grossSalary) || isNaN(taxRate) || isNaN(socialSecurityRate) || isNaN(pensionRate)) {
+                document.getElementById('estimatedTax').textContent = '0.00 ש"ח';
+                document.getElementById('estimatedSocialSecurity').textContent = '0.00 ש"ח';
+                document.getElementById('estimatedPension').textContent = '0.00 ש"ח';
+                document.getElementById('netSalary').textContent = '0.00 ש"ח';
+                return;
+            }
+
+            const estimatedTax = grossSalary * (taxRate / 100);
+            const estimatedSocialSecurity = grossSalary * (socialSecurityRate / 100);
+            const estimatedPension = grossSalary * (pensionRate / 100);
+            const netSalary = grossSalary - estimatedTax - estimatedSocialSecurity - estimatedPension;
+
+            document.getElementById('estimatedTax').textContent = estimatedTax.toFixed(2) + ' ש"ח';
+            document.getElementById('estimatedSocialSecurity').textContent = estimatedSocialSecurity.toFixed(2) + ' ש"ח';
+            document.getElementById('estimatedPension').textContent = estimatedPension.toFixed(2) + ' ש"ח';
+            document.getElementById('netSalary').textContent = netSalary.toFixed(2) + ' ש"ח';
+        }
+
+        function resetCalculator() {
+            document.getElementById('grossSalary').value = '10000';
+            document.getElementById('taxRate').value = '14';
+            document.getElementById('socialSecurity').value = '7';
+            document.getElementById('pension').value = '6';
+            calculateSalary(); // Recalculate with default values
+        }
+
+        window.onload = calculateSalary;
+        document.getElementById('grossSalary').addEventListener('input', calculateSalary);
+        document.getElementById('taxRate').addEventListener('input', calculateSalary);
+        document.getElementById('socialSecurity').addEventListener('input', calculateSalary);
+        document.getElementById('pension').addEventListener('input', calculateSalary);
+    </script>
+</body>
+</html>
