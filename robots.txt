@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ronenamos-arch.github.io/amos-financial-Solutions/sitemap.xml
