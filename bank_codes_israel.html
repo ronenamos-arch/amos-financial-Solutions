@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מספרי בנקים בישראל - רונן עמוס רואה חשבון</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            margin: 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .intro {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .intro h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .banks-table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .table-header {
+            background: #34495e;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .table-header h3 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: right;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e8f4f8;
+            transform: scale(1.01);
+            transition: all 0.2s ease;
+        }
+        
+        .bank-code {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.1em;
+        }
+        
+        .bank-name {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .detailed-info {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .bank-header {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .bank-header:hover {
+            background: linear-gradient(135deg, #2980b9, #2471a3);
+        }
+        
+        .bank-header h4 {
+            margin: 0;
+            font-size: 1.3em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .bank-details {
+            padding: 20px;
+            display: none;
+            border-top: 3px solid #3498db;
+        }
+        
+        .bank-details.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .detail-item {
+            margin-bottom: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            color: #2c3e50;
+            display: inline-block;
+            width: 120px;
+        }
+        
+        .detail-value {
+            color: #34495e;
+        }
+        
+        .phone {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .address {
+            color: #8e44ad;
+        }
+        
+        .search-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #bdc3c7;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        
+        .expand-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .expand-icon.rotated {
+            transform: rotate(180deg);
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            th, td {
+                padding: 10px 8px;
+                font-size: 0.9em;
+            }
+            
+            .detail-label {
+                width: 100px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>מספרי בנקים בישראל</h1>
+        <p>המדריך המלא לקודי הבנקים בישראל - רונן עמוס רואה חשבון</p>
+    </div>
+    
+    <div class="intro">
+        <h2>מה זה קוד בנק?</h2>
+        <p>בנק ישראל ממספר את הבנקים בישראל, כך שלכל בנק בישראל יש קוד בנק (מספר בנק) ייחודי. הקוד משמש לצרכים פיננסיים שונים:</p>
+        <ul>
+            <li><strong>עדכון פרטי שיק</strong> - בהנהלת החשבונות מצריך רישום קוד הבנק</li>
+            <li><strong>חיוב חשבון בנק</strong> - נדרש מספר הבנק, מספר הסניף ומספר החשבון</li>
+            <li><strong>העברות בנקאיות</strong> - לצורך זיהוי הבנק המקבל</li>
+            <li><strong>הנהלת חשבונות</strong> - לרישום ומעקב אחר חשבונות בנק שונים</li>
+        </ul>
+    </div>
+    
+    <div class="search-box">
+        <input type="text" class="search-input" placeholder="חפש בנק לפי שם או מספר..." id="searchInput">
+    </div>
+    
+    <div class="banks-table">
+        <div class="table-header">
+            <h3>טבלת מספרי הבנקים בישראל</h3>
+        </div>
+        <table id="banksTable">
+            <thead>
+                <tr>
+                    <th>שם הבנק</th>
+                    <th>מספר בנק</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="bank-name">בנק לאומי לישראל</td>
+                    <td class="bank-code">10</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק דיסקונט לישראל</td>
+                    <td class="bank-code">11</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק הפועלים</td>
+                    <td class="bank-code">12</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק איגוד לישראל</td>
+                    <td class="bank-code">13</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק אוצר החייל</td>
+                    <td class="bank-code">14</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק מרכנתיל דיסקונט</td>
+                    <td class="bank-code">17</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק מזרחי טפחות</td>
+                    <td class="bank-code">20</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק סיטי (Citibank N.A)</td>
+                    <td class="bank-code">22</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק HSBC</td>
+                    <td class="bank-code">23</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק BNP Paribas Israel</td>
+                    <td class="bank-code">25</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק יובנק</td>
+                    <td class="bank-code">26</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">הבנק הבינלאומי הראשון לישראל</td>
+                    <td class="bank-code">31</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק ערבי ישראלי</td>
+                    <td class="bank-code">34</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק SBI State Bank of India</td>
+                    <td class="bank-code">39</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק מסד</td>
+                    <td class="bank-code">46</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">מרכז סליקה בנקאי</td>
+                    <td class="bank-code">50</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק פועלי אגודת ישראל</td>
+                    <td class="bank-code">52</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק ירושלים</td>
+                    <td class="bank-code">54</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">שירותי בנק אוטומטיים</td>
+                    <td class="bank-code">59</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">חסך קופת חסכון לחינוך (חיפה)</td>
+                    <td class="bank-code">65</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק דקסיה</td>
+                    <td class="bank-code">68</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק לאומי למשכנתאות</td>
+                    <td class="bank-code">77</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק דיסקונט למשכנתאות</td>
+                    <td class="bank-code">90</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק ישראל</td>
+                    <td class="bank-code">99</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק יהב לעובדי מדינה</td>
+                    <td class="bank-code">04</td>
+                </tr>
+                <tr>
+                    <td class="bank-name">בנק הדואר</td>
+                    <td class="bank-code">09</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <h2 style="color: #2c3e50; text-align: center; margin: 40px 0 30px 0;">פרטים מלאים על הבנקים הגדולים</h2>
+    
+    <div class="detailed-info">
+        <div class="bank-header" onclick="toggleDetails(this)">
+            <h4>בנק לאומי לישראל <span class="bank-code">(10)</span> <span class="expand-icon">▼</span></h4>
+        </div>
+        <div class="bank-details">
+            <div class="detail-item">
+                <span class="detail-label">שם באנגלית:</span>
+                <span class="detail-value">Bank Leumi</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">כתובת:</span>
+                <span class="detail-value address">יהודה הלוי 34, תל אביב יפו</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">טלפון:</span>
+                <span class="detail-value phone">076-8858111</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">אתר אינטרנט:</span>
+                <span class="detail-value">www.leumi.co.il</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="detailed-info">
+        <div class="bank-header" onclick="toggleDetails(this)">
+            <h4>בנק הפועלים <span class="bank-code">(12)</span> <span class="expand-icon">▼</span></h4>
+        </div>
+        <div class="bank-details">
+            <div class="detail-item">
+                <span class="detail-label">שם באנגלית:</span>
+                <span class="detail-value">Bank Hapoalim</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">כתובת:</span>
+                <span class="detail-value address">שדרות רוטשילד 50, תל אביב יפו</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">טלפון:</span>
+                <span class="detail-value phone">03-5673333</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">אתר אינטרנט:</span>
+                <span class="detail-value">www.bankhapoalim.co.il</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="detailed-info">
+        <div class="bank-header" onclick="toggleDetails(this)">
+            <h4>בנק דיסקונט לישראל <span class="bank-code">(11)</span> <span class="expand-icon">▼</span></h4>
+        </div>
+        <div class="bank-details">
+            <div class="detail-item">
+                <span class="detail-label">שם באנגלית:</span>
+                <span class="detail-value">Discount Bank</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">כתובת:</span>
+                <span class="detail-value address">יהודה הלוי 27-31, תל אביב יפו</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">טלפון:</span>
+                <span class="detail-value phone">03-9439111</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">אתר אינטרנט:</span>
+                <span class="detail-value">www.discountbank.co.il</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="detailed-info">
+        <div class="bank-header" onclick="toggleDetails(this)">
+            <h4>בנק מזרחי טפחות <span class="bank-code">(20)</span> <span class="expand-icon">▼</span></h4>
+        </div>
+        <div class="bank-details">
+            <div class="detail-item">
+                <span class="detail-label">שם באנגלית:</span>
+                <span class="detail-value">Bank Mizrahi Tefahot</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">כתובת:</span>
+                <span class="detail-value address">רח' זבוטנסקי 7, רמת גן</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">טלפון:</span>
+                <span class="detail-value phone">03-7559000</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">אתר אינטרנט:</span>
+                <span class="detail-value">www.mizrahi-tefahot.co.il</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="detailed-info">
+        <div class="bank-header" onclick="toggleDetails(this)">
+            <h4>בנק אוצר החייל <span class="bank-code">(14)</span> <span class="expand-icon">▼</span></h4>
+        </div>
+        <div class="bank-details">
+            <div class="detail-item">
+                <span class="detail-label">שם באנגלית:</span>
+                <span class="detail-value">Otsar Ha Hayal Bank</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">כתובת:</span>
+                <span class="detail-value address">מגדל איילון קומה 7, רמת גן</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">טלפון:</span>
+                <span class="detail-value phone">03-7556000</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">אתר אינטרנט:</span>
+                <span class="detail-value">www.otsarhahayal.co.il</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="detailed-info">
+        <div class="bank-header" onclick="toggleDetails(this)">
+            <h4>בנק ישראל <span class="bank-code">(99)</span> <span class="expand-icon">▼</span></h4>
+        </div>
+        <div class="bank-details">
+            <div class="detail-item">
+                <span class="detail-label">שם באנגלית:</span>
+                <span class="detail-value">Bank of Israel</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">כתובת:</span>
+                <span class="detail-value address">רחוב קרית המדע 3 (בניין D קומה 12), ירושלים</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">טלפון:</span>
+                <span class="detail-value phone">02-6552211</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">אתר אינטרנט:</span>
+                <span class="detail-value">www.boi.org.il</span>
+            </div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin: 40px 0;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScs2oi7cn1xLgGgc-o3DdXJxsl-z1fSw9S9jY8Q0pMGKzp56Q/viewform" 
+           target="_blank" 
+           style="display: inline-block; background: linear-gradient(135deg, #27ae60, #2ecc71); color: white; padding: 20px 40px; border-radius: 10px; text-decoration: none; font-size: 1.3em; font-weight: bold; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3); transition: all 0.3s ease; border: none;"
+           onmouseover="this.style.background='linear-gradient(135deg, #229954, #27ae60)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(39, 174, 96, 0.4)'"
+           onmouseout="this.style.background='linear-gradient(135deg, #27ae60, #2ecc71)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(39, 174, 96, 0.3)'">
+            עמוס פתרונות פיננסיים<br>
+            <span style="font-size: 0.8em; opacity: 0.9;">להשארת פרטים</span>
+        </a>
+    </div>
+
+    <div class="footer">
+        <p><strong>רונן עמוס - רואה חשבון</strong></p>
+        <p>מתמחה בשילוב טכנולוגיות מתקדמות בהנהלת חשבונות</p>
+        <p>Power BI • AI Solutions • Process Automation</p>
+    </div>
+    
+    <script>
+        function toggleDetails(header) {
+            const details = header.nextElementSibling;
+            const icon = header.querySelector('.expand-icon');
+            
+            if (details.classList.contains('active')) {
+                details.classList.remove('active');
+                icon.classList.remove('rotated');
+            } else {
+                // Close all other open details
+                document.querySelectorAll('.bank-details.active').forEach(detail => {
+                    detail.classList.remove('active');
+                });
+                document.querySelectorAll('.expand-icon.rotated').forEach(ic => {
+                    ic.classList.remove('rotated');
+                });
+                
+                // Open current details
+                details.classList.add('active');
+                icon.classList.add('rotated');
+            }
+        }
+        
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const tableRows = document.querySelectorAll('#banksTable tbody tr');
+            
+            tableRows.forEach(row => {
+                const bankName = row.querySelector('.bank-name').textContent.toLowerCase();
+                const bankCode = row.querySelector('.bank-code').textContent;
+                
+                if (bankName.includes(searchTerm) || bankCode.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+        
+        // Add smooth scrolling to anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
