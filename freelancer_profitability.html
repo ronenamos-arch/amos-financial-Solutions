@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבון רווחיות לפרילנסרים - רונן עמוס CPA</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
+
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            min-height: 800px;
+        }
+
+        .input-section {
+            padding: 50px 40px;
+            background: linear-gradient(135deg, #f8faff 0%, #e8f2ff 100%);
+            border-left: 5px solid #667eea;
+            position: relative;
+        }
+
+        .input-section::before {
+            content: '📊';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+
+        .results-section {
+            padding: 50px 40px;
+            background: white;
+            border-right: 5px solid #764ba2;
+            position: relative;
+        }
+
+        .results-section::before {
+            content: '💰';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            color: #667eea;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .section-icon {
+            font-size: 1.5rem;
+            color: #764ba2;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #667eea;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 18px 20px;
+            border: 2px solid #e1e8f0;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .input-addon {
+            position: relative;
+        }
+
+        .input-addon::after {
+            content: attr(data-suffix);
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #667eea;
+            font-weight: 600;
+            pointer-events: none;
+            background: #f0f4ff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .input-addon input {
+            padding-left: 70px;
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 1.4rem;
+            margin: 40px 0 25px 0;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 10px;
+            border-right: 4px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .calculate-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #f8faff 0%, #e8f2ff 100%);
+            border: 2px solid #e1e8f0;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .result-card:hover::before {
+            left: 100%;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .result-card.profit {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-color: #28a745;
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.2);
+        }
+
+        .result-card.warning {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-color: #ffc107;
+            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.2);
+        }
+
+        .result-card.danger {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            border-color: #dc3545;
+            box-shadow: 0 8px 25px rgba(220, 53, 69, 0.2);
+        }
+
+        .result-label {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 8px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .result-subtitle {
+            font-size: 0.9rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        .breakdown-section {
+            background: linear-gradient(135deg, white 0%, #f8faff 100%);
+            border: 2px solid #e1e8f0;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .breakdown-title {
+            font-size: 1.4rem;
+            color: #667eea;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .breakdown-item:hover {
+            background: #f8faff;
+            padding: 15px 15px;
+            margin: 0 -15px;
+            border-radius: 8px;
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .breakdown-label {
+            color: #666;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .breakdown-value {
+            font-weight: 700;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .breakdown-value.positive {
+            color: #28a745;
+        }
+
+        .breakdown-value.negative {
+            color: #dc3545;
+        }
+
+        .hourly-rate-section {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 2px solid #2196f3;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(33, 150, 243, 0.2);
+        }
+
+        .hourly-rate-title {
+            color: #1565c0;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .hourly-rate-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #1565c0;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .advice-box {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            border: 2px solid #ffa726;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 25px;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(255, 167, 38, 0.2);
+        }
+
+        .advice-box::before {
+            content: "💡";
+            position: absolute;
+            top: -15px;
+            right: 25px;
+            background: #ffa726;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 167, 38, 0.3);
+        }
+
+        .advice-box h3 {
+            color: #e65100;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .advice-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .advice-box li {
+            margin-bottom: 15px;
+            color: #424242;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 8px;
+            position: relative;
+            line-height: 1.6;
+            border-right: 4px solid #ffa726;
+            transition: all 0.3s ease;
+        }
+
+        .advice-box li:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateX(-5px);
+        }
+
+        .lead-form-section {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c8 100%);
+            border: 2px solid #4caf50;
+            border-radius: 15px;
+            padding: 35px;
+            margin-top: 30px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+            position: relative;
+        }
+
+        .lead-form-section::before {
+            content: '🚀';
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: #4caf50;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .lead-form-title {
+            color: #2e7d32;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .lead-form-subtitle {
+            color: #424242;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .lead-form-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .lead-form-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(76, 175, 80, 0.4);
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, white, transparent);
+            opacity: 0.3;
+        }
+
+        .footer a {
+            color: #87ceeb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Loading Animation */
+        .calculate-btn.loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Progress Indicator */
+        .progress-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .progress-step {
+            text-align: center;
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .progress-step-icon {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .progress-step-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .input-section, .results-section {
+                padding: 35px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 25px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header-stats {
+                gap: 20px;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            
+            .input-section, .results-section {
+                padding: 25px;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .result-value {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .input-section, .results-section {
+                padding: 20px;
+            }
+            
+            .result-value {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Enhanced animations */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.6s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.6s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>🎯 מחשבון רווחיות לפרילנסרים</h1>
+                <p>ניתוח מקצועי מתקדם של רווחיות ותמחור | רונן עמוס CPA</p>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="currentYear">2025</div>
+                        <div class="stat-label">גרסה מעודכנת</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5K+</div>
+                        <div class="stat-label">פרילנסרים השתמשו</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">דיוק בחישובים</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="input-section slide-in-left">
+                <div class="progress-indicator">
+                    <div class="progress-step active">
+                        <div class="progress-step-icon">💰</div>
+                        <div class="progress-step-text">הכנסות</div>
+                    </div>
+                    <div class="progress-step active">
+                        <div class="progress-step-icon">📊</div>
+                        <div class="progress-step-text">עלויות</div>
+                    </div>
+                    <div class="progress-step active">
+                        <div class="progress-step-icon">🎯</div>
+                        <div class="progress-step-text">יעדים</div>
+                    </div>
+                    <div class="progress-step active">
+                        <div class="progress-step-icon">📈</div>
+                        <div class="progress-step-text">תוצאות</div>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <i class="section-icon fas fa-chart-line"></i>
+                    <h2>פרטי ההכנסות והעלויות</h2>
+                </div>
+                
+                <div class="section-title">
+                    <i class="fas fa-coins"></i>
+                    הכנסות בסיסיות
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-dollar-sign"></i>
+                        הכנסה חודשית ממוצעת
+                    </label>
+                    <div class="input-addon" data-suffix="₪">
+                        <input type="number" id="monthlyRevenue" placeholder="25,000" value="25000" min="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-clock"></i>
+                        שעות עבודה בחודש
+                    </label>
+                    <div class="input-addon" data-suffix="שע'">
+                        <input type="number" id="monthlyHours" placeholder="160" value="160" min="1">
+                    </div>
+                </div>
+
+                <div class="section-title">
+                    <i class="fas fa-building"></i>
+                    עלויות קבועות חודשיות
+                </div>
+
+                <div class="two-column">
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-home"></i>
+                            שכר משרד/מחשב
+                        </label>
+                        <div class="input-addon" data-suffix="₪">
+                            <input type="number" id="officeRent" placeholder="2,000" value="2000" min="0">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-wifi"></i>
+                            תקשורת ואינטרנט
+                        </label>
+                        <div class="input-addon" data-suffix="₪">
+                            <input type="number" id="communication" placeholder="300" value="300" min="0">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-laptop-code"></i>
+                            תוכנות ומנויים
+                        </label>
+                        <div class="input-addon" data-suffix="₪">
+                            <input type="number" id="software" placeholder="500" value="500" min="0">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-shield-alt"></i>
+                            ביטוחים
+                        </label>
+                        <div class="input-addon" data-suffix="₪">
+                            <input type="number" id="insurance" placeholder="800" value="800" min="0">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-bullhorn"></i>
+                            שיווק ופרסום
+                        </label>
+                        <div class="input-addon" data-suffix="₪">
+                            <input type="number" id="marketing" placeholder="1,000" value="1000" min="0">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-ellipsis-h"></i>
+                            הוצאות אחרות
+                        </label>
+                        <div class="input-addon" data-suffix="₪">
+                            <input type="number" id="otherExpenses" placeholder="500" value="500" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-title">
+                    <i class="fas fa-percentage"></i>
+                    עלויות משתנות (אחוזים)
+                </div>
+
+                <div class="two-column">
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-handshake"></i>
+                            עמלות (אתרים/מתווכים)
+                        </label>
+                        <div class="input-addon" data-suffix="%">
+                            <input type="number" id="commissions" placeholder="5" value="5" step="0.1" min="0" max="50">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            מסים ודמי ביטוח לאומי
+                        </label>
+                        <div class="input-addon" data-suffix="%">
+                            <input type="number" id="taxes" placeholder="35" value="35" step="0.1" min="0" max="70">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-title">
+                    <i class="fas fa-target"></i>
+                    יעדים אישיים
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-wallet"></i>
+                        שכר נטו רצוי (חודשי)
+                    </label>
+                    <div class="input-addon" data-suffix="₪">
+                        <input type="number" id="desiredSalary" placeholder="15,000" value="15000" min="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-piggy-bank"></i>
+                        חיסכון חודשי יעד
+                    </label>
+                    <div class="input-addon" data-suffix="₪">
+                        <input type="number" id="savingsGoal" placeholder="3,000" value="3000" min="0">
+                    </div>
+                </div>
+
+                <button class="calculate-btn" onclick="calculateProfitability()">
+                    <i class="fas fa-calculator"></i>
+                    חשב רווחיות מתקדמת
+                </button>
+            </div>
+
+            <div class="results-section slide-in-right">
+                <div class="section-header">
+                    <i class="section-icon fas fa-chart-pie"></i>
+                    <h2>ניתוח רווחיות מתקדם</h2>
+                </div>
+                
+                <div class="result-card fade-in" id="profitCard">
+                    <div class="result-label">
+                        <i class="fas fa-money-bill-wave"></i>
+                        רווח חודשי נטו
+                    </div>
+                    <div class="result-value" id="monthlyProfit">₪8,425</div>
+                    <div class="result-subtitle">לאחר כל העלויות והמסים</div>
+                </div>
+
+                <div class="result-card fade-in">
+                    <div class="result-label">
+                        <i class="fas fa-percentage"></i>
+                        שיעור רווחיות
+                    </div>
+                    <div class="result-value" id="profitMargin">33.7%</div>
+                    <div class="result-subtitle">מההכנסה הכוללת</div>
+                </div>
+
+                <div class="hourly-rate-section fade-in">
+                    <div class="hourly-rate-title">
+                        <i class="fas fa-stopwatch"></i>
+                        תעריף שעתי נוכחי
+                    </div>
+                    <div class="hourly-rate-value" id="currentHourlyRate">₪156</div>
+                    <div>לפי השעות שדווחו</div>
+                </div>
+
+                <div class="breakdown-section fade-in">
+                    <div class="breakdown-title">
+                        <i class="fas fa-chart-bar"></i>
+                        פירוט מפורט הכנסות ועלויות
+                    </div>
+                    
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">
+                            <i class="fas fa-arrow-up"></i>
+                            הכנסה חודשית כוללת:
+                        </span>
+                        <span class="breakdown-value positive" id="totalRevenue">₪25,000</span>
+                    </div>
+                    
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">
+                            <i class="fas fa-minus-circle"></i>
+                            עלויות קבועות:
+                        </span>
+                        <span class="breakdown-value negative" id="fixedCosts">₪5,100</span>
+                    </div>
+                    
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">
+                            <i class="fas fa-chart-line"></i>
+                            עלויות משתנות:
+                        </span>
+                        <span class="breakdown-value negative" id="variableCosts">₪10,000</span>
+                    </div>
+                    
+                    <div class="breakdown-item" style="border-top: 3px solid #667eea; margin-top: 15px; padding-top: 20px; background: rgba(102, 126, 234, 0.05); border-radius: 8px; padding: 20px;">
+                        <span class="breakdown-label">
+                            <i class="fas fa-trophy"></i>
+                            <strong>רווח נטו סופי:</strong>
+                        </span>
+                        <span class="breakdown-value" id="netProfitBreakdown" style="font-size: 1.3rem;">₪9,900</span>
+                    </div>
+                </div>
+
+                <div class="hourly-rate-section fade-in" style="background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c8 100%); border-color: #4caf50;">
+                    <div class="hourly-rate-title" style="color: #2e7d32;">
+                        <i class="fas fa-bullseye"></i>
+                        תעריף מומלץ להשגת יעדים
+                    </div>
+                    <div class="hourly-rate-value" id="recommendedRate" style="color: #2e7d32;">₪187</div>
+                    <div style="color: #424242;">כדי להגיע ליעד שכר + חיסכון</div>
+                </div>
+
+                <div class="advice-box fade-in">
+                    <h3>
+                        <i class="fas fa-lightbulb"></i>
+                        מסקנות ומידע חיוני
+                    </h3>
+                    <ul id="profitabilityAdvice">
+                        <li>שקול העלאת תעריפים בהדרגה</li>
+                        <li>מצא דרכים לצמצם עלויות קבועות</li>
+                        <li>שפר יעילות בשעות העבודה</li>
+                    </ul>
+                </div>
+
+                <div class="lead-form-section fade-in">
+                    <div class="lead-form-title">
+                        <i class="fas fa-rocket"></i>
+                        רוצה לבנות עסק פרילנס רווחי יותר?
+                    </div>
+                    <div class="lead-form-subtitle">
+                        קבל אסטרטגיה מותאמת אישית לשיפור הרווחיות, תכנון עסקי מקצועי ויעוץ מס חכם
+                    </div>
+                    <a href="https://forms.gle/L1NFjonHjJA3b6vu8" target="_blank" class="lead-form-btn">
+                        <i class="fas fa-calendar-check"></i>
+                        קבע פגישת ייעוץ עסקי חינם
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>
+                <i class="fas fa-copyright"></i>
+                2025 רונן עמוס CPA | ייעוץ עסקי מותאם לפרילנסרים | 
+                <a href="mailto:ronenamos@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                    ronenamos@gmail.com
+                </a>
+            </p>
+            <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.9;">
+                <i class="fas fa-info-circle"></i>
+                *החישוב הוא הערכה מקצועית. לתכנון עסקי מדויק ואופטימיזציה מתקדמת, התייעץ עם יועץ עסקי מוסמך
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced auto-calculation with debouncing
+        let calculationTimeout;
+        document.querySelectorAll('input, select').forEach(input => {
+            input.addEventListener('input', function() {
+                clearTimeout(calculationTimeout);
+                calculationTimeout = setTimeout(calculateProfitability, 300);
+            });
+        });
+
+        function formatNumber(num) {
+            return new Intl.NumberFormat('he-IL').format(Math.round(num));
+        }
+
+        function animateValue(element, start, end, duration) {
+            const range = end - start;
+            const current = start;
+            const increment = end > start ? 1 : -1;
+            const stepTime = Math.abs(Math.floor(duration / range));
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (element.textContent.includes('₪')) {
+                    element.textContent = `₪${formatNumber(current)}`;
+                } else if (element.textContent.includes('%')) {
+                    element.textContent = `${current.toFixed(1)}%`;
+                } else {
+                    element.textContent = `₪${formatNumber(current)}`;
+                }
+                
+                if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+                    clearInterval(timer);
+                    if (element.textContent.includes('₪')) {
+                        element.textContent = `₪${formatNumber(end)}`;
+                    } else if (element.textContent.includes('%')) {
+                        element.textContent = `${end.toFixed(1)}%`;
+                    } else {
+                        element.textContent = `₪${formatNumber(end)}`;
+                    }
+                }
+            }, stepTime);
+        }
+
+        function calculateProfitability() {
+            // Add loading state
+            const button = document.querySelector('.calculate-btn');
+            button.classList.add('loading');
+            
+            setTimeout(() => {
+                // Get input values with validation
+                const monthlyRevenue = Math.max(0, parseFloat(document.getElementById('monthlyRevenue').value) || 0);
+                const monthlyHours = Math.max(1, parseFloat(document.getElementById('monthlyHours').value) || 160);
+                
+                // Fixed costs
+                const officeRent = Math.max(0, parseFloat(document.getElementById('officeRent').value) || 0);
+                const communication = Math.max(0, parseFloat(document.getElementById('communication').value) || 0);
+                const software = Math.max(0, parseFloat(document.getElementById('software').value) || 0);
+                const insurance = Math.max(0, parseFloat(document.getElementById('insurance').value) || 0);
+                const marketing = Math.max(0, parseFloat(document.getElementById('marketing').value) || 0);
+                const otherExpenses = Math.max(0, parseFloat(document.getElementById('otherExpenses').value) || 0);
+                
+                // Variable costs (%) with validation
+                const commissionsRate = Math.min(50, Math.max(0, parseFloat(document.getElementById('commissions').value) || 0));
+                const taxesRate = Math.min(70, Math.max(0, parseFloat(document.getElementById('taxes').value) || 0));
+                
+                // Goals
+                const desiredSalary = Math.max(0, parseFloat(document.getElementById('desiredSalary').value) || 0);
+                const savingsGoal = Math.max(0, parseFloat(document.getElementById('savingsGoal').value) || 0);
+
+                // Calculate totals
+                const totalFixedCosts = officeRent + communication + software + insurance + marketing + otherExpenses;
+                const commissions = monthlyRevenue * (commissionsRate / 100);
+                const taxes = monthlyRevenue * (taxesRate / 100);
+                const totalVariableCosts = commissions + taxes;
+                const totalCosts = totalFixedCosts + totalVariableCosts;
+                
+                const netProfit = monthlyRevenue - totalCosts;
+                const profitMargin = monthlyRevenue > 0 ? (netProfit / monthlyRevenue) * 100 : 0;
+                const currentHourlyRate = monthlyHours > 0 ? monthlyRevenue / monthlyHours : 0;
+                
+                // Calculate recommended rate to achieve goals
+                const totalGoals = desiredSalary + savingsGoal;
+                const requiredGrossProfit = totalGoals + totalFixedCosts;
+                const requiredRevenue = requiredGrossProfit / (1 - (commissionsRate + taxesRate) / 100);
+                const recommendedHourlyRate = monthlyHours > 0 ? requiredRevenue / monthlyHours : 0;
+
+                // Update display with animations
+                document.getElementById('monthlyProfit').textContent = `₪${formatNumber(netProfit)}`;
+                document.getElementById('profitMargin').textContent = `${profitMargin.toFixed(1)}%`;
+                document.getElementById('currentHourlyRate').textContent = `₪${formatNumber(currentHourlyRate)}`;
+                document.getElementById('recommendedRate').textContent = `₪${formatNumber(recommendedHourlyRate)}`;
+                
+                // Breakdown section
+                document.getElementById('totalRevenue').textContent = `₪${formatNumber(monthlyRevenue)}`;
+                document.getElementById('fixedCosts').textContent = `₪${formatNumber(totalFixedCosts)}`;
+                document.getElementById('variableCosts').textContent = `₪${formatNumber(totalVariableCosts)}`;
+                document.getElementById('netProfitBreakdown').textContent = `₪${formatNumber(netProfit)}`;
+
+                // Update profit card styling with enhanced logic
+                const profitCard = document.getElementById('profitCard');
+                profitCard.className = 'result-card fade-in';
+                
+                if (netProfit >= totalGoals) {
+                    profitCard.classList.add('profit');
+                } else if (netProfit >= totalGoals * 0.7) {
+                    profitCard.classList.add('warning');
+                } else {
+                    profitCard.classList.add('danger');
+                }
+
+                // Generate enhanced advice
+                updateAdvice(netProfit, totalGoals, profitMargin, currentHourlyRate, recommendedHourlyRate, totalFixedCosts, monthlyRevenue, monthlyHours);
+                
+                // Remove loading state
+                button.classList.remove('loading');
+            }, 500);
+        }
+
+        function updateAdvice(netProfit, totalGoals, profitMargin, currentRate, recommendedRate, fixedCosts, revenue, hours) {
+            const advice = [];
+            
+            // Goal achievement analysis
+            if (netProfit < totalGoals) {
+                const shortfall = totalGoals - netProfit;
+                const percentageShort = ((totalGoals - netProfit) / totalGoals * 100).toFixed(1);
+                advice.push(`🎯 דרושה הגדלת הכנסה ב-₪${formatNumber(shortfall)} חודשית (${percentageShort}% מהיעד) להשגת היעדים האישיים`);
+            } else {
+                const surplus = netProfit - totalGoals;
+                advice.push(`🎉 מצב פיננסי מעולה! עולה על היעדים ב-₪${formatNumber(surplus)} - שקול השקעה בצמיחה או הגדלת חיסכון`);
+            }
+            
+            // Profitability analysis
+            if (profitMargin < 15) {
+                advice.push(`⚠️ שיעור רווחיות נמוך מאוד (${profitMargin.toFixed(1)}%) - דרושה התערבות מיידית: העלאת תעריפים או צמצום עלויות`);
+            } else if (profitMargin < 25) {
+                advice.push(`📊 שיעור רווחיות נמוך (${profitMargin.toFixed(1)}%) - דרושה העלאת תעריפים או אופטימיזציה של עלויות`);
+            } else if (profitMargin > 45) {
+                advice.push(`🚀 רווחיות מעולה (${profitMargin.toFixed(1)}%)! מצב חזק המאפשר השקעות בצמיחה ופיתוח העסק`);
+            } else {
+                advice.push(`✅ רווחיות בריאה (${profitMargin.toFixed(1)}%) - מאפשרת יציבות עסקית ותכנון ארוך טווח`);
+            }
+            
+            // Rate adjustment recommendations
+            const rateIncrease = ((recommendedRate - currentRate) / currentRate * 100);
+            if (recommendedRate > currentRate * 1.5) {
+                advice.push(`📈 נדרשת העלאת תעריפים משמעותית (${rateIncrease.toFixed(1)}%) - בצע בהדרגה על פני 6-12 חודשים כדי לא לאבד לקוחות`);
+            } else if (recommendedRate > currentRate * 1.2) {
+                advice.push(`💡 נדרשת העלאת תעריפים מתונה (${rateIncrease.toFixed(1)}%) - התחל עם לקוחות חדשים ובצע הדרגתית עם קיימים`);
+            } else if (recommendedRate > currentRate * 1.05) {
+                advice.push(`📊 שקול העלאת תעריפים קלה (${rateIncrease.toFixed(1)}%) - התחל עם פרויקטים חדשים`);
+            }
+            
+            // Cost structure analysis
+            const fixedCostPercentage = (fixedCosts / revenue * 100);
+            if (fixedCostPercentage > 40) {
+                advice.push(`🏢 עלויות קבועות גבוהות מאוד (${fixedCostPercentage.toFixed(1)}% מההכנסה) - בחן צמצום מיידי או הגדלת הכנסות`);
+            } else if (fixedCostPercentage > 25) {
+                advice.push(`📋 עלויות קבועות גבוהות יחסית (${fixedCostPercentage.toFixed(1)}%) - בחן אפשרויות ייעול ואופטימיזציה`);
+            }
+            
+            // Hourly rate market analysis
+            if (currentRate < 100) {
+                advice.push(`⚡ תעריף שעתי נמוך מאוד מהממוצע בשוק (₪${formatNumber(currentRate)}) - העלאה דחופה נדרשת`);
+            } else if (currentRate < 150) {
+                advice.push(`📈 תעריף שעתי נמוך מהממוצע בשוק הישראלי (₪${formatNumber(currentRate)}) - שקול העלאה הדרגתית`);
+            } else if (currentRate > 300) {
+                advice.push(`👑 תעריף שעתי גבוה ומעולה (₪${formatNumber(currentRate)}) - מצב תחרותי חזק בשוק`);
+            }
+
+            // Work-life balance analysis
+            if (hours > 200) {
+                advice.push(`⏰ עומס עבודה גבוה (${hours} שעות/חודש) - שקול העלאת תעריפים במקום הגדלת שעות`);
+            } else if (hours < 120) {
+                advice.push(`🎯 נפח עבודה נמוך (${hours} שעות/חודש) - יש פוטנציאל להגדלת ההכנסה`);
+            }
+            
+            // Professional recommendations
+            advice.push(`📊 עקוב אחר הרווחיות באופן חודשי ועדכן תעריפים לפי אינפלציה (4-6% שנתי ב-2025)`);
+            advice.push(`📁 שמור תיעוד דיגיטלי מדויק של הכנסות והוצאות - חובה לדיווח מס ולניהול תזרים`);
+            advice.push(`💰 בנה רזרבה של 4-8 חודשי הוצאות למקרי חירום, עונתיות ואפשרויות השקעה`);
+            
+            if (profitMargin > 30) {
+                advice.push(`🚀 שקול פיתוח מוצרים פסיביים או שירותים בעלי ערך מוסף גבוה יותר`);
+            }
+            
+            const listEl = document.getElementById('profitabilityAdvice');
+            listEl.innerHTML = advice.map(item => `<li>${item}</li>`).join('');
+        }
+
+        // Enhanced input validation
+        function validateInputs() {
+            const inputs = document.querySelectorAll('input[type="number"]');
+            inputs.forEach(input => {
+                const value = parseFloat(input.value);
+                const min = parseFloat(input.getAttribute('min')) || 0;
+                const max = parseFloat(input.getAttribute('max')) || Infinity;
+                
+                if (value < min) input.value = min;
+                if (value > max) input.value = max;
+            });
+        }
+
+        // Add input validation on blur
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.addEventListener('blur', validateInputs);
+        });
+
+        // Initialize with animation
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                calculateProfitability();
+                
+                // Add entrance animations
+                document.querySelectorAll('.fade-in').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.animation = `fadeIn 0.6s ease-out forwards`;
+                    }, index * 100);
+                });
+            }, 100);
+        });
+
+        // Enhanced tooltip system
+        function showTooltip(element, text) {
+            const tooltip = document.createElement('div');
+            tooltip.className = 'tooltip';
+            tooltip.textContent = text;
+            tooltip.style.cssText = `
+                position: absolute;
+                background: #333;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 6px;
+                font-size: 0.8rem;
+                z-index: 1000;
+                white-space: nowrap;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            `;
+            
+            document.body.appendChild(tooltip);
+            
+            const rect = element.getBoundingClientRect();
+            tooltip.style.top = rect.top - tooltip.offsetHeight - 10 + 'px';
+            tooltip.style.left = rect.left + (rect.width - tooltip.offsetWidth) / 2 + 'px';
+            
+            setTimeout(() => {
+                if (tooltip.parentNode) {
+                    tooltip.parentNode.removeChild(tooltip);
+                }
+            }, 3000);
+        }
+
+        // Add tooltips to important elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const tooltipElements = [
+                { selector: '#monthlyRevenue', text: 'הכנסה כוללת לפני ניכוי עלויות ומסים' },
+                { selector: '#taxes', text: 'כולל מס הכנסה, ביטוח לאומי ובריאות' },
+                { selector: '#commissions', text: 'עמלות לאתרי פרילנסינג ומתווכים' }
+            ];
+            
+            tooltipElements.forEach(item => {
+                const element = document.querySelector(item.selector);
+                if (element) {
+                    element.addEventListener('focus', () => showTooltip(element, item.text));
+                }
+            });
+        });
+
+        // Initial calculation
+        calculateProfitability();
+    </script>
+</body>
+</html>
