@@ -290,16 +290,44 @@
             font-family: 'Courier New', monospace;
             color: #e83e8c;
         }
+          .home-btn {
+              display: inline-block;
+              background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+              color: white;
+              padding: 12px 24px;
+              border-radius: 25px;
+              text-decoration: none;
+              font-weight: 500;
+              font-size: 1rem;
+              transition: all 0.3s ease;
+              margin: 20px 0;
+              box-shadow: 0 4px 15px rgba(44, 62, 80, 0.2);
+          }
+
+          .home-btn:hover {
+              transform: translateY(-2px);
+              color: white;
+              box-shadow: 0 6px 20px rgba(44, 62, 80, 0.3);
+          }
+
+          .header-nav {
+              text-align: center;
+              margin-top: 20px;
+          }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- כותרת ראשית -->
-        <header class="header">
-            <h1>מחשבונים פיננסיים מקצועיים</h1>
-            <p>כלים מתקדמים לניתוח פיננסי ועסקי המותאמים לעסקים מודרניים</p>
-            <div class="subtitle">רונן עמוס CPA | פתרונות טכנולוגיים מתקדמים</div>
-        </header>
+       <header class="header">
+      <h1>מחשבונים פיננסיים מקצועיים</h1>
+      <p>כלים מתקדמים לניתוח פיננסי ועסקי המותאמים לעסקים מודרניים</p>
+      <div class="subtitle">רונן עמוס CPA | פתרונות טכנולוגיים מתקדמים</div>
+
+      <div class="header-nav">
+          <a href="index.html" class="home-btn">🏠 חזרה לעמוד הראשי</a>
+      </div>
+  </header>
         
         
         <!-- רשת המחשבונים -->
