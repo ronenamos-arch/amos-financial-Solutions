@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBAN Checker - Israeli Banking Tool</title>
+    <meta name="description" content="Professional IBAN calculator and validator for Israeli and international banking. Calculate, check, and validate IBANs instantly.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+
+        .header .logo {
+            max-height: 80px;
+            width: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .website-btn {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            margin-top: 15px;
+            font-weight: 500;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .website-btn:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .tool-card h3 {
+            color: #5a67d8;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .tool-card h3::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #5a67d8;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #5a67d8;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .result-area {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            min-height: 150px;
+        }
+
+        .result-area h3 {
+            color: #5a67d8;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .result-content {
+            display: none;
+        }
+
+        .result-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success {
+            color: #48bb78;
+            background: #f0fff4;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #48bb78;
+        }
+
+        .error {
+            color: #f56565;
+            background: #fef5e7;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f56565;
+        }
+
+        .info-box {
+            background: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .info-box h4 {
+            color: #2b6cb0;
+            margin-bottom: 10px;
+        }
+
+        .bank-result {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .bank-item {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #5a67d8;
+        }
+
+        .bank-item strong {
+            color: #5a67d8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header .logo-section {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .header .logo {
+                max-height: 60px;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .website-btn {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-section">
+                <img src="LOGO.jpg" alt="Amos Financial Solutions" class="logo">
+                <h1>🏦 IBAN Checker</h1>
+            </div>
+            <p>Professional Israeli & International Banking Tool</p>
+            <a href="https://ronenamos-arch.github.io/amos-financial-Solutions/index.html" target="_blank" class="website-btn">
+                🌐 Visit Amos Financial Solutions
+            </a>
+        </div>
+
+        <div class="tools-grid">
+            <!-- Calculate IBAN -->
+            <div class="tool-card">
+                <h3>Calculate an IBAN</h3>
+                <div class="form-group">
+                    <label for="calc-country">Country:</label>
+                    <select id="calc-country">
+                        <option value="IL">Israel (IL)</option>
+                        <option value="US">United States (US)</option>
+                        <option value="GB">United Kingdom (GB)</option>
+                        <option value="DE">Germany (DE)</option>
+                        <option value="FR">France (FR)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="calc-bank">Bank Code:</label>
+                    <input type="text" id="calc-bank" placeholder="e.g., 010 (Bank Hapoalim)">
+                </div>
+                <div class="form-group">
+                    <label for="calc-account">Account Number:</label>
+                    <input type="text" id="calc-account" placeholder="Account number">
+                </div>
+                <button class="btn" onclick="calculateIBAN()">Calculate IBAN</button>
+            </div>
+
+            <!-- Check IBAN -->
+            <div class="tool-card">
+                <h3>Check an IBAN</h3>
+                <div class="form-group">
+                    <label for="check-iban">IBAN Number:</label>
+                    <input type="text" id="check-iban" placeholder="e.g., IL620108000000099999999" maxlength="34">
+                </div>
+                <button class="btn" onclick="checkIBAN()">Validate IBAN</button>
+            </div>
+
+            <!-- Check Account Number -->
+            <div class="tool-card">
+                <h3>Check Account Number</h3>
+                <div class="form-group">
+                    <label for="acc-country">Country:</label>
+                    <select id="acc-country">
+                        <option value="IL">Israel (IL)</option>
+                        <option value="US">United States (US)</option>
+                        <option value="GB">United Kingdom (GB)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="acc-number">Account Number:</label>
+                    <input type="text" id="acc-number" placeholder="Account number to validate">
+                </div>
+                <button class="btn" onclick="checkAccountNumber()">Check Account</button>
+            </div>
+
+            <!-- Find Bank -->
+            <div class="tool-card">
+                <h3>Find Bank/Bank Code/BIC</h3>
+                <div class="form-group">
+                    <label for="search-country">Country:</label>
+                    <select id="search-country">
+                        <option value="IL">Israel (IL)</option>
+                        <option value="US">United States (US)</option>
+                        <option value="GB">United Kingdom (GB)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="search-query">Search Bank Name or Code:</label>
+                    <input type="text" id="search-query" placeholder="Bank name, code, or BIC">
+                </div>
+                <button class="btn" onclick="findBank()">Find Bank</button>
+            </div>
+        </div>
+
+        <!-- Results Area -->
+        <div class="result-area">
+            <h3>Results</h3>
+            <div id="result-content">
+                <p style="color: #888; text-align: center;">Select a tool above to see results here.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 IBAN Checker - Professional Banking Tool for Israeli Market</p>
+        </div>
+    </div>
+
+    <script>
+        // Bank data
+        const bankData = {
+            "IL": {
+                "country": "Israel",
+                "ibanLength": 23,
+                "banks": [
+                    {"code": "010", "name": "Bank Hapoalim", "bic": "POALILIT", "fullName": "Bank Hapoalim B.M."},
+                    {"code": "020", "name": "Bank Leumi", "bic": "LUMIILIT", "fullName": "Bank Leumi Le-Israel B.M."},
+                    {"code": "031", "name": "Discount Bank", "bic": "MERCILIA", "fullName": "Israel Discount Bank Ltd."},
+                    {"code": "004", "name": "Yahav Bank", "bic": "YAHVILIS", "fullName": "Yahav Bank - Bank Yahav for Government Employees Ltd."},
+                    {"code": "011", "name": "Mizrahi Bank", "bic": "MIZRILITXXX", "fullName": "Mizrahi Tefahot Bank Ltd."},
+                    {"code": "012", "name": "Bank Igud", "bic": "IGUDILIT", "fullName": "Bank Igud Ltd."},
+                    {"code": "013", "name": "Union Bank", "bic": "UNBNILITXXX", "fullName": "Union Bank of Israel Ltd."},
+                    {"code": "014", "name": "Bank Otsar Ha-Hayal", "bic": "OTHAILIL", "fullName": "Bank Otsar Ha-Hayal Ltd."},
+                    {"code": "017", "name": "Mercantile Bank", "bic": "MERCILITXXX", "fullName": "Mercantile Discount Bank Ltd."},
+                    {"code": "052", "name": "Arab Israel Bank", "bic": "ARABILITXXX", "fullName": "Arab Israel Bank Ltd."},
+                    {"code": "054", "name": "Bank Jerusalem", "bic": "JERUSALIT", "fullName": "Bank of Jerusalem Ltd."},
+                    {"code": "046", "name": "Massad Bank", "bic": "MASSILITXXX", "fullName": "Bank Massad Ltd."},
+                    {"code": "039", "name": "First International Bank", "bic": "FIBIILITXXX", "fullName": "First International Bank of Israel Ltd."}
+                ]
+            },
+            "US": {
+                "country": "United States",
+                "ibanLength": 0,
+                "banks": [
+                    {"code": "021000021", "name": "Chase Bank", "bic": "CHASUS33XXX", "fullName": "JPMorgan Chase Bank N.A."},
+                    {"code": "026009593", "name": "Bank of America", "bic": "BOFAUS3NXXX", "fullName": "Bank of America N.A."},
+                    {"code": "111000025", "name": "Wells Fargo", "bic": "WFBIUS6SXXX", "fullName": "Wells Fargo Bank N.A."}
+                ]
+            },
+            "GB": {
+                "country": "United Kingdom", 
+                "ibanLength": 22,
+                "banks": [
+                    {"code": "400000", "name": "HSBC", "bic": "HBUKGB4BXXX", "fullName": "HSBC UK Bank Plc"},
+                    {"code": "202015", "name": "Barclays", "bic": "BARCGB22XXX", "fullName": "Barclays Bank Plc"},
+                    {"code": "600130", "name": "Lloyds", "bic": "LOYDGB2LXXX", "fullName": "Lloyds Bank Plc"}
+                ]
+            }
+        };
+
+        // Utility functions
+        function displayResult(content) {
+            const resultDiv = document.getElementById('result-content');
+            resultDiv.innerHTML = content;
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function mod97(iban) {
+            let remainder = iban;
+            while (remainder.length > 2) {
+                let block = remainder.slice(0, 9);
+                remainder = (parseInt(block, 10) % 97) + remainder.slice(block.length);
+            }
+            return parseInt(remainder, 10) % 97;
+        }
+
+        function calculateCheckDigits(countryCode, bankCode, accountNumber) {
+            // Move country code and check digits to end, replace letters with numbers
+            const rearranged = bankCode + accountNumber + countryCode + '00';
+            let numericString = '';
+            
+            for (let i = 0; i < rearranged.length; i++) {
+                const char = rearranged[i];
+                if (/[A-Z]/.test(char)) {
+                    numericString += (char.charCodeAt(0) - 65 + 10).toString();
+                } else {
+                    numericString += char;
+                }
+            }
+            
+            const checkDigits = 98 - mod97(numericString);
+            return checkDigits.toString().padStart(2, '0');
+        }
+
+        function validateIBANChecksum(iban) {
+            // Move first 4 characters to end
+            const rearranged = iban.slice(4) + iban.slice(0, 4);
+            let numericString = '';
+            
+            for (let i = 0; i < rearranged.length; i++) {
+                const char = rearranged[i];
+                if (/[A-Z]/.test(char)) {
+                    numericString += (char.charCodeAt(0) - 65 + 10).toString();
+                } else {
+                    numericString += char;
+                }
+            }
+            
+            return mod97(numericString) === 1;
+        }
+
+        // Main functions
+        function calculateIBAN() {
+            const country = document.getElementById('calc-country').value;
+            const bankCode = document.getElementById('calc-bank').value.trim();
+            const accountNumber = document.getElementById('calc-account').value.trim();
+
+            if (!bankCode || !accountNumber) {
+                displayResult('<div class="error">Please fill in all fields.</div>');
+                return;
+            }
+
+            const countryData = bankData[country];
+            if (!countryData) {
+                displayResult('<div class="error">Country not supported.</div>');
+                return;
+            }
+
+            // Find bank info
+            const bank = countryData.banks.find(b => b.code === bankCode);
+            
+            try {
+                const checkDigits = calculateCheckDigits(country, bankCode, accountNumber);
+                const iban = country + checkDigits + bankCode + accountNumber;
+
+                let bankInfo = '';
+                if (bank) {
+                    bankInfo = `
+                        <div class="info-box">
+                            <h4>Bank Information:</h4>
+                            <p><strong>Bank:</strong> ${bank.fullName}</p>
+                            <p><strong>BIC/SWIFT:</strong> ${bank.bic}</p>
+                        </div>
+                    `;
+                }
+
+                displayResult(`
+                    <div class="success">
+                        <h4>✓ IBAN Generated Successfully</h4>
+                        <p style="font-size: 1.2rem; font-weight: bold; margin: 10px 0; letter-spacing: 1px;">
+                            ${iban.replace(/(.{4})/g, '$1 ').trim()}
+                        </p>
+                        <p><strong>Country:</strong> ${countryData.country}</p>
+                        <p><strong>Bank Code:</strong> ${bankCode}</p>
+                        <p><strong>Account Number:</strong> ${accountNumber}</p>
+                        <p><strong>Check Digits:</strong> ${checkDigits}</p>
+                    </div>
+                    ${bankInfo}
+                `);
+            } catch (error) {
+                displayResult('<div class="error">Error calculating IBAN. Please check your input.</div>');
+            }
+        }
+
+        function checkIBAN() {
+            let iban = document.getElementById('check-iban').value.trim().toUpperCase().replace(/\s/g, '');
+
+            if (!iban) {
+                displayResult('<div class="error">Please enter an IBAN.</div>');
+                return;
+            }
+
+            if (iban.length < 15 || iban.length > 34) {
+                displayResult('<div class="error">Invalid IBAN length.</div>');
+                return;
+            }
+
+            const countryCode = iban.slice(0, 2);
+            const countryData = bankData[countryCode];
+
+            if (!countryData) {
+                displayResult(`
+                    <div class="error">
+                        <h4>✗ Country not supported</h4>
+                        <p>The country code "${countryCode}" is not in our database.</p>
+                    </div>
+                `);
+                return;
+            }
+
+            const isValid = validateIBANChecksum(iban);
+            
+            if (!isValid) {
+                displayResult(`
+                    <div class="error">
+                        <h4>✗ Invalid IBAN</h4>
+                        <p>The IBAN checksum is incorrect.</p>
+                        <p><strong>IBAN:</strong> ${iban.replace(/(.{4})/g, '$1 ').trim()}</p>
+                    </div>
+                `);
+                return;
+            }
+
+            // Parse IBAN components
+            const checkDigits = iban.slice(2, 4);
+            const bankCode = iban.slice(4, 7); // First 3 digits after check digits for IL
+            
+            // Find bank info
+            const bank = countryData.banks.find(b => b.code === bankCode);
+            
+            let bankInfo = '';
+            if (bank) {
+                bankInfo = `
+                    <div class="info-box">
+                        <h4>Bank Information:</h4>
+                        <p><strong>Bank:</strong> ${bank.fullName}</p>
+                        <p><strong>BIC/SWIFT:</strong> ${bank.bic}</p>
+                    </div>
+                `;
+            }
+
+            displayResult(`
+                <div class="success">
+                    <h4>✓ Valid IBAN</h4>
+                    <p style="font-size: 1.2rem; font-weight: bold; margin: 10px 0; letter-spacing: 1px;">
+                        ${iban.replace(/(.{4})/g, '$1 ').trim()}
+                    </p>
+                    <p><strong>Country:</strong> ${countryData.country} (${countryCode})</p>
+                    <p><strong>Check Digits:</strong> ${checkDigits}</p>
+                    <p><strong>Bank Code:</strong> ${bankCode}</p>
+                    <p><strong>Account Number:</strong> ${iban.slice(7)}</p>
+                </div>
+                ${bankInfo}
+            `);
+        }
+
+        function checkAccountNumber() {
+            const country = document.getElementById('acc-country').value;
+            const accountNumber = document.getElementById('acc-number').value.trim();
+
+            if (!accountNumber) {
+                displayResult('<div class="error">Please enter an account number.</div>');
+                return;
+            }
+
+            const countryData = bankData[country];
+            
+            // Basic validation based on country
+            let isValid = false;
+            let message = '';
+
+            switch (country) {
+                case 'IL':
+                    // Israeli account numbers are typically 6-13 digits
+                    isValid = /^\d{6,13}$/.test(accountNumber);
+                    message = isValid ? 
+                        'Valid Israeli account number format (6-13 digits)' : 
+                        'Invalid: Israeli account numbers should be 6-13 digits';
+                    break;
+                case 'US':
+                    // US account numbers vary by bank, typically 8-17 digits
+                    isValid = /^\d{8,17}$/.test(accountNumber);
+                    message = isValid ? 
+                        'Valid US account number format (8-17 digits)' : 
+                        'Invalid: US account numbers should be 8-17 digits';
+                    break;
+                case 'GB':
+                    // UK account numbers are typically 8 digits
+                    isValid = /^\d{8}$/.test(accountNumber);
+                    message = isValid ? 
+                        'Valid UK account number format (8 digits)' : 
+                        'Invalid: UK account numbers should be 8 digits';
+                    break;
+            }
+
+            const resultClass = isValid ? 'success' : 'error';
+            const icon = isValid ? '✓' : '✗';
+
+            displayResult(`
+                <div class="${resultClass}">
+                    <h4>${icon} Account Number Validation</h4>
+                    <p><strong>Country:</strong> ${countryData.country}</p>
+                    <p><strong>Account Number:</strong> ${accountNumber}</p>
+                    <p><strong>Result:</strong> ${message}</p>
+                </div>
+                <div class="info-box">
+                    <h4>Note:</h4>
+                    <p>This is a format validation only. For complete verification, contact the bank directly.</p>
+                </div>
+            `);
+        }
+
+        function findBank() {
+            const country = document.getElementById('search-country').value;
+            const query = document.getElementById('search-query').value.trim().toLowerCase();
+
+            if (!query) {
+                displayResult('<div class="error">Please enter a search term.</div>');
+                return;
+            }
+
+            const countryData = bankData[country];
+            const results = countryData.banks.filter(bank => 
+                bank.name.toLowerCase().includes(query) ||
+                bank.fullName.toLowerCase().includes(query) ||
+                bank.code.includes(query) ||
+                bank.bic.toLowerCase().includes(query)
+            );
+
+            if (results.length === 0) {
+                displayResult(`
+                    <div class="error">
+                        <h4>No banks found</h4>
+                        <p>No banks found matching "${query}" in ${countryData.country}.</p>
+                    </div>
+                `);
+                return;
+            }
+
+            let resultHTML = `
+                <div class="success">
+                    <h4>✓ Found ${results.length} bank(s) in ${countryData.country}</h4>
+                </div>
+                <div class="bank-result">
+            `;
+
+            results.forEach(bank => {
+                resultHTML += `
+                    <div class="bank-item">
+                        <p><strong>Bank:</strong> ${bank.fullName}</p>
+                        <p><strong>Code:</strong> ${bank.code}</p>
+                        <p><strong>BIC/SWIFT:</strong> ${bank.bic}</p>
+                    </div>
+                `;
+            });
+
+            resultHTML += '</div>';
+            displayResult(resultHTML);
+        }
+
+        // Auto-format IBAN input
+        document.getElementById('check-iban').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '').toUpperCase();
+            let formattedValue = value.replace(/(.{4})/g, '$1 ').trim();
+            if (formattedValue !== e.target.value) {
+                e.target.value = formattedValue;
+            }
+        });
+    </script>
+</body>
+</html>
