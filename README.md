@@ -1,187 +1,188 @@
 # Amos Financial Solutions 💼
 
-![Live Website](https://img.shields.io/badge/Live-Website-green?style=flat-square) ![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-blue?style=flat-square) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+## 🚀 About Us | אודותינו
 
-🔗 **[צפה באתר הרשמי | Visit Live Website](https://ronenamos-arch.github.io/amos-financial-Solutions/)**
+Welcome to **Amos Financial Solutions** - your comprehensive hub for financial tools, calculators, and business insights. We specialize in providing cutting-edge financial technology solutions tailored for Israeli businesses, freelancers, and entrepreneurs.
 
-## 🎯 חזון ומטרות | Vision & Goals
+### Our Mission | המשימה שלנו
+- 💡 Democratizing access to professional financial tools
+- 📊 Empowering data-driven business decisions
+- 🎯 Streamlining financial processes for maximum efficiency
+- 🌟 Supporting the Israeli business ecosystem
 
-### עברית 🇮🇱
-Amos Financial Solutions הוא פלטפורמת פינטק מתקדמת המספקת פתרונות חשבונאיים מקצועיים המבוססים על בינה מלאכותית ואוטומציה. החזון שלנו הוא לחולל מהפכה בעולם החשבונאות הישראלי על ידי הנגשת כלים מתקדמים לעסקים קטנים ובינוניים.
+---
 
-**היתרונות העיקריים:**
-- 🧮 **מחשבונים פיננסיים מתקדמים** - כלים מדויקים לחישוב רווחיות, תזרים מזומנים ותמחור
-- 🤖 **אוטומציה חכמה** - הפחתת עבודה ידנית וחיסכון בזמן יקר
-- 📊 **דיווחים מקצועיים** - ניתוח נתונים מתקדם ודוחות מותאמים אישית
-- 🎯 **ממוקד בשוק הישראלי** - תמיכה בתקנות המקומיות וקודי בנקים ישראליים
-- 💡 **ידידותי למשתמש** - ממשק פשוט ונוח לכל רמות המשתמשים
+## 🛠️ Financial Tools Index | מדד הכלים הפיננסיים
 
-### English 🌍
-Amos Financial Solutions is an advanced fintech platform providing professional accounting solutions powered by artificial intelligence and automation. Our vision is to revolutionize the Israeli accounting industry by making advanced tools accessible to small and medium businesses.
+### 💰 Core Calculators | מחשבונים עיקריים
+- **[Cash Flow Calculator](https://ronenamos-arch.github.io/amos-financial-Solutions/cash_flow_calculator.html)** - תזרים מזומנים
+  - Real-time cash flow analysis
+  - Monthly/quarterly projections
+  - Visual charts and insights
 
-**Key Benefits:**
-- 🧮 **Advanced Financial Calculators** - Precise tools for profitability, cash flow, and pricing calculations
-- 🤖 **Smart Automation** - Reducing manual work and saving valuable time
-- 📊 **Professional Reports** - Advanced data analysis and customized reporting
-- 🎯 **Israel Market Focused** - Supporting local regulations and Israeli bank codes
-- 💡 **User-Friendly** - Simple and convenient interface for all user levels
+- **[Pricing Calculator](https://ronenamos-arch.github.io/amos-financial-Solutions/pricing_calculator.html)** - מחשבון תמחור
+  - Competitive pricing analysis
+  - Profit margin optimization
+  - Market positioning tools
 
-## 🛠️ השירותים המרכזיים | Core Services
+- **[Freelancer Profitability](https://ronenamos-arch.github.io/amos-financial-Solutions/freelancer_profitability.html)** - רווחיות פרילנסרים
+  - Hourly rate calculator
+  - Project profitability analysis
+  - Time tracking integration
 
-### רואה חשבון דיגיטלי | Digital Accountant
-- ייעוץ חשבונאי מקצועי
-- הכנת דוחות כספיים
-- ליווי עסקי שוטף
+### 🏦 Banking Tools | כלי בנקאות
+- **[IBAN Checker](https://ronenamos-arch.github.io/amos-financial-Solutions/ibanchecker.html)** - בדיקת IBAN
+  - Instant IBAN validation
+  - Israeli bank integration
+  - International transfer support
 
-### אוטומציה חכמה | Smart Automation
-- עיבוד אוטומטי של מסמכים
-- סנכרון עם מערכות חשבונאות
-- התראות חכמות
+- **[Israeli Bank Codes](https://ronenamos-arch.github.io/amos-financial-Solutions/bank_codes_israel.html)** - קודי בנקים ישראליים
+  - Complete bank directory
+  - Branch codes and details
+  - SWIFT codes included
 
-### בינה מלאכותית לחשבונאות | AI for Accounting
-- זיהוי דפוסים בנתונים כספיים
-- חיזוי תזרימי מזומנים
-- אופטימיזציה של תהליכים
+### 📈 Advanced Tools | כלים מתקדמים
+- **[Financial Calculators Hub](https://ronenamos-arch.github.io/amos-financial-Solutions/financial_calculators_page.html)** - מרכז מחשבונים
+  - All-in-one calculator suite
+  - Custom calculation templates
+  - Export and sharing options
 
-## 🧮 מחשבונים וכלי עזר | Calculators & Tools
+---
 
-### כלים זמינים:
-- 💰 **[מחשבון רווחיות פרילנסרים](https://ronenamos-arch.github.io/amos-financial-Solutions/freelancer_profitability.html)** - חישוב רווחיות מדויק לעצמאיים
-- 📊 **[מחשבון תזרים מזומנים](https://ronenamos-arch.github.io/amos-financial-Solutions/cash_flow_calculator.html)** - ניתוח תזרים מפורט
-- 💵 **[מחשבון תמחור](https://ronenamos-arch.github.io/amos-financial-Solutions/pricing_calculator.html)** - קביעת מחירים אופטימלית
-- 🏦 **[קודי בנקים ישראליים](https://ronenamos-arch.github.io/amos-financial-Solutions/bank_codes_israel.html)** - מאגר מלא של קודי בנקים
-- 🔧 **[עמוד מחשבונים כללי](https://ronenamos-arch.github.io/amos-financial-Solutions/financial_calculators_page.html)** - גישה לכל הכלים
+## 📚 Knowledge Base | בסיס הידע
 
-## 🚀 הרצה מקומית | Local Setup
+### 💡 Expert Articles | מאמרי מומחים
 
-### דרישות מערכת | System Requirements
-- דפדפן אינטרנט מודרני (Chrome, Firefox, Safari, Edge)
-- חיבור אינטרנט פעיל
+#### Financial Planning | תכנון פיננסי
+- **[Financial Planning Guide](https://ronenamos-arch.github.io/amos-financial-Solutions/financial_planning_article.html)**
+  - Strategic financial planning
+  - Investment strategies for SMEs
+  - Risk management techniques
 
-### התקנה | Installation
-```bash
-# שכפל את הפרויקט | Clone the repository
-git clone https://github.com/ronenamos-arch/amos-financial-Solutions.git
+#### Budget Management | ניהול תקציב
+- **[Budget Planning Masterclass](https://ronenamos-arch.github.io/amos-financial-Solutions/budget_planning_article.html)**
+  - Zero-based budgeting
+  - Variance analysis
+  - Budget optimization strategies
 
-# עבור לתיקיית הפרויקט | Navigate to project directory
-cd amos-financial-Solutions
+#### Business Efficiency | יעילות עסקית
+- **[Payment Collection Strategies](https://ronenamos-arch.github.io/amos-financial-Solutions/payment_collection_article.html)**
+  - Effective collection techniques
+  - Legal considerations in Israel
+  - Technology solutions
 
-# פתח את index.html בדפדפן | Open index.html in browser
-open index.html
-```
+- **[Tax Reduction Guide](https://ronenamos-arch.github.io/amos-financial-Solutions/tax_reduction_guide.html)**
+  - Israeli tax optimization
+  - Legal deduction strategies
+  - Compliance best practices
 
-### שרת מקומי | Local Server
-```bash
-# Python 3
-python -m http.server 8000
+---
 
-# Python 2
-python -m SimpleHTTPServer 8000
+## 🌐 Quick Navigation | ניווט מהיר
 
-# Node.js (npx)
-npx http-server
+### 🏠 Main Sections
+- 🏡 **[Homepage](https://ronenamos-arch.github.io/amos-financial-Solutions/index.html)** - דף הבית
+- 🧮 **[All Calculators](https://ronenamos-arch.github.io/amos-financial-Solutions/financial_calculators_page.html)** - כל המחשבונים
+- 📖 **Knowledge Center** - מרכז הידע (Articles above)
+- 🏦 **Banking Tools** - כלי בנקאות (Tools above)
 
-# PHP
-php -S localhost:8000
-```
+### 📄 Legal & Support
+- 🔒 **[Privacy Policy](https://ronenamos-arch.github.io/amos-financial-Solutions/privacy_policy.html)** - מדיניות פרטיות
+- 📋 **[Terms of Service](https://ronenamos-arch.github.io/amos-financial-Solutions/terms_of_service.html)** - תנאי שירות
+- 🗺️ **[Sitemap](https://ronenamos-arch.github.io/amos-financial-Solutions/sitemap.xml)** - מפת האתר
 
-אחר כך פתח `http://localhost:8000` בדפדפן שלך.
+---
 
-## 🤝 איך תורמים | How to Contribute
+## 📞 Connect With Us | צור קשר
 
-### תרומה לפרויקט | Contributing to the Project
+### 👤 Professional Network
+💼 **LinkedIn**: [Connect with Ronen Amos](https://linkedin.com/in/ronen-amos-financial)
+- Industry insights and updates
+- Professional networking
+- Business consultation inquiries
 
-אנחנו מזמינים אותך להיות חלק מקהילת המפתחים שלנו! 🌟
+### 🛠️ Technical Support
+📧 **GitHub Issues**: [Report Issues & Get Help](https://github.com/ronenamos-arch/amos-financial-Solutions/issues)
+- Bug reports and feature requests
+- Technical documentation
+- Community support
 
-### דרכים לתרומה | Ways to Contribute
+💬 **Discussions**: [Join Our Community](https://github.com/ronenamos-arch/amos-financial-Solutions/discussions)
+- Share ideas and feedback
+- Connect with other users
+- Best practices exchange
 
-1. **דיווח על באגים | Bug Reports**
-   - פתח [Issue חדש](https://github.com/ronenamos-arch/amos-financial-Solutions/issues/new)
-   - תאר את הבעיה בפירות
-   - צרף צילומי מסך אם רלוונטי
+---
 
-2. **הצעות לשיפור | Feature Requests**
-   - פתח [Issue](https://github.com/ronenamos-arch/amos-financial-Solutions/issues) עם התווית "enhancement"
-   - הסבר על הפיצ'ר המבוקש
-   - נמק מדוע זה יועיל למשתמשים
+## 🚀 Call-to-Action | קריאה לפעולה
 
-3. **תרומת קוד | Code Contributions**
-   ```bash
-   # 1. צור Fork של הפרויקט | Fork the project
-   # 2. צור ענף חדש | Create a new branch
-   git checkout -b feature/amazing-feature
-   
-   # 3. בצע את השינויים | Make your changes
-   # 4. בצע commit | Commit your changes
-   git commit -m 'Add some amazing feature'
-   
-   # 5. דחף לענף | Push to the branch
-   git push origin feature/amazing-feature
-   
-   # 6. פתח Pull Request | Open a Pull Request
-   ```
+### 🎯 Ready to Transform Your Business?
 
-4. **שיפור תיעוד | Documentation**
-   - עזור לשפר את התיעוד
-   - תרגם תוכן לשפות נוספות
-   - הוסף דוגמאות שימוש
+**Start Now:**
+1. 📊 **[Try Our Cash Flow Calculator](https://ronenamos-arch.github.io/amos-financial-Solutions/cash_flow_calculator.html)** - Get instant insights
+2. 💰 **[Optimize Your Pricing](https://ronenamos-arch.github.io/amos-financial-Solutions/pricing_calculator.html)** - Maximize profits
+3. 📈 **[Plan Your Budget](https://ronenamos-arch.github.io/amos-financial-Solutions/budget_planning_article.html)** - Strategic planning
 
-### שאלות ותמיכה | Questions & Support
+### 💡 For Freelancers:
+**[Calculate Your True Hourly Rate](https://ronenamos-arch.github.io/amos-financial-Solutions/freelancer_profitability.html)** and discover how much you should really charge!
 
-📧 **יצירת קשר | Contact:**
-- פתח [Issue](https://github.com/ronenamos-arch/amos-financial-Solutions/issues) עם השאלה שלך
-- השתמש בתווית "question" לשאלות כלליות
-- השתמש בתווית "help wanted" לעזרה טכנית
+### 🏦 For Business Owners:
+**[Validate IBANs Instantly](https://ronenamos-arch.github.io/amos-financial-Solutions/ibanchecker.html)** and streamline your payment processes.
 
-💬 **דיונים | Discussions:**
-- השתתף ב[GitHub Discussions](https://github.com/ronenamos-arch/amos-financial-Solutions/discussions)
-- שתף רעיונות ותובנות
-- עזור למשתמשים אחרים
+---
 
-## 📈 SEO והשפעה קהילתית | SEO & Community Impact
+## 📈 SEO & Impact | השפעה ו-SEO
 
-### מילות מפתח | Keywords
-`חשבונאות`, `רואה חשבון`, `פינטק`, `אוטומציה`, `בינה מלאכותית`, `מחשבונים פיננסיים`, `עסקים קטנים`, `פרילנסרים`, `תזרים מזומנים`, `תמחור`
+### 🔍 Keywords | מילות מפתח
+`חשבונאות`, `רואה חשבון`, `פינטק`, `אוטומציה`, `בינה מלאכותית`, `מחשבונים פיננסיים`, `עסקים קטנים`, `פרילנסרים`, `תזרים מזומנים`, `תמחור`, `IBAN`, `בנקים ישראליים`, `תכנון פיננסי`, `ניהול תקציב`
 
-### השפעה על הקהילה | Community Impact
+### 🌟 Community Impact | השפעה על הקהילה
 
-🌟 **מחויבות לקהילה העסקית הישראלית:**
-- הנגשת כלים מתקדמים לעסקים קטנים
-- חינוך פיננסי וחשבונאי
-- תמיכה בחדשנות טכנולוגית
-- פיתוח פתרונות מותאמים לשוק המקומי
+**מחויבות לקהילה העסקית הישראלית:**
+- ✅ הנגשת כלים מתקדמים לעסקים קטנים
+- ✅ חינוך פיננסי וחשבונאי
+- ✅ תמיכה בחדשנות טכנולוגית
+- ✅ פיתוח פתרונות מותאמים לשוק המקומי
 
-🎯 **יעדי השפעה:**
-- שיפור יעילות עסקית ב-30%
-- הפחתת טעויות חשבונאיות ב-50%
-- חיסכון של 20+ שעות עבודה חודשיות
-- הגדלת הרווחיות העסקית ב-15%
+**יעדי השפעה:**
+- 🎯 שיפור יעילות עסקית ב-30%
+- 🎯 הפחתת טעויות חשבונאיות ב-50%
+- 🎯 חיסכון של 20+ שעות עבודה חודשיות
+- 🎯 הגדלת הרווחיות העסקית ב-15%
 
-## 📄 קבצים וקישורים נוספים | Additional Files & Links
+---
 
-- 🔒 [מדיניות פרטיות](https://ronenamos-arch.github.io/amos-financial-Solutions/privacy_policy.html)
-- 📋 [תנאי שירות](https://ronenamos-arch.github.io/amos-financial-Solutions/terms_of_service.html)
-- 🗺️ [מפת האתר](https://ronenamos-arch.github.io/amos-financial-Solutions/sitemap.xml)
-- 🤖 [הגדרות רובוטים](https://ronenamos-arch.github.io/amos-financial-Solutions/robots.txt)
+## 🤝 Contributing | תרומה לפרויקט
 
-## 📞 צור קשר | Contact
+We welcome contributions! Here's how you can help:
 
-💼 **Amos Financial Solutions**  
-🌐 **אתר רשמי:** [https://ronenamos-arch.github.io/amos-financial-Solutions/](https://ronenamos-arch.github.io/amos-financial-Solutions/)  
-📧 **GitHub Issues:** [דווח על בעיה או שאל שאלה](https://github.com/ronenamos-arch/amos-financial-Solutions/issues)
+### 🐛 Found a Bug?
+1. [Create an Issue](https://github.com/ronenamos-arch/amos-financial-Solutions/issues/new)
+2. Use the "bug" label
+3. Provide detailed reproduction steps
+
+### 💡 Have an Idea?
+1. [Start a Discussion](https://github.com/ronenamos-arch/amos-financial-Solutions/discussions/new)
+2. Share your feature request
+3. Engage with the community
+
+### 🔧 Want to Code?
+1. Fork the repository
+2. Create a feature branch
+3. Submit a Pull Request
 
 ---
 
 <div align="center">
 
-**🚀 בנוי עם ❤️ עבור הקהילה העסקית הישראלית | Built with ❤️ for the Israeli Business Community**
+**🚀 Built with ❤️ for the Israeli Business Community**
 
 [⭐ Star](https://github.com/ronenamos-arch/amos-financial-Solutions/stargazers) | [🐛 Issues](https://github.com/ronenamos-arch/amos-financial-Solutions/issues) | [🔄 Pull Requests](https://github.com/ronenamos-arch/amos-financial-Solutions/pulls) | [💬 Discussions](https://github.com/ronenamos-arch/amos-financial-Solutions/discussions)
 
-</div>
-
 ---
 
-> 💡 **טיפ:** השתמש בכלים שלנו כדי לייעל את הניהול הפיננסי של העסק שלך ולחסוך זמן יקר!
+💡 **Tip:** Use our tools to streamline your business financial management and save valuable time!
 
-*עודכן לאחרונה: ספטמבר 2025*
+*Last updated: September 2025*
+
+</div>
