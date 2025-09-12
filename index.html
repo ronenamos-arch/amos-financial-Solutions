@@ -2,6 +2,18 @@
                         <li><!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
+<!-- Google Analytics 4 - Replace GA_MEASUREMENT_ID with your actual ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+
+<!-- Google Search Console Verification - Replace with your verification code -->
+<meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
+
 <!-- Comet-Edit: הוספת תגיות מטא לתחילת <head> -->
 <meta name="description" content="שירותי חשבונאות מבוססי בינה מלאכותית, דוחות ודשבורדים אוטומטיים לעסקים. מומחיות מקצועית, חיסכון בזמן, מדויק וחדשני – עמוס פתרונות פיננסיים.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +29,20 @@
     <meta property="og:description" content="שירותי חשבונאות טכנולוגית עם AI, אוטומציה ו-Power BI לעצמאיים ועסקים קטנים">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ronenamos-arch.github.io/amos-financial-Solutions/">
+    <meta property="og:image" content="https://ronenamos-arch.github.io/amos-financial-Solutions/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="עמוס פתרונות פיננסיים">
+    <meta property="og:locale" content="he_IL">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="רונן עמוס - רואה חשבון טכנולוגי">
+    <meta name="twitter:description" content="שירותי חשבונאות מתקדמים עם AI ואוטומציה - חוסכים 40% מזמן העבודה">
+    <meta name="twitter:image" content="https://ronenamos-arch.github.io/amos-financial-Solutions/assets/images/twitter-card.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ronenamos-arch.github.io/amos-financial-Solutions/index.html">
     
     <title>רונן עמוס - רואה חשבון טכנולוגי | רמת גן והסביבה | AI, אוטומציה ו-Power BI לעסקים</title>
     
@@ -613,44 +639,138 @@
         }
     </style>
     
-    <!-- Schema Markup for SEO -->
+    <!-- LocalBusiness Schema Markup for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "AccountingService",
-        "name": "רונן עמוס - רואה חשבון טכנולוגי בישראל",
-        "description": "רואה חשבון טכנולוגי מוביל בישראל המתמחה בבינה מלאכותית, אוטומציה חשבונאית ודשבורדים מתקדמים ב-Power BI לעצמאיים ועסקים קטנים", בבינה מלאכותית, אוטומציה פיננסית ודשבורדים ב-Power BI",
+        "@type": "LocalBusiness",
+        "@id": "https://ronenamos-arch.github.io/amos-financial-Solutions/#business",
+        "name": "רונן עמוס - רואה חשבון טכנולוגי",
+        "alternateName": "Ronen Amos CPA - Technological Accounting",
+        "description": "רואה חשבון טכנולוגי מוביל ברמת גן המתמחה בבינה מלאכותית, אוטומציה חשבונאית ודשבורדים מתקדמים ב-Power BI לעצמאיים ועסקים קטנים באזור גוש דן",
+        "image": "https://ronenamos-arch.github.io/amos-financial-Solutions/assets/images/ronen-amos-cpa.jpg",
+        "logo": "https://ronenamos-arch.github.io/amos-financial-Solutions/assets/images/logo.png",
         "url": "https://ronenamos-arch.github.io/amos-financial-Solutions/",
+        "telephone": "+972-50-5500344",
+        "email": "ronenamos@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "רחוב צבי 8",
+            "addressLocality": "רמת גן",
+            "addressRegion": "מחוז תל אביב",
+            "postalCode": "5252247",
+            "addressCountry": "IL"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 32.0668,
+            "longitude": 34.8244
+        },
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "רמת גן"
+            },
+            {
+                "@type": "City", 
+                "name": "תל אביב"
+            },
+            {
+                "@type": "City",
+                "name": "פתח תקווה"
+            },
+            {
+                "@type": "City",
+                "name": "בני ברק"
+            },
+            {
+                "@type": "City",
+                "name": "גבעתיים"
+            }
+        ],
+        "serviceArea": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": 32.0668,
+                "longitude": 34.8244
+            },
+            "geoRadius": "25000"
+        },
+        "openingHours": [
+            "Mo-Th 08:00-18:00",
+            "Fr 08:00-13:00"
+        ],
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+                "opens": "08:00",
+                "closes": "18:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification", 
+                "dayOfWeek": "Friday",
+                "opens": "08:00",
+                "closes": "13:00"
+            }
+        ],
+        "priceRange": "$$-$$$",
+        "currenciesAccepted": "ILS",
+        "paymentAccepted": ["Cash", "Bank Transfer", "Check"],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "שירותי חשבונאות טכנולוגית",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "חשבונאות טכנولוגית ואוטומציה",
+                        "description": "שירותי חשבונאות מתקדמים עם אוטומציה מלאה ובינה מלאכותית"
+                    }
+                },
+                {
+                    "@type": "Offer", 
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "דשבורדים ב-Power BI",
+                        "description": "יצירת דשבורדים פיננסיים מתקדמים ודוחות בזמן אמת"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service", 
+                        "name": "ייעוץ פיננסי לעצמאיים",
+                        "description": "ייעוץ מקצועי להגדלת רווחיות ותכנון פיננסי לעצמאיים"
+                    }
+                }
+            ]
+        },
         "founder": {
             "@type": "Person",
             "name": "רונן עמוס",
-            "jobTitle": "רואה חשבון טכנולוגי",
+            "givenName": "רונן",
+            "familyName": "עמוס",
+            "jobTitle": "רואה חשבון טכנולוגי מוסמך",
             "telephone": "+972-50-5500344",
-            "email": "ronenamos@gmail.com"
+            "email": "ronenamos@gmail.com",
+            "nationality": "Israeli",
+            "workLocation": {
+                "@type": "Place",
+                "name": "רמת גן, ישראל"
+            },
+            "hasCredential": {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "CPA",
+                "name": "רואה חשבון מוסמך"
+            }
         },
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "צבי 8",
-            "addressLocality": "רמת גן",
-            "addressCountry": "IL"
-        },
-        "areaServed": "ישראל",
-        "serviceType": [
-            "חשבונאות טכנולוגית", 
-            "אוטומציה פיננסית", 
-            "Power BI", 
-            "בינה מלאכותית בחשבונאות",
-            "ייעוץ פיננסי לעצמאיים",
-            "דשבורדים פיננסיים"
-        ],
-        "priceRange": "$$",
-        "openingHours": [
-            "Mo-Th 09:00-18:00",
-            "Fr 09:00-13:00"
-        ],
         "sameAs": [
             "https://www.linkedin.com/in/ronenamoscpa/",
-            "https://wa.me/972505500344"
+            "https://wa.me/972505500344",
+            "https://ronenamos-arch.github.io/amos-financial-Solutions/blog.html"
         ]
     }
     </script>
@@ -1419,6 +1539,89 @@ style="position:absolute;top:18px;left:20px;background:none;border:none;font-siz
                 }
             });
         });
+    </script>
+
+    <!-- FAQ Schema for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "מה זה חשבונאות טכנולוגית?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "חשבונאות טכנולוגית משלבת כלים דיגיטליים מתקדמים כמו בינה מלאכותית, אוטומציה ו-Power BI כדי לייעל תהליכים חשבונאיים, לחסוך זמן ולשפר דיוק. זה כולל אוטומציה של רישום עסקאות, יצירת דוחות בזמן אמת ודשבורדים אינטרקטיביים."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "איך אוטומציה חשבונאית יכולה לעזור לעסק שלי?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "אוטומציה חשבונאית יכולה לחסוך עד 80% מהזמן שמושקע בעבודות חשבונאיות ידניות, להפחית שגיאות אנוש, לספק נתונים בזמן אמת ולשפר את קבלת ההחלטות העסקיות. היא מאפשרת לבעל העסק להתמקד בפיתוח העסק במקום בעבודה אדמיניסטרטיבית."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "מה זה Power BI ואיך זה עוזר בחשבונאות?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Power BI הוא כלי של מיקרוסופט ליצירת דשבורדים ודוחות אינטרקטיביים. בחשבונאות, הוא מאפשר להציג נתונים פיננסיים באופן ויזואלי וברור, לעקוב אחר מגמות, לזהות הזדמנויות ולקבל החלטות מבוססות נתונים. הכל בזמן אמת ונגיש מכל מקום."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "כמה עולים שירותי חשבונאות טכנולוגית?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "עלות שירותי החשבונאות הטכנולוגית משתנה בהתאם לגודל העסק, מורכבות התהליכים והשירותים הנדרשים. עבור עסקים קטנים המחיר מתחיל מ-2,500 ₪ לחודש, עבור עסקים בינוניים 4,000-8,000 ₪ לחודש. השקעה זו מחזירה את עצמה תוך מספר חודשים בחיסכון בזמן ושיפור יעילות."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "איזה אזורים אתם משרתים?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "אני מספק שירותים באזור גוש דן, כולל רמת גן, תל אביב, פתח תקווה, בני ברק וגבעתיים. בנוסף, אני מציע שירותים מרחוק לכל רחבי הארץ באמצעות פלטפורמות דיגיטליות מתקדמות."
+                }
+            },
+            {
+                "@type": "Question", 
+                "name": "כמה זמן לוקח להטמיע מערכת חשבונאות טכנולוגית?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "תהליך ההטמעה לוקח בדרך כלל 2-6 שבועות, תלוי במורכבות העסק. זה כולל ניתוח צרכים, הגדרת המערכות, העברת נתונים היסטוריים, הדרכת הצוות וליווי בשבועות הראשונים. המטרה היא מעבר חלק ללא הפרעה לפעילות השוטפת."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- WebSite Schema for Site Search -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://ronenamos-arch.github.io/amos-financial-Solutions/#website",
+        "name": "רונן עמוס - רואה חשבון טכנולוגי",
+        "url": "https://ronenamos-arch.github.io/amos-financial-Solutions/",
+        "description": "שירותי חשבונאות טכנולוגית מתקדמת עם AI, אוטומציה ו-Power BI",
+        "inLanguage": "he",
+        "publisher": {
+            "@type": "Person",
+            "name": "רונן עמוס"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://ronenamos-arch.github.io/amos-financial-Solutions/blog.html?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    }
     </script>
 </body>
 </html>
