@@ -1,3 +1,31 @@
 User-agent: *
 Allow: /
+
+# Sitemap
 Sitemap: https://ronenamos-arch.github.io/amos-financial-Solutions/sitemap.xml
+
+# Search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block access to admin areas (if any)
+Disallow: /admin/
+Disallow: /_site/
+Disallow: /.git/
+
+# Allow CSS and JS files
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+
+# Block sensitive files
+Disallow: /*.yml$
+Disallow: /*.yaml$
+Disallow: /Gemfile
+Disallow: /Gemfile.lock
+Disallow: /README.md

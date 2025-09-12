@@ -1,0 +1,111 @@
+---
+layout: default
+---
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "{{ page.url | absolute_url }}#service",
+    "name": "{{ page.title }}",
+    "description": "{{ page.description }}",
+    "provider": {
+        "@type": "LocalBusiness",
+        "@id": "{{ site.url }}{{ site.baseurl }}/#business",
+        "name": "{{ site.business.name }}",
+        "telephone": "{{ site.business.contact.phone }}",
+        "email": "{{ site.business.contact.email }}",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "{{ site.business.address.street }}",
+            "addressLocality": "{{ site.business.address.city }}",
+            "addressRegion": "{{ site.business.address.region }}",
+            "postalCode": "{{ site.business.address.postal_code }}",
+            "addressCountry": "{{ site.business.address.country }}"
+        }
+    },
+    "serviceType": "{{ page.service_type | default: 'AccountingService' }}",
+    "url": "{{ page.url | absolute_url }}",
+    {% if page.price_range %}
+    "priceRange": "{{ page.price_range }}",
+    {% endif %}
+    {% if page.duration %}
+    "duration": "{{ page.duration }}",
+    {% endif %}
+    "areaServed": {
+        "@type": "Country",
+        "name": "Israel"
+    },
+    "offers": {
+        "@type": "Offer",
+        "description": "{{ page.description }}",
+        "url": "{{ page.url | absolute_url }}",
+        {% if page.price_range %}
+        "priceRange": "{{ page.price_range }}",
+        {% endif %}
+        "availability": "https://schema.org/InStock",
+        "validFrom": "{{ site.time | date: '%Y-%m-%d' }}",
+        "seller": {
+            "@type": "LocalBusiness",
+            "@id": "{{ site.url }}{{ site.baseurl }}/#business"
+        }
+    }
+}
+</script>
+
+<div class="service-page">
+    <div class="container">
+        <header class="service-header">
+            <div class="breadcrumb">
+                <a href="{{ '/' | relative_url }}">Home</a>
+                <span class="separator">/</span>
+                <a href="{{ '/services/' | relative_url }}">Services</a>
+                <span class="separator">/</span>
+                <span class="current">{{ page.title }}</span>
+            </div>
+            
+            <h1 class="service-title">{{ page.title }}</h1>
+            <p class="service-description">{{ page.description }}</p>
+            
+            {% if page.keywords %}
+            <div class="service-keywords">
+                {% assign keywords = page.keywords | split: ', ' %}
+                {% for keyword in keywords %}
+                    <span class="keyword-tag">{{ keyword }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </header>
+
+        <div class="service-content">
+            {{ content }}
+        </div>
+
+        <div class="service-cta">
+            <div class="cta-content">
+                <h3>Ready to Get Started?</h3>
+                <p>Contact us today for a free consultation and personalized quote.</p>
+                <div class="cta-buttons">
+                    <a href="{{ '/contact/' | relative_url }}" class="btn btn-primary">Get Free Consultation</a>
+                    <a href="https://api.whatsapp.com/send?phone={{ site.business.contact.whatsapp }}&text=Hi, I'm interested in {{ page.title }}" class="btn btn-secondary" target="_blank">
+                        WhatsApp Us
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="related-services">
+            <h3>Related Services</h3>
+            <div class="services-grid">
+                {% assign related_services = site.services | where_exp: "service", "service.url != page.url" | limit: 3 %}
+                {% for service in related_services %}
+                <div class="service-card">
+                    <h4><a href="{{ service.url }}">{{ service.title }}</a></h4>
+                    <p>{{ service.description | truncate: 120 }}</p>
+                    <a href="{{ service.url }}" class="read-more">Learn More →</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

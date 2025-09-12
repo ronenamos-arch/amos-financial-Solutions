@@ -1,1353 +1,314 @@
-     
-                        <li><!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-<!-- Comet-Edit: הוספת תגיות מטא לתחילת <head> -->
-<meta name="description" content="שירותי חשבונאות מבוססי בינה מלאכותית, דוחות ודשבורדים אוטומטיים לעסקים. מומחיות מקצועית, חיסכון בזמן, מדויק וחדשני – עמוס פתרונות פיננסיים.">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--/Comet-Edit-->
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="רונן עמוס - רואה חשבון טכנולוגי המתמחה בבינה מלאכותית, אוטומציה פיננסית ודשבורדים ב-Power BI. שירותי חשבונאות מתקדמים לעצמאיים ועסקים קטנים בישראל.">
-    <meta name="keywords" content="רואה חשבון טכנולוגי, בינה מלאכותית בחשבונאות, אוטומציה פיננסית, Power BI, עצמאיים, עסקים קטנים, ייעוץ פיננסי, דוחות כספיים">
-    <meta name="author" content="רונן עמוס">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="רונן עמוס - רואה חשבון טכנולוגי | AI ואוטומציה פיננסית">
-    <meta property="og:description" content="שירותי חשבונאות טכנולוגית עם AI, אוטומציה ו-Power BI לעצמאיים ועסקים קטנים">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ronenamos-arch.github.io/amos-financial-Solutions/">
-    
-    <title>רונן עמוס - רואה חשבון טכנולוגי | רמת גן והסביבה | AI, אוטומציה ו-Power BI לעסקים</title>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header & Navigation */
-        .header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-        }
-
-        .logo-container {
-            position: relative;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #2C5282 0%, #3182CE 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(44, 82, 130, 0.3);
-        }
-
-        .chart-bars {
-            display: flex;
-            align-items: flex-end;
-            gap: 3px;
-            height: 30px;
-        }
-
-        .bar {
-            background: #68D391;
-            width: 6px;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .bar:nth-child(1) { height: 15px; }
-        .bar:nth-child(2) { height: 22px; }
-        .bar:nth-child(3) { height: 30px; }
-
-        .growth-arrow {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            width: 0;
-            height: 0;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-bottom: 10px solid white;
-            transform: rotate(45deg);
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            text-align: right;
-        }
-
-        .logo-text .main-title {
-            font-size: 1.4em;
-            color: #2C5282;
-            font-weight: bold;
-            margin: 0;
-            line-height: 1.1;
-        }
-
-        .logo-text .subtitle {
-            font-size: 0.85em;
-            color: #68D391;
-            margin: 0;
-            font-weight: 500;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: #4a5568;
-            font-weight: 500;
-            padding: 0.5rem 0;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .nav-menu a:hover {
-            color: #2c5282;
-            border-bottom-color: #68D391;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
-            padding: 6rem 0;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #2d3748;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero .highlight {
-            color: #2C5282;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: #4a5568;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #68D391 0%, #2C5282 100%);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 15px rgba(104, 211, 145, 0.3);
-            margin: 0.5rem;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            color: white;
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #2d3748;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #718096;
-            font-size: 1.1rem;
-            margin-bottom: 4rem;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: #f7fafc;
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: #68D391;
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            color: #2d3748;
-            margin-bottom: 0.5rem;
-        }
-
-        .service-card p {
-            color: #4a5568;
-            line-height: 1.6;
-        }
-
-        /* About Section */
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #4a5568;
-            line-height: 1.7;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: #f7fafc;
-            border-radius: 15px;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            color: #2C5282;
-            font-weight: bold;
-        }
-
-        .expertise-list {
-            text-align: right;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .expertise-list ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .expertise-list li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #e2e8f0;
-            color: #4a5568;
-        }
-
-        /* Testimonials */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .testimonial-quote {
-            font-size: 1.1rem;
-            color: #4a5568;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #68D391 0%, #2C5282 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .author-info h4 {
-            color: #2d3748;
-            margin-bottom: 0.25rem;
-        }
-
-        .author-info p {
-            color: #718096;
-            font-size: 0.9rem;
-        }
-
-        /* FAQ */
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: white;
-            margin-bottom: 1rem;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: white;
-            border: none;
-            width: 100%;
-            text-align: right;
-            font-size: 1.1rem;
-            color: #2d3748;
-            font-weight: 500;
-        }
-
-        .faq-question:hover {
-            background: #f7fafc;
-        }
-
-        .faq-answer {
-            padding: 0 1.5rem 1.5rem;
-            color: #4a5568;
-            line-height: 1.6;
-            display: none;
-        }
-
-        .faq-answer.active {
-            display: block;
-        }
-
-        /* Contact Section */
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-item {
-            margin: 1rem 0;
-            font-size: 1.1rem;
-            color: #4a5568;
-        }
-
-        .contact-item strong {
-            color: #2d3748;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 2rem auto 0;
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: right;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #2d3748;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            direction: rtl;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #68D391;
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #68D391 0%, #2C5282 100%);
-            color: white;
-            padding: 1rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        /* Legal Pages */
-        .legal-content {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .legal-content h2 {
-            color: #2d3748;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-
-        .legal-content h3 {
-            color: #2d3748;
-            margin: 2rem 0 1rem 0;
-            font-size: 1.3rem;
-        }
-
-        .legal-content p {
-            color: #4a5568;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .legal-content ul {
-            margin: 1rem 0;
-            padding-right: 2rem;
-        }
-
-        .legal-content li {
-            color: #4a5568;
-            line-height: 1.6;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: #2d3748;
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            color: #68D391;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #a0aec0;
-            text-decoration: none;
-            line-height: 1.8;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #4a5568;
-            padding-top: 1rem;
-            text-align: center;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .logo-container {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
-    
-    <!-- Schema Markup for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "AccountingService",
-        "name": "רונן עמוס - רואה חשבון טכנולוגי בישראל",
-        "description": "רואה חשבון טכנולוגי מוביל בישראל המתמחה בבינה מלאכותית, אוטומציה חשבונאית ודשבורדים מתקדמים ב-Power BI לעצמאיים ועסקים קטנים", בבינה מלאכותית, אוטומציה פיננסית ודשבורדים ב-Power BI",
-        "url": "https://ronenamos-arch.github.io/amos-financial-Solutions/",
-        "founder": {
-            "@type": "Person",
-            "name": "רונן עמוס",
-            "jobTitle": "רואה חשבון טכנולוגי",
-            "telephone": "+972-50-5500344",
-            "email": "ronenamos@gmail.com"
-        },
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "צבי 8",
-            "addressLocality": "רמת גן",
-            "addressCountry": "IL"
-        },
-        "areaServed": "ישראל",
-        "serviceType": [
-            "חשבונאות טכנולוגית", 
-            "אוטומציה פיננסית", 
-            "Power BI", 
-            "בינה מלאכותית בחשבונאות",
-            "ייעוץ פיננסי לעצמאיים",
-            "דשבורדים פיננסיים"
-        ],
-        "priceRange": "$$",
-        "openingHours": [
-            "Mo-Th 09:00-18:00",
-            "Fr 09:00-13:00"
-        ],
-        "sameAs": [
-            "https://www.linkedin.com/in/ronenamoscpa/",
-            "https://wa.me/972505500344"
-        ]
-    }
-    </script>
-</head>
-<body>
-     
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
-            <a href="#home" class="logo">
-                <div class="logo-container">
-                    <div class="chart-bars">
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                    </div>
-                    <div class="growth-arrow"></div>
-                </div>
-                <div class="logo-text">
-                    <div class="main-title">RONEN AMOS</div>
-                    <div class="subtitle">פתרונות פיננסיים לעסקים קטנים</div>
-                </div>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="#about">אודות</a></li>
-                <li><a href="#services">שירותים</a></li>
-                <li><a href="#blog">בלוג</a></li>
-                  <li><a href="ibanchecker.html">חישוב IBAN</a></li>
-                  <li><a href="financial_calculators_page.html">מחשבונים</a></li>
-                 <li><a href="#contact">יצירת קשר</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Home Section -->
-        <section id="home" class="hero">
-            <div class="container">
-                <h1>רואה חשבון <span class="highlight">טכנולוגי</span><br>עם AI ואוטומציה</h1>
-                <p>שירותי חשבונאות מתקדמים המשלבים בינה מלאכותית, אוטומציה פיננסית ודשבורדים ב-Power BI לעצמאיים ועסקים קטנים בישראל</p>
-                <a href="#contact" class="cta-button">קבעו פגישת ייעוץ חינם</a>
+---
+layout: default
+title: "Ronen Amos - Leading Technological Accountant in Israel"
+description: "Professional accounting services with cutting-edge technology integration. Expert in digital transformation, ERP implementation, and modern financial solutions for Israeli businesses."
+keywords: "technological accountant Israel, digital accounting, ERP integration, automated bookkeeping, financial technology"
+og_type: "website"
+faq:
+  - question: "What is technological accounting?"
+    answer: "Technological accounting combines traditional accounting expertise with modern digital tools, automation, and cloud-based systems to provide more efficient, accurate, and accessible financial services."
+  - question: "How can digital transformation help my business?"
+    answer: "Digital transformation in accounting can reduce manual work by 80%, improve accuracy, provide real-time insights, ensure compliance, and reduce operational costs while giving you 24/7 access to your financial data."
+  - question: "Do you work with businesses of all sizes?"
+    answer: "Yes, we provide scalable technological accounting solutions for small startups, medium enterprises, and large corporations across Israel, with customized approaches for each business size."
+  - question: "What ERP systems do you integrate with?"
+    answer: "We specialize in Priority ERP, SAP Business One, and various cloud-based accounting platforms, ensuring seamless integration with your existing business systems."
+---
+
+<div class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="primary-text">רונן עמוס</span>
+                <span class="secondary-text">חשבונאי טכנולוגי מוביל</span>
+            </h1>
+            <p class="hero-description">
+                מתמחה בפתרונות חשבונאיים מתקדמים, דיגיטציה עסקית ואינטגרציה טכנולוגית. 
+                מביא לעסק שלך את הכלים הטכנולוגיים המתקדמים ביותר בתחום החשבונאות.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">יעוץ חינם</a>
+                <a href="#services" class="btn btn-secondary">השירותים שלנו</a>
             </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="section" style="background: white;">
-            <div class="container">
-                <h2 class="section-title">אודות רונן עמוס</h2>
-                <div class="about-content">
-                    <p>
-                        רואה חשבון טכנולוגי עם מעל 10 שנות ניסיון בשילוב טכנולוגיות מתקדמות 
-                        עם שירותי חשבונאות מקצועיים. מתמחה בבינה מלאכותית, אוטומציה פיננסית 
-                        ודשבורדים ב-Power BI לעצמאיים ועסקים קטנים בישראל.
-                    </p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-number">10+</div>
-                            <div>שנות ניסיון</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">100+</div>
-                            <div>לקוחות מרוצים</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">24/7</div>
-                            <div>מערכות אוטומטיות</div>
-                        </div>
-                    </div>
-
-                    <h3 style="color: #2d3748; margin: 3rem 0 1.5rem 0; font-size: 1.5rem;">המומחיות שלי</h3>
-                    <div class="expertise-list">
-                        <ul>
-                            <li>✅ רואה חשבון מוסמך עם התמחות בטכנולוגיה פיננסית</li>
-                            <li>✅ מומחה בפיתוח דשבורדים ודוחות Power BI</li>
-                            <li>✅ מתמחה באוטומציה של תהליכים חשבונאיים</li>
-                            <li>✅ יועץ בינה מלאכותית לאנליזה פיננסית</li>
-                            <li>✅ מרצה וכותב בנושאי חדשנות פיננסית</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="section" style="background: #f7fafc;">
-            <div class="container">
-                <h2 class="section-title">השירותים שלנו</h2>
-                <p class="section-subtitle">פתרונות טכנולוגיים מתקדמים לניהול פיננסי חכם</p>
-                
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">🤖</div>
-                        <h3>בינה מלאכותית בחשבונאות</h3>
-                        <p>אוטומציה של תהליכים חשבונאיים, ניתוח נתונים חכם ותחזיות פיננסיות מדויקות</p>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">📊</div>
-                        <h3>דשבורדים ב-Power BI</h3>
-                        <p>דוחות אינטראקטיביים ודשבורדים חכמים המספקים תובנות מיידיות על מצב העסק</p>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">⚡</div>
-                        <h3>אוטומציה פיננסית</h3>
-                        <p>אוטומציה מלאה של תהליכים חוזרים, חיסכון בזמן ומניעת שגיאות אנוש</p>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">💼</div>
-                        <h3>ייעוץ לעצמאיים ועסקים קטנים</h3>
-                        <p>ליווי מקצועי בניהול פיננסי, תכנון מס ואופטימיזציה עסקית</p>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">📈</div>
-                        <h3>ניתוח ותחזיות כספיות</h3>
-                        <p>מודלים חזויים מתקדמים לתכנון עסקי וניתוח סיכונים</p>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-icon">🔧</div>
-                        <h3>אינטגרציה מערכות</h3>
-                        <p>חיבור מערכות קיימות ויצירת זרימת מידע חלקה</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="section" style="background: white;">
-            <div class="container">
-                <h2 class="section-title">המלצות לקוחות</h2>
-                <p class="section-subtitle">מה לקוחותינו אומרים על השירות</p>
-                
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">
-                            "רונן שינה לי את כל הגישה לניהול הכספים בעסק. הדשבורד שהוא בנה לי ב-Power BI חוסך לי שעות עבודה בכל שבוע ונותן לי תובנות שלא ידעתי שאני צריך."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">מ.כ</div>
-                            <div class="author-info">
-                                <h4>מיכל כהן</h4>
-                                <p>מנהלת סטודיו גרפי</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">
-                            "כעצמאי, הזמן שלי יקר. הפתרונות האוטומטיים שרונן הטמיע אצלי פשוט שחררו אותי מכל הבירוקרטיה והמעקב הידני. עכשיו אני מתמקד במה שאני הכי טוב בו."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">ד.ל</div>
-                            <div class="author-info">
-                                <h4>דן לוי</h4>
-                                <p>יועץ עסקי</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">
-                            "השירות מקצועי ברמה גבוהה. רונן לא רק עוזר עם החשבונאות, אלא מביא פתרונות טכנולוגיים שממש משדרגים את הארגון. הוא עובד בצורה חכמה ויעילה."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">ש.ר</div>
-                            <div class="author-info">
-                                <h4>שרה רוזן</h4>
-                                <p>מנכ"לית סטארט-אפ טכנולוגי</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">
-                            "עבדנו עם רונן על אוטומציה של כל התהליכים הפיננסיים שלנו. התוצאה מדהימה - פחות שגיאות, יותר מהירות, ודיוק שלא היה לנו קודם. ממליץ בחום!"
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">א.מ</div>
-                            <div class="author-info">
-                                <h4>אבי מזרחי</h4>
-                                <p>בעלים, חברת יבוא</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">
-                            "הייתי בספק לגבי השקעה בטכנולוגיה, אבל רונן הסביר לי בדיוק איך זה יעזור לעסק שלי. התוצאות דיברו בעד עצמן - 70% חיסכון בזמן וגם בכסף."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">ר.כ</div>
-                            <div class="author-info">
-                                <h4>רחל כהן</h4>
-                                <p>רו"ח, עצמאית</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">
-                            "הגישה החדשנית של רונן והשימוש ב-AI בחשבונאות פתח לנו עולם חדש. עכשיו יש לנו נתונים מדויקים ותחזיות שעוזרות לנו לקבל החלטות טובות יותר."
-                        </p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">י.ג</div>
-                            <div class="author-info">
-                                <h4>יוסי גולד</h4>
-                                <p>מייסד, חברת הייטק</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Blog Section -->
-        <section id="blog" class="section" style="background: #f7fafc;">
-            <div class="container">
-                <h2 class="section-title">בלוג חשבונאות טכנולוגית</h2>
-                <p class="section-subtitle">טיפים מעשיים, מדריכים מקצועיים וחדשות מעולם החשבונאות הדיגיטלית</p>
-                
-                <div class="services-grid">
-                    <article class="service-card">
-                        <div class="service-icon">🤖</div>
-                        <h3>AI בבקרה הפיננסית - מהפכה בדייקנות הדוחות</h3>
-                        <p>חקרו איך טכנולוגיות בינה מלאכותית יכולות לשפר את דייקנות הדוחות הכספיים ולחסוך זמן רב בהכנת דוחות חודשיים ורבעוניים.</p>
-                    </article>
-                    
-                    <article class="service-card">
-                        <div class="service-icon">📊</div>
-                        <h3>מדריך מלא: בניית דשבורד Power BI מקצועי</h3>
-                        <p>למדו איך לבנות דשבורד אינטראקטיבי שיספק לכם תובנות מיידיות על מצב העסק, מכירות, רווחיות ותזרים מזומנים.</p>
-                    </article>
-                    
-                    <article class="service-card">
-                        <div class="service-icon">⚡</div>
-                        <h3>5 דרכים לאוטומציה פיננסית שיחסכו לכם זמן</h3>
-                        <p>גלו איך אוטומציה יכולה להפוך את הניהול הכספי שלכם ליעיל יותר ולמדויק יותר, עם דוגמאות מעשיות מהשטח.</p>
-                    </article>
-
-                    <article class="service-card">
-                        <div class="service-icon">💼</div>
-                        <h3>מדריך החשבונאות הדיגיטלית לעצמאיים</h3>
-                        <p>כל מה שעצמאים צריכים לדעת על מעבר לחשבונאות דיגיטלית: כלים, עלויות, יתרונות והטמעה מעשית.</p>
-                    </article>
-
-                    <article class="service-card">
-                        <div class="service-icon">📈</div>
-                        <h3>תחזיות פיננסיות מדויקות בעזרת נתונים</h3>
-                        <p>איך להשתמש בנתונים היסטוריים ובאלגוריתמים מתקדמים כדי לחזות מכירות, הוצאות ותזרים מזומנים.</p>
-                    </article>
-
-                    <article class="service-card">
-                        <div class="service-icon">🔧</div>
-                        <h3>אינטגרציה בין מערכות: המדריך המלא</h3>
-                        <p>איך לחבר מערכות שונות (CRM, חשבוניות, בנקים) למערכת אחת מאוחדת שחוסכת זמן ומונעת שגיאות.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="section" style="background: white;">
-            <div class="container">
-                <h2 class="section-title">שאלות נפוצות</h2>
-                <p class="section-subtitle">תשובות לשאלות הנפוצות ביותר שאנו מקבלים</p>
-                
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            מהי חשבונאות טכנולוגית ובמה היא שונה מחשבונאות רגילה?
-                            <span>+</span>
-                        </button>
-                        <div class="faq-answer">
-                            חשבונאות טכנולוגית משלבת כלים מתקדמים כמו בינה מלאכותית, אוטומציה ו-Power BI עם עקרונות החשבונאות המסורתיים. במקום לעבוד בצורה ידנית, אנחנו משתמשים בטכנולוגיה לאוטומציה של תהליכים, יצירת דוחות מתקדמים ומתן תובנות עסקיות מעמיקות שעוזרות לקבל החלטות טובות יותר.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            כמה זמן לוקח להטמיע אוטומציה פיננסית בעסק?
-                            <span>+</span>
-                        </button>
-                        <div class="faq-answer">
-                            התהליך לוקח בדרך כלל 2-4 שבועות, תלוי במורכבות העסק ובמערכות הקיימות. אנחנו עושים הטמעה הדרגתית כדי לא להפריע לפעילות השוטפת. ברוב המקרים, כבר בסוף השבוע הראשון תרגישו שיפור משמעותי ביעילות.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            האם השירותים מתאימים לעסקים קטנים או רק לחברות גדולות?
-                            <span>+</span>
-                        </button>
-                        <div class="faq-answer">
-                            השירותים שלנו מתוכננים במיוחד לעצמאיים ועסקים קטנים עד 15 עובדים. אנחנו מבינים שלעסקים קטנים יש צרכים שונים ותקציב מוגבל, לכן אנחנו מתאימים פתרונות שמתאימים לגודל ולתקציב של העסק.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            מה כלול בשירות הייעוץ החינמי?
-                            <span>+</span>
-                        </button>
-                        <div class="faq-answer">
-                            בפגישת הייעוץ החינמי אנחנו מנתחים את הצרכים הספציפיים שלכם, בוחנים את המערכות הקיימות, מציעים פתרונות מותאמים וקובעים תוכנית מפורטת. הפגישה נמשכת כ-60 דקות וכוללת הצעת מחיר מדויקת ללא התחייבות.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            איך Power BI יכול לעזור לעסק שלי?
-                            <span>+</span>
-                        </button>
-                        <div class="faq-answer">
-                            Power BI מאפשר לכם לראות את כל הנתונים הפיננסיים במקום אחד, בצורה ויזואלית וברורה. במקום לבדוק דוחות נפרדים, תקבלו דשבורד אינטראקטיבי שמציג מכירות, הוצאות, רווחיות, תזרים מזומנים ועוד - הכל בזמן אמת ובצורה שקל להבין.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            האם יש תמיכה שוטפת לאחר ההטמעה?
-                            <span>+</span>
-                        </button>
-                        <div class="faq-answer">
-                            כן, אנחנו מספקים תמיכה שוטפת ועדכונים למערכות כדי להבטיח שהפתרונות שלכם ממשיכים לפעול בצורה מיטבית. התמיכה כוללת גם הדרכות לעובדים חדשים והתאמות לשינויים בעסק.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            מה המחיר של השירותים?
-                            <span>+</span>
-                        </button>
-                        <div class="faq-answer">
-                            המחירים משתנים בהתאם לצרכים הספציפיים של כל עסק. לאחר פגישת הייעוץ החינמי נוכל לתת הצעת מחיר מדויקת ומותאמת. אנחנו מאמינים בשקיפות מלאה ולא יהיו הפתעות במחיר.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            האם אני צריך לשנות את המערכות הקיימות שלי?
-                            <span>+</span>
-                        </button>
-                        <div class="faq-answer">
-                            לא בהכרח. חלק מהפתרונות שלנו יכולים להתחבר למערכות הקיימות שלכם ולשפר אותן. במקרים מסוימים נמליץ על מעבר למערכות חדישות יותר, אבל זה תמיד בהתאם לצרכים שלכם ובאישורכם.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFAQ(this)">
-                            איך אפשר להיות בטוח שהנתונים שלי מאובטחים?
-                            <span>+</span>
-                        </button>
-                        <div class="faq-answer">
-                            אבטחת מידע היא עדיפות עליונה אצלנו. אנחנו עובדים עם הטכנולוגיות המתקדמות ביותר, מקיימים עמידה בתקני אבטחה בינלאומיים, ומבטיחים שכל המידע מוצפן ומוגן. כמו כן, אנחנו עומדים בכל הדרישות החוקיות לשמירה על פרטיות.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section" style="background: #f7fafc;">
-            <div class="container">
-                <h2 class="section-title">יצירת קשר עם רואה חשבון טכנולוגי מוביל בישראל</h2>
-                <div class="contact-content">
-                    <div class="contact-item">
-                        <strong>רונן עמוס</strong> - רואה חשבון טכנולוגי מוביל בישראל
-                    </div>
-                    <div class="contact-item">
-                        📧 <strong>אימייל לייעוץ חינם:</strong> ronenamos@gmail.com
-                    </div>
-                    <div class="contact-item">
-                        📞 <strong>טלפון לשיחת ייעוץ:</strong> 050-5500344
-                    </div>
-                    <div class="contact-item">
-                        📍 <strong>כתובת המשרד:</strong> צבי 8, רמת גן, ישראל
-                    </div>
-                    <div class="contact-item">
-                        🕒 <strong>שעות פעילות:</strong> א-ה: 9:00-18:00, ו: 9:00-13:00
-                    </div>
-                    
-                    <div style="margin-top: 2rem;">
-                        <a href="tel:0505500344" class="cta-button">התקשרו לייעוץ חינם עכשיו</a>
-                        <a href="https://wa.me/972505500344" class="cta-button" target="_blank">וואטסאפ מיידי</a>
-                    </div>
-                    
-                            
-<button type="button" class="submit-btn"
-  onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScs2oi7cn1xLgGgc-o3DdXJxsl-z1fSw9S9jY8Q0pMGKzp56Q/viewform', '_blank')">
-  להשארת פרטים וקבלת ייעוץ חינם
-</button>
-                        </form>
-                   </div>
-        </section>
-<!-- Privacy Modal -->
-<div id="privacyModal" style="display:none; position:fixed;top:0;right:0;width:100vw;height:100vh;background:rgba(0,0,0,.6);z-index:99999;">
-<div style="max-width:520px;margin:80px auto;background:#fff;padding:30px 24px;border-radius:13px;position:relative;">
-<button onclick="document.getElementById('privacyModal').style.display='none';"
-style="position:absolute;top:18px;left:20px;background:none;border:none;font-size:1.5em;cursor:pointer;">✕</button>
-<!-- כאן תוכן מדיניות הפרטיות -->
-    <!-- כאן תכניס את טקסט מדיניות הפרטיות שלך בשפת HTML -->
- <h1 style="text-align: center; margin-bottom: 2rem; color: #2C5282;">מדיניות פרטיות</h1>
-                    
-                1:11 05/09/2025    <h2>כללי</h2>
-                    <p>
-                        באתר "עמוס פתרונות פיננסיים" אנו מחויבים לשמירה על פרטיות המשתמשים ומידע אישי. 
-                        מדיניות פרטיות זו מתארת כיצד אנו אוספים, משתמשים ומגנים על המידע האישי שלכם.
-                    </p>
-
-                    <h2>איסוף מידע</h2>
-                    <p>אנו עשויים לאסוף מידע אישי במקרים הבאים:</p>
-                    <ul>
-                        <li>בעת יצירת קשר דרך טופס יצירת קשר באתר</li>
-                        <li>בעת הרשמה לקבלת עדכונים או תוכן</li>
-                        <li>בעת שימוש בשירותים הפיננסיים שלנו</li>
-                        <li>במהלך ייעוץ טלפוני או פגישות</li>
-                    </ul>
-                    <p>המידע שנאסף עשוי לכלול: שם מלא, כתובת דוא"ל, מספר טלפון, כתובת, פרטי עסק ומידע פיננסי רלוונטי.</p>
-
-                    <h2>שימוש במידע</h2>
-                    <p>המידע שנאסף משמש למטרות הבאות:</p>
-                    <ul>
-                        <li>מתן שירותים פיננסיים וחשבונאיים</li>
-                        <li>תקשורת עם לקוחות ומענה לפניות</li>
-                        <li>שיפור השירותים והצעות מותאמות</li>
-                        <li>עמידה בדרישות חוק וחובות מקצועיות</li>
-                        <li>שיווק שירותים רלוונטיים (בכפוף להסכמה)</li>
-                    </ul>
-
-                    <h2>הגנה על מידע</h2>
-                    <p>
-                        אנו מקפידים על הגנה מקסימלית על המידע האישי שלכם. אנו משתמשים בצעדי אבטחה 
-                        טכנולוגיים וארגוניים מתקדמים, כולל הצפנה, גישה מוגבלת ועמידה בתקנים הבינלאומיים 
-                        GDPR ו-CCPA.
-                    </p>
-
-                    <h2>שיתוף מידע</h2>
-                    <p>אנו לא מוכרים או מעבירים מידע אישי לצדדים שלישיים, למעט במקרים הבאים:</p>
-                    <ul>
-                        <li>כאשר נדרש על פי חוק</li>
-                        <li>לצורך מתן השירות (כגון רואי חשבון חיצוניים)</li>
-                        <li>בהסכמה מפורשת שלכם</li>
-                        <li>לצורך הגנה על הזכויות שלנו או של אחרים</li>
-                    </ul>
-
-                    <h2>עוגיות (Cookies)</h2>
-                    <p>
-                        האתר עושה שימוש בעוגיות כדי לשפר את חוויית הגלישה, לאנליטיקה ולפרסום מותאם. 
-                        ניתן לנהל את הגדרות העוגיות בדפדפן שלכם.
-                    </p>
-
-                    <h2>זכויות המשתמש</h2>
-                    <p>לכם יש הזכויות הבאות לגבי המידע האישי שלכם:</p>
-                    <ul>
-                        <li>זכות עיון במידע שנאסף עליכם</li>
-                        <li>זכות תיקון מידע שאינו נכון או מעודכן</li>
-                        <li>זכות מחיקת המידע (במקרים מסוימים)</li>
-                        <li>זכות הגבלת עיבוד המידע</li>
-                        <li>זכות ניידות המידע</li>
-                    </ul>
-
-                    <h2>יצירת קשר</h2>
-                    <p>
-                        לפניות בנושא מדיניות הפרטיות או זכויות המשתמש, אנא צרו קשר:
-                        <br><strong>דוא"ל:</strong> ronenamos@gmail.com
-                        <br><strong>טלפון:</strong> 050-5500344
-                    </p>
-
-                    <p style="margin-top: 2rem; font-size: 0.9rem; color: #666;">
-                        <strong>תאריך עדכון אחרון:</strong> ינואר 2025
-                    </p>
-</div>
+        </div>
+        <div class="hero-image">
+            <img src="/assets/images/hero-tech-accounting.jpg" alt="Technological Accounting Solutions" 
+                 width="600" height="400" loading="eager">
+        </div>
+    </div>
 </div>
 
-<!--/Comet-Edit-->
-
-        <!-- Privacy Policy Section -->
-        <section id="privacy" class="section" style="background: white;">
-            <div class="container">
-                <div class="legal-content">
-                   
-        </section>
-
-        <!-- Terms Section -->
-        <section id="terms" class="section" style="background: #f7fafc;">
-            <div class="container">
-                <div class="legal-content">
-<!-- Comet-Edit: מידע מוסתר – לא יוצג עד לחיצה -->
-<!-- Terms Modal -->
-<div id="termsModal" style="display:none; position:fixed;top:0;right:0;width:100vw;height:100vh;background:rgba(0,0,0,.6);z-index:99999;">
-<div style="max-width:520px;margin:80px auto;background:#fff;padding:30px 24px;border-radius:13px;position:relative;">
-<button onclick="document.getElementById('termsModal').style.display='none';"
-style="position:absolute;top:18px;left:20px;background:none;border:none;font-size:1.5em;cursor:pointer;">✕</button>
- <h1 style="text-align: center; margin-bottom: 2rem; color: #2C5282;">תקנון האתר</h1>
-                    
-                    <h2>כללי</h2>
-                    <p>
-                        תקנון זה מסדיר את השימוש באתר "עמוס פתרונות פיננסיים" ובשירותים הניתנים דרכו. 
-                        השימוש באתר מהווה הסכמה מלאה לתנאים המפורטים בתקנון זה.
-                    </p>
-
-                    <h2>הגדרות</h2>
-                    <ul>
-                        <li><strong>"החברה"</strong> - עמוס פתרונות פיננסיים, רונן עמוס</li>
-                        <li><strong>"האתר"</strong> - האתר הנוכחי וכל תתי-האתרים שלו</li>
-                        <li><strong>"המשתמש"</strong> - כל מי שגולש באתר או עושה שימוש בשירותים</li>
-                        <li><strong>"השירותים"</strong> - שירותי חשבונאות, ייעוץ פיננסי וטכנולוגי</li>
-                    </ul>
-
-                    <h2>שימוש באתר</h2>
-                    <p>השימוש באתר מותר אך ורק למטרות חוקיות. אסור:</p>
-                    <ul>
-                        <li>להשתמש באתר לפעילות בלתי חוקית או מזיקה</li>
-                        <li>לפגוע במערכות האתר או לנסות לחדור אליהן</li>
-                        <li>להעתיק, לשכפל או לעשות שימוש מסחרי בתוכן ללא הרשאה</li>
-                        <li>להפיץ תוכן פוגעני, מטעה או לא חוקי</li>
-                    </ul>
-
-                    <h2>תוכן האתר</h2>
-                    <p>
-                        כל התוכן באתר, לרבות טקסטים, תמונות, לוגו ועיצוב, הוא בבעלות החברה או 
-                        בשימוש חוקי. התוכן מוגן בזכויות יוצרים ואסור לעשות בו שימוש ללא הרשאה מפורשת.
-                    </p>
-
-                    <h2>אחריות והגבלות</h2>
-                    <p>
-                        החברה פועלת במיטב המקצועיות אך לא תישא באחריות לנזקים הנובעים משימוש באתר 
-                        או מהסתמכות על המידע בו. המידע באתר הוא לצרכי מידע כללי בלבד ואינו מהווה 
-                        ייעוץ מקצועי.
-                    </p>
-
-                    <h2>יצירת קשר</h2>
-                    <p>
-                        לפניות בנושא התקנון:
-                        <br><strong>דוא"ל:</strong> ronenamos@gmail.com
-                        <br><strong>טלפון:</strong> 050-5500344
-                        <br><strong>כתובת:</strong> צבי 8, רמת גן
-                    </p>
-
-                    <p style="margin-top: 2rem; font-size: 0.9rem; color: #666;">
-                        <strong>תאריך עדכון אחרון:</strong> ינואר 2025
-                    </p>
-            </div>
-<!--/Comet-Edit-->
-
-                   
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <h3>קישורים מהירים</h3>
-                    <p><a href="#home">בית</a></p>
-                    <p><a href="#about">אודות</a></p>
-                    <p><a href="#services">שירותים</a></p>
-                    <p><a href="#contact">יצירת קשר</a></p>
-                </div>
-                
-                <div>
-                    <h3>מידע משפטי</h3>
-<a href="#" onclick="document.getElementById('privacyModal').style.display='block'; return false;">הצג מדיניות פרטיות</a>
-|
-<a href="#" onclick="document.getElementById('termsModal').style.display='block'; return false;">הצג תקנון</a>
-
-                    <p><a href="#faq">שאלות נפוצות</a></p>
-                </div>
-                
-                <div>
-                    <h3>פרטי התקשרות</h3>
-                    <p>רונן עמוס - רואה חשבון טכנולוגי</p>
-                    <p>ronenamos@gmail.com</p>
-                    <p>050-5500344</p>
-                    <p>צבי 8, רמת גן</p>
-                </div>
-                
-                <div>
-                    <h3>השירותים שלנו</h3>
-                    <p>בינה מלאכותית בחשבונאות</p>
-                    <p>אוטומציה פיננסית</p>
-                    <p>דשבורדים Power BI</p>
-                    <p>ייעוץ טכנולוגי</p>
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>אודות רונן עמוס</h2>
+            <p class="section-subtitle">חשבונאי טכנולוגי עם מעל 15 שנות ניסיון</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    רונן עמוס הוא חשבונאי מוסמך ומומחה טכנולוגי המתמחה בשילוב פתרונות דיגיטליים מתקדמים 
+                    עם שירותי חשבונאות מסורתיים. עם מעל 15 שנות ניסיון בתחום, רונן מוביל בתחום האוטומציה 
+                    החשבונאית והטרנספורמציה הדיגיטלית של עסקים.
+                </p>
+                <div class="credentials">
+                    <div class="credential-item">
+                        <h4>השכלה מקצועית</h4>
+                        <p>רו"ח מוסמך, מומחה בטכנולוגיות ERP</p>
+                    </div>
+                    <div class="credential-item">
+                        <h4>התמחויות</h4>
+                        <p>Priority, SAP, אוטומציה חשבונאית, BI</p>
+                    </div>
+                    <div class="credential-item">
+                        <h4>ניסיון</h4>
+                        <p>מעל 200 לקוחות, פרויקטים בכל גדלי העסקים</p>
+                    </div>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p style="color: #a0aec0; margin-bottom: 1rem;">&copy; 2025 רונן עמוס - פתרונות פיננסיים. כל הזכויות שמורות.</p>
-                <p style="color: #a0aec0; margin-bottom: 2rem;">רואה חשבון טכנולוגי | AI ואוטומציה פיננסית | Power BI | עסקים קטנים</p>
-                <div style="text-align: center;">
-                    <a href="#contact" class="cta-button">קבעו פגישת ייעוץ חינם</a>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">לקוחות מרוצים</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">שנות ניסיון</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-label">חיסכון בזמן</div>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
+<section id="services" class="services-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>השירותים שלנו</h2>
+            <p class="section-subtitle">פתרונות חשבונאיים טכנולוגיים מתקדמים</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>אוטומציה חשבונאית</h3>
+                <p>מעבר לעבודה דיגיטלית מלאה עם אוטומציה של כל התהליכים החשבונאיים והפחתה של עד 80% בעבודה ידנית.</p>
+                <a href="/services/technological-accounting/" class="service-link">למידע נוסף →</a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>מעבר לענן</h3>
+                <p>העברת כל המידע החשבונאי לענן עם גישה 24/7, גיבויים אוטומטיים ואבטחה מתקדמת.</p>
+                <a href="/services/cloud-migration/" class="service-link">למידע נוסף →</a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>אינטגרציית ERP</h3>
+                <p>חיבור וסינכרון מלא בין מערכת החשבונאות לכל המערכות העסקיות - Priority, SAP ועוד.</p>
+                <a href="/services/erp-integration/" class="service-link">למידע נוסף →</a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>דוחות בזמן אמת</h3>
+                <p>מעקב רציף אחר המצב הכספי עם דוחות אינטרקטיביים, מתעדכנים בזמן אמת ונגישים מכל מקום.</p>
+                <a href="/services/real-time-reporting/" class="service-link">למידע נוסף →</a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>אבטחת מידע</h3>
+                <p>הגנה מלאה על המידע החשבונאי עם הצפנה מתקדמת, גיבויים מרובים ועמידה בכל התקנים.</p>
+                <a href="/services/data-security/" class="service-link">למידע נוסף →</a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>הדרכות והכשרות</h3>
+                <p>הכשרת הצוות על המערכות החדשות וליווי צמוד לאורך כל תהליך המעבר הטכנולוגי.</p>
+                <a href="/services/training/" class="service-link">למידע נוסף →</a>
+            </div>
+        </div>
+    </div>
+</section>
 
-        // Active navigation highlighting
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section[id]');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
-                }
-            });
+<section id="benefits" class="benefits-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>למה לבחור בנו?</h2>
+            <p class="section-subtitle">היתרונות של עבודה עם חשבונאי טכנולוגי מוביל</p>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <h3>חיסכון משמעותי בזמן</h3>
+                <p>הפחתה של עד 80% בזמן העיבוד החשבונאי הודות לאוטומציה מתקדמת</p>
+            </div>
+            <div class="benefit-item">
+                <h3>דיוק מקסימלי</h3>
+                <p>ביטול שגיאות אנוש והבטחת דיוק מלא בכל הנתונים והחישובים</p>
+            </div>
+            <div class="benefit-item">
+                <h3>נגישות 24/7</h3>
+                <p>גישה למידע הכספי מכל מקום ובכל זמן דרך פלטפורמות ענן מאובטחות</p>
+            </div>
+            <div class="benefit-item">
+                <h3>עמידה בתקנים</h3>
+                <p>עמידה מלאה בכל התקנים החשבונאיים והמשפטיים הנדרשים בישראל</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
+<section id="testimonials" class="testimonials-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>מה אומרים הלקוחות</h2>
+            <p class="section-subtitle">המלצות מלקוחות מרוצים</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"המעבר לעבודה דיגיטלית עם רונן חסך לנו שעות עבודה ונתן לנו שקיפות מלאה על המצב הכספי של החברה."</p>
+                </div>
+                <div class="testimonial-author">
+                    <strong>דני כהן</strong>
+                    <span>מנכ"ל, טק-סולושנס בע"מ</span>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"השירות המקצועי והליווי הצמוד הפכו את התהליך למהיר וחלק. ממליץ בחום!"</p>
+                </div>
+                <div class="testimonial-author">
+                    <strong>מרים לוי</strong>
+                    <span>בעלת חברת יבוא ויצוא</span>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"אחרי המעבר לשירותים הטכנולוגיים של רונן, אנחנו חוסכים מעל 15 שעות בשבוע על עבודה חשבונאית."</p>
+                </div>
+                <div class="testimonial-author">
+                    <strong>אבי רוזן</strong>
+                    <span>מייסד, דיגיטל מרקטינג פרו</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        // FAQ toggle functionality
-        function toggleFAQ(button) {
-            const answer = button.nextElementSibling;
-            const isActive = answer.classList.contains('active');
-            
-            // Close all other answers
-            document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
-                otherAnswer.classList.remove('active');
-            });
-            
-            document.querySelectorAll('.faq-question span').forEach(span => {
-                span.textContent = '+';
-            });
-            
-            // Toggle current answer
-            if (!isActive) {
-                answer.classList.add('active');
-                button.querySelector('span').textContent = '-';
-            }
-        }
+<section id="faq" class="faq-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>שאלות נפוצות</h2>
+            <p class="section-subtitle">תשובות לשאלות הנפוצות ביותר</p>
+        </div>
+        <div class="faq-container">
+            {% for faq_item in page.faq %}
+            <div class="faq-item">
+                <button class="faq-question" type="button">
+                    {{ faq_item.question }}
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>{{ faq_item.answer }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
-        // Contact form submission with WhatsApp integration
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+<section id="contact" class="contact-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>צור קשר</h2>
+            <p class="section-subtitle">בואו נתחיל לעבוד יחד</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>פרטי קשר</h3>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:{{ site.business.contact.phone }}">{{ site.business.contact.phone }}</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:{{ site.business.contact.email }}">{{ site.business.contact.email }}</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://api.whatsapp.com/send?phone={{ site.business.contact.whatsapp }}&text=Hi, I'm interested in your technological accounting services" target="_blank">
+                        WhatsApp
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>{{ site.business.address.city }}, {{ site.business.address.region }}</span>
+                </div>
+            </div>
             
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
-            const company = document.getElementById('company').value;
-            const message = document.getElementById('message').value;
-            
-            if (!name || !phone || !email || !message) {
-                alert('אנא מלאו את כל השדות הנדרשים');
-                return;
-            }
-            
-            // Create WhatsApp message
-            const whatsappText = `שלום רונן,%0A%0Aפניה מהאתר:%0A%0Aשם: ${encodeURIComponent(name)}%0Aטלפון: ${encodeURIComponent(phone)}%0Aאימייל: ${encodeURIComponent(email)}%0A${company ? `חברה: ${encodeURIComponent(company)}%0A` : ''}%0Aהודעה: ${encodeURIComponent(message)}`;
-            
-            // Open WhatsApp
-            window.open(`https://wa.me/972505500344?text=${whatsappText}`, '_blank');
-            
-            // Reset form and show success message
-            this.reset();
-            alert('תודה! ההודעה נשלחה בוואטסאפ. נחזור אליכם בהקדם.');
-        });
-
-        // Logo animation on hover
-        document.querySelector('.logo').addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05)';
-            this.style.transition = 'transform 0.3s ease';
-        });
-        
-        document.querySelector('.logo').addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
-
-        // Add hover effects to cards
-        document.querySelectorAll('.service-card, .testimonial-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-                this.style.transition = 'transform 0.3s ease';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            // Highlight home section by default
-            const homeLink = document.querySelector('a[href="#home"]');
-            if (homeLink) {
-                homeLink.classList.add('active');
-            }
-            
-            // Add fade-in animation for sections when they come into view
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all visible sections for animation (exclude hidden legal sections)
-            document.querySelectorAll('section:not([style*="display: none"])').forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(30px)';
-                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(section);
-            });
-        });
-    </script>
-</body>
-</html>
+            <div class="contact-form">
+                <h3>שלח הודעה</h3>
+                <form id="contactForm" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">שם מלא *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">אימייל *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">טלפון</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">שם החברה</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">שירות מעוניין</label>
+                        <select id="service" name="service">
+                            <option value="">בחר שירות</option>
+                            <option value="technological-accounting">אוטומציה חשבונאית</option>
+                            <option value="cloud-migration">מעבר לענן</option>
+                            <option value="erp-integration">אינטגרציית ERP</option>
+                            <option value="real-time-reporting">דוחות בזמן אמת</option>
+                            <option value="consultation">יעוץ כללי</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">הודעה *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">שלח הודעה</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
