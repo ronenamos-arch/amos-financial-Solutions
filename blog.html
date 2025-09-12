@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בלוג | מאמרים מקצועיים | רונן עמוס - פתרונות חשבונאיים טכנולוגיים</title>
+    <meta name="description" content="מאמרים מקצועיים בנושאי חשבונאות, תכנון פיננסי, טכנולוגיה עסקית ועוד. ייעוץ מקצועי מרונן עמוס, רואה חשבון טכנולוגי מוביל בישראל.">
+    <meta name="keywords" content="בלוג חשבונאות, מאמרים פיננסיים, טכנולוגיה עסקית, רואה חשבון, ייעוץ פיננסי">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: #2C5282;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2C5282 0%, #68D391 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem;
+            margin-bottom: 2px;
+        }
+
+        .logo-text p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #2C5282;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #2C5282 0%, #68D391 100%);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2C5282 0%, #68D391 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Articles Section */
+        .articles-section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #2C5282;
+            margin-bottom: 3rem;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .article-header {
+            background: linear-gradient(135deg, #2C5282 0%, #68D391 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .article-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        .article-title {
+            font-size: 1.3rem;
+            color: #2C5282;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .article-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .article-category {
+            background: #e2e8f0;
+            color: #2C5282;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .read-more {
+            display: inline-block;
+            background: #2C5282;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .read-more:hover {
+            background: #1a365d;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .article-card {
+                margin: 0 10px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #2C5282;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">ר.ע</div>
+                    <div class="logo-text">
+                        <h1>רונן עמוס</h1>
+                        <p>פתרונות חשבונאיים טכנולוגיים</p>
+                    </div>
+                </a>
+
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+
+                <nav class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">בית</a>
+                    <a href="index.html#about" class="nav-link">אודות</a>
+                    <a href="index.html#services" class="nav-link">שירותים</a>
+                    <a href="blog.html" class="nav-link active">בלוג</a>
+                    <a href="index.html#contact" class="nav-link">צור קשר</a>
+                    <a href="index.html#contact" class="cta-button">יעוץ חינם</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>בלוג מקצועי</h1>
+            <p>מאמרים מקצועיים בנושאי חשבונאות, טכנולוגיה עסקית ותכנון פיננסי לעסקים ועצמאיים</p>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="articles-section">
+        <div class="container">
+            <h2 class="section-title">מאמרים מקצועיים</h2>
+            
+            <div class="articles-grid">
+                <!-- Article 1: Budget Planning -->
+                <article class="article-card">
+                    <div class="article-header">
+                        <div class="article-icon">📊</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">מדריך מקיף: תכנון תקציב לעצמאיים בישראל 2025</h3>
+                        <p class="article-description">מדריך מקיף לתכנון תקציב גמיש לעצמאיים בישראל. ייעוץ פיננסי מקצועי, אוטומציה פיננסית ו-AI בחשבונאות.</p>
+                        <div class="article-meta">
+                            <span class="article-category">תכנון פיננסי</span>
+                            <span>קריאה של 8 דקות</span>
+                        </div>
+                        <a href="budget_planning_article.html" class="read-more">קרא עוד ←</a>
+                    </div>
+                </article>
+
+                <!-- Article 2: Financial Planning -->
+                <article class="article-card">
+                    <div class="article-header">
+                        <div class="article-icon">💰</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">כיצד להגדיל הכנסות כעצמאי עם תכנון פיננסי חכם</h3>
+                        <p class="article-description">מדריך מקיף להגדלת הכנסות לעצמאיים ב-2025 עם AI, אוטומציה פיננסית ו-Power BI. אסטרטגיות מוכחות ופתרונות טכנולוגיים.</p>
+                        <div class="article-meta">
+                            <span class="article-category">הגדלת הכנסות</span>
+                            <span>קריאה של 10 דקות</span>
+                        </div>
+                        <a href="financial_planning_article.html" class="read-more">קרא עוד ←</a>
+                    </div>
+                </article>
+
+                <!-- Article 3: Tax Reduction -->
+                <article class="article-card">
+                    <div class="article-header">
+                        <div class="article-icon">🧾</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">איך להפחית תשלומי מס באופן חוקי כעצמאי ב-2025</h3>
+                        <p class="article-description">מדריך מקיף לעצמאיים להפחתת מס חוקית. אסטרטגיות מתקדמות עם AI, אוטומציה פיננסית ו-Power BI.</p>
+                        <div class="article-meta">
+                            <span class="article-category">הפחתת מס</span>
+                            <span>קריאה של 12 דקות</span>
+                        </div>
+                        <a href="tax_reduction_guide.html" class="read-more">קרא עוד ←</a>
+                    </div>
+                </article>
+
+                <!-- Article 4: Payment Collection -->
+                <article class="article-card">
+                    <div class="article-header">
+                        <div class="article-icon">💳</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">התמודדות עם לקוחות שלא משלמים בזמן: מדריך לעצמאי</h3>
+                        <p class="article-description">מדריך מקיף להתמודדות עם לקוחות שלא משלמים בזמן. אסטרטגיות מעשיות, כלים דיגיטליים ופתרונות טכנולוגיים.</p>
+                        <div class="article-meta">
+                            <span class="article-category">ניהול לקוחות</span>
+                            <span>קריאה של 9 דקות</span>
+                        </div>
+                        <a href="payment_collection_article.html" class="read-more">קרא עוד ←</a>
+                    </div>
+                </article>
+
+                <!-- Article 5: Freelancer Profitability -->
+                <article class="article-card">
+                    <div class="article-header">
+                        <div class="article-icon">📈</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">מחשבון רווחיות לפרילנסרים</h3>
+                        <p class="article-description">כלי מתקדם לחישוב רווחיות פרויקטים ועבודות עצמאיות. כולל דשבורד אינטרקטיבי ואנליטיקה מתקדמת.</p>
+                        <div class="article-meta">
+                            <span class="article-category">כלים דיגיטליים</span>
+                            <span>כלי אינטרקטיבי</span>
+                        </div>
+                        <a href="freelancer_profitability.html" class="read-more">השתמש בכלי ←</a>
+                    </div>
+                </article>
+
+                <!-- Article 6: Cash Flow Calculator -->
+                <article class="article-card">
+                    <div class="article-header">
+                        <div class="article-icon">💹</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">מחשבון תזרים מזומנים</h3>
+                        <p class="article-description">כלי מתקדם לניתוח ותכנון תזרים מזומנים לעסקים קטנים ועצמאיים. הכולל תחזיות ודוחות אינטרקטיביים.</p>
+                        <div class="article-meta">
+                            <span class="article-category">כלים דיגיטליים</span>
+                            <span>כלי אינטרקטיבי</span>
+                        </div>
+                        <a href="cash_flow_calculator.html" class="read-more">השתמש בכלי ←</a>
+                    </div>
+                </article>
+
+                <!-- Article 7: Pricing Calculator -->
+                <article class="article-card">
+                    <div class="article-header">
+                        <div class="article-icon">🏷️</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">מחשבון תמחור שירותים</h3>
+                        <p class="article-description">כלי מתקדם לחישוב תמחור שירותים מקצועיים. כולל השוואת מחירים, ניתוח תחרות ואופטימיזציה של רווחיות.</p>
+                        <div class="article-meta">
+                            <span class="article-category">כלים דיגיטליים</span>
+                            <span>כלי אינטרקטיבי</span>
+                        </div>
+                        <a href="pricing_calculator.html" class="read-more">השתמש בכלי ←</a>
+                    </div>
+                </article>
+
+                <!-- Article 8: Financial Calculators -->
+                <article class="article-card">
+                    <div class="article-header">
+                        <div class="article-icon">🧮</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">מחשבונים פיננסיים</h3>
+                        <p class="article-description">אוסף מחשבונים פיננסיים מתקדמים לעסקים קטנים ועצמאיים. כולל מחשבוני השקעות, הלוואות ותכנון פנסיוני.</p>
+                        <div class="article-meta">
+                            <span class="article-category">כלים דיגיטליים</span>
+                            <span>מרכז כלים</span>
+                        </div>
+                        <a href="financial_calculators_page.html" class="read-more">גש לכלים ←</a>
+                    </div>
+                </article>
+
+                <!-- Article 9: Bank Codes Israel -->
+                <article class="article-card">
+                    <div class="article-header">
+                        <div class="article-icon">🏦</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">קודי בנקים בישראל</h3>
+                        <p class="article-description">מדריך מקיף לקודי בנקים וסניפים בישראל. כולל חיפוש מתקדם, נתונים עדכניים וכלים לאימות פרטי בנק.</p>
+                        <div class="article-meta">
+                            <span class="article-category">מידע בנקאי</span>
+                            <span>מאגר נתונים</span>
+                        </div>
+                        <a href="bank_codes_israel.html" class="read-more">חפש קודים ←</a>
+                    </div>
+                </article>
+
+                <!-- Article 10: IBAN Checker -->
+                <article class="article-card">
+                    <div class="article-header">
+                        <div class="article-icon">✅</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">בודק IBAN</h3>
+                        <p class="article-description">כלי מתקדם לבדיקה ואימות מספרי IBAN בינלאומיים. כולל אימות בזמן אמת, זיהוי בנקים ומדינות.</p>
+                        <div class="article-meta">
+                            <span class="article-category">כלים בנקאיים</span>
+                            <span>כלי אימות</span>
+                        </div>
+                        <a href="ibanchecker.html" class="read-more">בדק IBAN ←</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 רונן עמוס - פתרונות חשבונאיים טכנולוגיים. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const navMenu = document.getElementById('navMenu');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
