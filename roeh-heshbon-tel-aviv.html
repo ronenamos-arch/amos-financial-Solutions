@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רואה חשבון בתל אביב | יעוץ פיננסי מקצועי | רונן עמוס CPA</title>
+    <meta name="description" content="רואה חשבון מקצועי בתל אביב - רונן עמוס CPA. שירותי חשבונאות, יעוץ פיננסי, תכנון מס ודיווחים לעסקים ועצמאיים. ייעוץ ראשוני חינם!">
+    <meta name="keywords" content="רואה חשבון תל אביב, חשבונאות תל אביב, יעוץ פיננסי תל אביב, רואה חשבון מקצועי, תכנון מס תל אביב, דיווחים רבעוניים">
+    
+    <!-- Local SEO Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "רונן עמוס - רואה חשבון תל אביב",
+        "image": "https://ronenamos-arch.github.io/amos-financial-Solutions/logo.svg",
+        "description": "שירותי חשבונאות ויעוץ פיננסי מקצועיים לעסקים ועצמאיים בתל אביב ובמרכז הארץ",
+        "url": "https://ronenamos-arch.github.io/amos-financial-Solutions/roeh-heshbon-tel-aviv.html",
+        "telephone": "+972-50-123-4567",
+        "email": "ronenamos@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "תל אביב",
+            "addressRegion": "מחוז תל אביב",
+            "addressCountry": "IL"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 32.0853,
+            "longitude": 34.7818
+        },
+        "areaServed": {
+            "@type": "City",
+            "name": "תל אביב-יפו"
+        },
+        "serviceArea": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": 32.0853,
+                "longitude": 34.7818
+            },
+            "geoRadius": "25000"
+        },
+        "services": [
+            "חשבונאות",
+            "יעוץ פיננסי",
+            "תכנון מס",
+            "דיווחים רבעוניים",
+            "ייעוץ עסקי",
+            "חשבונאות עצמאיים"
+        ],
+        "priceRange": "$$",
+        "openingHours": [
+            "Mo-Th 09:00-18:00",
+            "Su 09:00-16:00"
+        ],
+        "sameAs": [
+            "https://www.linkedin.com/in/ronenamoscpa/"
+        ]
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RTCLV7Q4P"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-4RTCLV7Q4P');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2C5282 0%, #68D391 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(44, 82, 130, 0.95) 0%, rgba(104, 211, 145, 0.95) 100%), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23f0f0f0" points="0,1000 1000,1000 1000,0"/></svg>');
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            color: #2C5282;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2C5282;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #68D391;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #2C5282;
+            margin-bottom: 1rem;
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            color: #2C5282;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .service-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Tel Aviv Specific Section */
+        .tel-aviv-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .location-text h2 {
+            color: #2C5282;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .location-text p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .location-benefits {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .benefit-icon {
+            color: #68D391;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Statistics Section */
+        .stats {
+            background: #2C5282;
+            color: white;
+            padding: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #68D391;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .contact-method {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-method-icon {
+            font-size: 2.5rem;
+            color: #2C5282;
+            margin-bottom: 1rem;
+        }
+
+        .contact-method h3 {
+            color: #2C5282;
+            margin-bottom: 1rem;
+        }
+
+        .contact-method a {
+            color: #68D391;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-method a:hover {
+            text-decoration: underline;
+        }
+
+        /* Email Capture */
+        .email-capture {
+            background: linear-gradient(135deg, #fff3e0 0%, #fce4ec 100%);
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .email-capture h3 {
+            color: #e65100;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .email-capture p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e1e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: right;
+        }
+
+        .email-button {
+            background: linear-gradient(135deg, #2C5282 0%, #68D391 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .email-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 82, 130, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #68D391;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+            
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .email-form {
+                flex-direction: column;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <img src="logo.svg" alt="רונן עמוס CPA" class="logo">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>050-123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>ronenamos@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>רואה חשבון מקצועי בתל אביב</h1>
+            <h2>שירותי חשבונאות ויעוץ פיננסי לעסקים ועצמאיים</h2>
+            <a href="#contact" class="hero-cta">
+                <span>📞</span>
+                <span>ייעוץ ראשוני חינם</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">השירותים שלנו בתל אביב</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3 class="service-title">חשבונאות שוטפת</h3>
+                    <p class="service-description">
+                        ניהול מלא של חשבונאות העסק, רישום עסקאות, התאמות בנקים ודיווחים חודשיים מפורטים
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3 class="service-title">יעוץ פיננסי</h3>
+                    <p class="service-description">
+                        תכנון פיננסי אסטרטגי, ניתוח רווחיות, ייעוץ השקעות ותכנון תזרים מזומנים
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3 class="service-title">דיווחים למס הכנסה</h3>
+                    <p class="service-description">
+                        הכנת דוחות רבעוניים ושנתיים, ייצוג מול רשויות המס ותכנון מס מותאם
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3 class="service-title">ייעוץ עסקי</h3>
+                    <p class="service-description">
+                        הקמת עסקים, בחירת מסלול מס אופטימלי, תכנון עסקי ואסטרטגיות צמיחה
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <h3 class="service-title">שכר ומשאבי אנוש</h3>
+                    <p class="service-description">
+                        ניהול שכר, דיווחי ביטוח לאומי, חישוב פיצויים ויעוץ בתחום יחסי עבודה
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3 class="service-title">ביקורת ובקרה</h3>
+                    <p class="service-description">
+                        ביקורת פנימית, בקרות פיננסיות, זיהוי סיכונים ושיפור תהליכים
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tel Aviv Specific Section -->
+    <section class="tel-aviv-section">
+        <div class="container">
+            <div class="location-content">
+                <div class="location-text">
+                    <h2>מדוע לבחור ברואה חשבון בתל אביב?</h2>
+                    <p>
+                        תל אביב היא הלב הכלכלי של ישראל, עם ריכוז העסקים הגדול ביותר במדינה. כרואה חשבון המתמחה בשוק התל אביבי, אני מכיר את האתגרים וההזדמנויות הייחודיות של עסקים בעיר.
+                    </p>
+                    <p>
+                        עם ניסיון של מעל 10 שנים בתחום, אני מספק שירותי חשבונאות ויעוץ פיננסי מותאמים לעסקים קטנים ובינוניים, סטארטאפים וחברות טכנולוגיה בתל אביב ובמרכז הארץ.
+                    </p>
+                </div>
+                <div class="location-benefits">
+                    <h3 style="color: #2C5282; margin-bottom: 1.5rem;">היתרונות שלנו בתל אביב:</h3>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✅</span>
+                        <span>ניסיון רב עם עסקים בתל אביב והמרכז</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✅</span>
+                        <span>הכרות עמוקה עם הרגולציה המקומית</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✅</span>
+                        <span>זמינות גבוהה ושירות אישי</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✅</span>
+                        <span>מחירים תחרותיים לשוק התל אביבי</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✅</span>
+                        <span>כלים דיגיטליים מתקדמים</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">עסקים בתל אביב</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">שנות ניסיון</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">שביעות רצון לקוחות</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">זמינות לייעוץ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Capture -->
+    <section class="contact">
+        <div class="container">
+            <div class="email-capture">
+                <h3>קבלו ייעוץ חינמי לעסק שלכם!</h3>
+                <p>מלאו פרטים ונחזור אליכם תוך 24 שעות עם הצעה מותאמת לעסק שלכם בתל אביב</p>
+                <form class="email-form" onsubmit="submitTelAvivContact(event)">
+                    <input type="text" class="email-input" name="name" placeholder="השם שלכם" required>
+                    <input type="email" class="email-input" name="email" placeholder="כתובת המייל" required>
+                    <input type="tel" class="email-input" name="phone" placeholder="מספר טלפון" required>
+                    <button type="submit" class="email-button">קבלו ייעוץ חינם</button>
+                </form>
+            </div>
+
+            <div id="contact" class="contact-content">
+                <h2 class="section-title">צרו קשר עכשיו</h2>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-method-icon">📞</div>
+                        <h3>טלפון</h3>
+                        <p><a href="tel:+972501234567">050-123-4567</a></p>
+                        <p>זמינים א'-ה' 9:00-18:00</p>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-method-icon">📧</div>
+                        <h3>אימייל</h3>
+                        <p><a href="mailto:ronenamos@gmail.com">ronenamos@gmail.com</a></p>
+                        <p>מענה תוך 24 שעות</p>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-method-icon">💼</div>
+                        <h3>LinkedIn</h3>
+                        <p><a href="https://www.linkedin.com/in/ronenamoscpa/" target="_blank">רונן עמוס CPA</a></p>
+                        <p>עדכונים מקצועיים</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">דף הבית</a>
+                <a href="cash_flow_calculator.html">מחשבון תזרים</a>
+                <a href="pricing_calculator.html">מחשבון תמחור</a>
+                <a href="blog.html">בלוג</a>
+            </div>
+            <p>&copy; 2025 רונן עמוס CPA | רואה חשבון תל אביב | כל הזכויות שמורות</p>
+        </div>
+    </footer>
+
+    <script>
+        function submitTelAvivContact(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                source: 'tel_aviv_landing_page',
+                location: 'תל אביב',
+                timestamp: new Date().toISOString()
+            };
+
+            // Track with Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'lead_capture', {
+                    'source': 'tel_aviv_landing',
+                    'location': 'tel_aviv',
+                    'lead_type': 'consultation_request'
+                });
+            }
+
+            // Show success message
+            event.target.innerHTML = `
+                <div style="text-align: center; padding: 2rem; background: #d4edda; border-radius: 10px; color: #155724;">
+                    <h3>תודה רבה, ${data.name}!</h3>
+                    <p>קיבלנו את פנייתכם ונחזור אליכם תוך 24 שעות לתיאום פגישת ייעוץ חינמית.</p>
+                    <p>📞 במקרים דחופים: 050-123-4567</p>
+                </div>
+            `;
+        }
+
+        // Track page views for local SEO
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                'page_title': 'רואה חשבון תל אביב',
+                'page_location': window.location.href,
+                'location': 'tel_aviv'
+            });
+        }
+    </script>
+</body>
+</html>
