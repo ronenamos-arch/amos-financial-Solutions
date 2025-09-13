@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מחשבון רווחיות לפרילנסרים - רונן עמוס CPA</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RTCLV7Q4P"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-4RTCLV7Q4P');
+    </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -1021,6 +1029,66 @@
                     </ul>
                 </div>
 
+                <!-- Email Capture Form for Freelancer Calculator -->
+                <div style="background: linear-gradient(135deg, #e8eaf6 0%, #f3e5f5 100%); border: 3px solid #7c4dff; border-radius: 15px; padding: 2.5rem; margin: 2rem 0; text-align: center; direction: rtl;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
+                    <h3 style="color: #5e35b1; font-size: 1.6rem; margin-bottom: 1rem;">רוצים מדריך פרילנס מקצועי בחינם?</h3>
+                    <p style="color: #424242; font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                        קבלו <strong>מדריך קביעת מחירים לפרילנסרים + תבנית Excel</strong> לחישוב שכר שעה מדויק!
+                    </p>
+                    
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: right;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <span style="color: #4caf50; font-weight: bold; font-size: 1.2rem;">✅</span>
+                                <span style="color: #333;">חישוב שכר שעה מדויק</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <span style="color: #4caf50; font-weight: bold; font-size: 1.2rem;">✅</span>
+                                <span style="color: #333;">תבנית Excel אוטומטית</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <span style="color: #4caf50; font-weight: bold; font-size: 1.2rem;">✅</span>
+                                <span style="color: #333;">טיפים לעלייה במחירים</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <span style="color: #4caf50; font-weight: bold; font-size: 1.2rem;">✅</span>
+                                <span style="color: #333;">שווה ₪1,500 - חינם!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="freelancerEmailForm" onsubmit="submitFreelancerEmail(event)" style="display: flex; flex-direction: column; gap: 15px;">
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" name="firstName" placeholder="השם הפרטי שלכם" required 
+                                   style="flex: 1; padding: 12px 15px; border: 2px solid #e1e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl;">
+                            <input type="email" name="email" placeholder="כתובת האימייל שלכם" required 
+                                   style="flex: 1; padding: 12px 15px; border: 2px solid #e1e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl;">
+                        </div>
+                        
+                        <select name="freelanceField" required 
+                                style="width: 100%; padding: 12px 15px; border: 2px solid #e1e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl; background: white;">
+                            <option value="">התחום שלכם</option>
+                            <option value="web-development">פיתוח אתרים</option>
+                            <option value="graphic-design">עיצוב גרפי</option>
+                            <option value="content-writing">כתיבת תוכן</option>
+                            <option value="marketing">שיווק דיגיטלי</option>
+                            <option value="consulting">ייעוץ עסקי</option>
+                            <option value="translation">תרגום</option>
+                            <option value="other">אחר</option>
+                        </select>
+
+                        <button type="submit" 
+                                style="background: linear-gradient(135deg, #5e35b1 0%, #7c4dff 100%); color: white; padding: 15px 30px; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.3s ease;">
+                            🚀 קבלו את המדריך עכשיו - חינם!
+                        </button>
+                    </form>
+
+                    <div style="font-size: 0.85rem; color: #666; margin-top: 1rem;">
+                        🔒 לא נשלח ספאם. ביטול מנוי בכל עת. מידע מאובטח.
+                    </div>
+                </div>
+
                 <div class="lead-form-section fade-in">
                     <div class="lead-form-title">
                         <i class="fas fa-rocket"></i>
@@ -1322,6 +1390,53 @@
 
         // Initial calculation
         calculateProfitability();
+
+        // Email capture form handler for freelancer calculator
+        function submitFreelancerEmail(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {
+                firstName: formData.get('firstName'),
+                email: formData.get('email'),
+                freelanceField: formData.get('freelanceField'),
+                source: 'freelancer_calculator',
+                timestamp: new Date().toISOString(),
+                leadMagnet: 'freelancer_pricing_guide'
+            };
+
+            // Track with Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'lead_capture', {
+                    'source': 'freelancer_calculator',
+                    'lead_magnet': 'freelancer_pricing_guide',
+                    'freelance_field': data.freelanceField
+                });
+            }
+
+            showFreelancerSuccess(data);
+        }
+
+        function showFreelancerSuccess(data) {
+            const formContainer = document.getElementById('freelancerEmailForm').parentElement;
+            formContainer.innerHTML = `
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+                    <h2 style="color: #5e35b1; margin-bottom: 1rem; font-size: 1.8rem;">תודה רבה, ${data.firstName}!</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #424242; line-height: 1.6;">
+                        מדריך הפרילנס המקצועי ותבנית Excel נשלחו אליכם למייל <strong>${data.email}</strong>
+                    </p>
+                    <div style="background: #e8eaf6; padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem; border: 2px solid #7c4dff;">
+                        <p style="margin: 0; color: #5e35b1; font-size: 1rem; line-height: 1.6;">
+                            📧 בדקו את תיבת הדואר שלכם (כולל תיקיית ספאם)<br>
+                            🚀 המדריך כולל 20+ טיפים לעלייה במחירים<br>
+                            📞 נתקשר אליכם תוך 24 שעות לייעוץ חינמי<br>
+                            💡 תקבלו גם עדכונים שבועיים לפרילנסרים
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
     </script>
 </body>
 </html>

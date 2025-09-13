@@ -451,6 +451,54 @@
 
                 <p>זכרו, <strong>ייעוץ לעצמאיים טכנולוגי</strong> יכול להפוך את התהליך לפשוט משמעותית, תוך ניצול כלים מתקדמים כמו <strong>Power BI לעסקים קטנים</strong>, <strong>AI בחשבונאות</strong>, ו<strong>אוטומציה פיננסית מלאה</strong>.</p>
 
+                <!-- Inline Email Capture Form for Budget Planning -->
+                <div style="background: linear-gradient(135deg, #e8f5e8 0%, #f0fff4 100%); border: 3px solid #68D391; border-radius: 15px; padding: 2.5rem; margin: 3rem 0; text-align: center; direction: rtl;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📊</div>
+                    <h3 style="color: #2C5282; font-size: 1.6rem; margin-bottom: 1rem;">רוצים תבנית תקציב מקצועית מוכנה לשימוש?</h3>
+                    <p style="color: #4a5568; font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                        קבלו <strong>תבנית Excel מתקדמת לתכנון תקציב</strong> + דשבורד Power BI להצגת התוצאות.<br>
+                        כולל את כל הנוסחאות והתרחישים מהמאמר!
+                    </p>
+                    
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; margin: 1rem 0; border: 2px solid #e2e8f0;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 1rem; text-align: right;">
+                            <span style="color: #68D391; font-size: 1.1rem;">✅ תבנית תקציב מתקדמת</span>
+                            <span style="color: #68D391; font-size: 1.1rem;">✅ דשבורד ויזואלי</span>
+                            <span style="color: #68D391; font-size: 1.1rem;">✅ נוסחאות מוכנות</span>
+                        </div>
+                        
+                        <form id="inlineEmailFormBudget" onsubmit="submitInlineEmailForm(event, 'budget_planning')" style="max-width: 500px; margin: 0 auto;">
+                            <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
+                                <input type="text" name="firstName" placeholder="השם שלכם" required style="flex: 1; min-width: 150px; padding: 12px 15px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl;">
+                                <input type="email" name="email" placeholder="אימייל לקבלת התבניות" required style="flex: 1; min-width: 200px; padding: 12px 15px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl;">
+                            </div>
+                            
+                            <select name="businessType" required style="width: 100%; padding: 12px 15px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl; background: white; margin-bottom: 15px;">
+                                <option value="">מה גודל ההכנסה החודשית שלכם?</option>
+                                <option value="small-income">עד ₪15,000 חודש</option>
+                                <option value="medium-income">₪15,000-40,000 חודש</option>
+                                <option value="high-income">₪40,000-100,000 חודש</option>
+                                <option value="very-high-income">מעל ₪100,000 חודש</option>
+                                <option value="variable-income">הכנסה משתנה</option>
+                            </select>
+                            
+                            <button type="submit" style="width: 100%; background: linear-gradient(135deg, #2C5282 0%, #68D391 100%); color: white; padding: 15px 30px; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.3s ease;">
+                                📈 קבלו את חבילת התקציב המתקדמת - חינם
+                            </button>
+                        </form>
+                        
+                        <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                            💰 בונוס: מדריך לחיסכון במס לעצמאיים 2025
+                        </p>
+                    </div>
+                    
+                    <div style="background: rgba(34, 197, 94, 0.1); border: 2px solid #22c55e; border-radius: 8px; padding: 1rem; margin-top: 1rem;">
+                        <p style="color: #166534; font-weight: 500; margin: 0; font-size: 0.95rem;">
+                            🎯 <strong>התבנית מותאמת לתקנות 2025:</strong> כולל שינויי מס, מע"מ 18% ותקנות חדשות לעצמאיים
+                        </p>
+                    </div>
+                </div>
+
                 <div class="faq-section">
                     <h2>שאלות נפוצות - ייעוץ פיננסי לעצמאיים</h2>
 
@@ -505,6 +553,52 @@
                 }
             });
         });
+
+        // Inline Email Form Functions
+        function submitInlineEmailForm(event, source) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {
+                firstName: formData.get('firstName'),
+                email: formData.get('email'),
+                businessType: formData.get('businessType'),
+                source: source,
+                timestamp: new Date().toISOString()
+            };
+
+            // Track conversion in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'email_signup', {
+                    event_category: 'conversion',
+                    event_label: `inline_${source}`,
+                    value: 1
+                });
+            }
+
+            // Show success message
+            showInlineSuccessMessage(event.target, data);
+        }
+
+        function showInlineSuccessMessage(form, data) {
+            const formContainer = form.parentElement;
+            formContainer.innerHTML = `
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎉</div>
+                    <h3 style="color: #2C5282; margin-bottom: 1rem;">תודה רבה, ${data.firstName}!</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #4a5568;">
+                        חבילת התקציב המתקדמת נשלחה אליכם למייל <strong>${data.email}</strong>
+                    </p>
+                    <div style="background: #f0fff4; padding: 1rem; border-radius: 8px; border: 2px solid #68D391;">
+                        <p style="margin: 0; color: #2d3748; font-size: 0.95rem;">
+                            📧 החבילה תגיע תוך 5 דקות (בדקו גם ספאם)<br>
+                            📊 כולל תבנית Excel מלאה ודשבורד Power BI<br>
+                            💰 בונוס: מדריך חיסכון במס צורף אוטומטית
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
     </script>
 </body>
 </html>

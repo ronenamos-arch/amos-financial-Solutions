@@ -248,6 +248,54 @@
         <h3>מסקנה</h3>
         <p>שילוב AI בתהליכים פיננסיים אינו עוד טרנד – הוא הכרח לעסקים קטנים ובינוניים בישראל. כפי שראינו בדוגמאות מ"טקנובייט", AI מספק אוטומציה, דיוק וחיסכון זמן משמעותי, תוך התמודדות עם תקנות מס עדכניות כמו דיווחים דיגיטליים לרשות המיסים. הטיפ החשוב: התחילו בקטן, עם נתונים איכותיים, והטמיעו בהדרגה. התוצאות? כמו אצל לקוחותיי – חיסכון של 15 שעות שבועיות ודיוק תחזיות של 95%.</p>
 
+        <!-- Inline Email Capture Form -->
+        <div style="background: linear-gradient(135deg, #f7fafc 0%, #e6f7ff 100%); border: 3px solid #68D391; border-radius: 15px; padding: 2.5rem; margin: 3rem 0; text-align: center; direction: rtl;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🎁</div>
+            <h3 style="color: #2C5282; font-size: 1.6rem; margin-bottom: 1rem;">רוצים לשפר את התהליכים הפיננסיים שלכם עם AI?</h3>
+            <p style="color: #4a5568; font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                קבלו <strong>תבנית Power BI מקצועית בחינם</strong> + מדריך התקנה מפורט בעברית.<br>
+                כולל את כל הדוגמאות מהמאמר מותאמות לעסק שלכם!
+            </p>
+            
+            <div style="background: white; padding: 1.5rem; border-radius: 10px; margin: 1rem 0; border: 2px solid #e2e8f0;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 1rem; text-align: right;">
+                    <span style="color: #68D391; font-size: 1.1rem;">✅ דשבורד AI לניתוח פיננסי</span>
+                    <span style="color: #68D391; font-size: 1.1rem;">✅ תבניות מוכנות לכל הדוגמאות</span>
+                    <span style="color: #68D391; font-size: 1.1rem;">✅ שווה ₪3,000 - חינם!</span>
+                </div>
+                
+                <form id="inlineEmailFormAI" onsubmit="submitInlineEmailForm(event, 'ai_guide')" style="max-width: 500px; margin: 0 auto;">
+                    <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
+                        <input type="text" name="firstName" placeholder="השם שלכם" required style="flex: 1; min-width: 150px; padding: 12px 15px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl;">
+                        <input type="email" name="email" placeholder="אימייל לקבלת התבנית" required style="flex: 1; min-width: 200px; padding: 12px 15px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl;">
+                    </div>
+                    
+                    <select name="businessType" required style="width: 100%; padding: 12px 15px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl; background: white; margin-bottom: 15px;">
+                        <option value="">איזה סוג עסק מתאים לכם?</option>
+                        <option value="small-business">עסק קטן (כמו בדוגמאות המאמר)</option>
+                        <option value="freelancer">עצמאי מתקדם</option>
+                        <option value="startup">סטארטאפ/חברה חדשה</option>
+                        <option value="accounting-firm">משרד חשבונאות</option>
+                        <option value="other">אחר</option>
+                    </select>
+                    
+                    <button type="submit" style="width: 100%; background: linear-gradient(135deg, #2C5282 0%, #68D391 100%); color: white; padding: 15px 30px; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.3s ease;">
+                        🚀 קבלו את חבילת ה-AI הפיננסית - חינם
+                    </button>
+                </form>
+                
+                <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                    🔒 ללא ספאם • ביטול מנוי בקליק אחד • משלוח תוך 5 דקות
+                </p>
+            </div>
+            
+            <div style="background: rgba(255, 193, 7, 0.1); border: 2px solid #ffc107; border-radius: 8px; padding: 1rem; margin-top: 1rem;">
+                <p style="color: #856404; font-weight: 500; margin: 0; font-size: 0.95rem;">
+                    ⏰ <strong>בונוס מיוחד לקוראי המאמר:</strong> הראשונים שמורידים יקבלו גם ייעוץ אישי של 15 דקות בחינם להתאמה לעסק שלכם
+                </p>
+            </div>
+        </div>
+
         <div class="faq">
             <h3>שאלות נפוצות (FAQ)</h3>
             <details>
@@ -278,5 +326,71 @@
     <footer>
         <p>&copy; 2025 Amos Financial Solutions. כל הזכויות שמורות. | <a href="mailto:contact@amosfinancial.co.il">צור קשר</a></p>
     </footer>
+
+    <!-- Inline Email Form JavaScript -->
+    <script>
+        function submitInlineEmailForm(event, source) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {
+                firstName: formData.get('firstName'),
+                email: formData.get('email'),
+                businessType: formData.get('businessType'),
+                source: source,
+                timestamp: new Date().toISOString()
+            };
+
+            // Track conversion in Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'email_signup', {
+                    event_category: 'conversion',
+                    event_label: `inline_${source}`,
+                    value: 1
+                });
+            }
+
+            // Show success message
+            showInlineSuccessMessage(event.target, data);
+        }
+
+        function showInlineSuccessMessage(form, data) {
+            const formContainer = form.parentElement;
+            formContainer.innerHTML = `
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎉</div>
+                    <h3 style="color: #2C5282; margin-bottom: 1rem;">תודה רבה, ${data.firstName}!</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #4a5568;">
+                        חבילת ה-Power BI AI נשלחה אליכם למייל <strong>${data.email}</strong>
+                    </p>
+                    <div style="background: #f0fff4; padding: 1rem; border-radius: 8px; border: 2px solid #68D391;">
+                        <p style="margin: 0; color: #2d3748; font-size: 0.95rem;">
+                            📧 בדקו את תיבת הדואר (כולל ספאם) תוך 5 דקות<br>
+                            📊 החבילה כולל תבנית מיוחדת עם כל הדוגמאות מהמאמר<br>
+                            📞 נחזור אליכם תוך 24 שעות לתיאום הייעוץ האישי החינמי
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Add hover effects to inline form button
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('button[type="submit"]');
+            buttons.forEach(button => {
+                if (button.textContent.includes('AI')) {
+                    button.addEventListener('mouseenter', function() {
+                        this.style.transform = 'translateY(-2px)';
+                        this.style.boxShadow = '0 5px 15px rgba(44, 82, 130, 0.3)';
+                    });
+                    
+                    button.addEventListener('mouseleave', function() {
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = 'none';
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

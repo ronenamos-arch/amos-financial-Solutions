@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מחשבון מחיר למוצר/שירות - רונן עמוס CPA</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4RTCLV7Q4P"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-4RTCLV7Q4P');
+    </script>
     <style>
         * {
             margin: 0;
@@ -684,6 +692,65 @@
                     </ul>
                 </div>
 
+                <!-- Email Capture Form for Pricing Calculator -->
+                <div style="background: linear-gradient(135deg, #fff3e0 0%, #fce4ec 100%); border: 3px solid #ff9800; border-radius: 15px; padding: 2.5rem; margin: 2rem 0; text-align: center; direction: rtl;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💰</div>
+                    <h3 style="color: #e65100; font-size: 1.6rem; margin-bottom: 1rem;">רוצים מדריך תמחור מקצועי בחינם?</h3>
+                    <p style="color: #424242; font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                        קבלו <strong>מדריך תמחור מקצועי + תבנית Excel לחישוב מחירים</strong> לכל סוגי העסקים!
+                    </p>
+                    
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: right;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <span style="color: #4caf50; font-weight: bold; font-size: 1.2rem;">✅</span>
+                                <span style="color: #333;">אסטרטגיות תמחור מתקדמות</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <span style="color: #4caf50; font-weight: bold; font-size: 1.2rem;">✅</span>
+                                <span style="color: #333;">תבנית Excel אוטומטית</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <span style="color: #4caf50; font-weight: bold; font-size: 1.2rem;">✅</span>
+                                <span style="color: #333;">ניתוח תחרותיות בשוק</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <span style="color: #4caf50; font-weight: bold; font-size: 1.2rem;">✅</span>
+                                <span style="color: #333;">שווה ₪1,800 - חינם!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="pricingEmailForm" onsubmit="submitPricingEmail(event)" style="display: flex; flex-direction: column; gap: 15px;">
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" name="firstName" placeholder="השם הפרטי שלכם" required 
+                                   style="flex: 1; padding: 12px 15px; border: 2px solid #e1e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl;">
+                            <input type="email" name="email" placeholder="כתובת האימייל שלכם" required 
+                                   style="flex: 1; padding: 12px 15px; border: 2px solid #e1e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl;">
+                        </div>
+                        
+                        <select name="businessType" required 
+                                style="width: 100%; padding: 12px 15px; border: 2px solid #e1e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl; background: white;">
+                            <option value="">סוג העסק שלכם</option>
+                            <option value="product-business">עסק מוצרים</option>
+                            <option value="service-business">עסק שירותים</option>
+                            <option value="consulting">ייעוץ ושירותים מקצועיים</option>
+                            <option value="retail">קמעונאות ומכירות</option>
+                            <option value="manufacturing">ייצור ותעשייה</option>
+                            <option value="other">אחר</option>
+                        </select>
+
+                        <button type="submit" 
+                                style="background: linear-gradient(135deg, #e65100 0%, #ff9800 100%); color: white; padding: 15px 30px; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.3s ease;">
+                            💰 קבלו את המדריך עכשיו - חינם!
+                        </button>
+                    </form>
+
+                    <div style="font-size: 0.85rem; color: #666; margin-top: 1rem;">
+                        🔒 לא נשלח ספאם. ביטול מנוי בכל עת. מידע מאובטח.
+                    </div>
+                </div>
+
                 <div class="lead-form-section">
                     <div class="lead-form-title">צריך ייעוץ מקצועי בתמחור?</div>
                     <div class="lead-form-subtitle">
@@ -870,6 +937,53 @@
 
         // Initial calculation
         calculatePricing();
+
+        // Email capture form handler for pricing calculator
+        function submitPricingEmail(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {
+                firstName: formData.get('firstName'),
+                email: formData.get('email'),
+                businessType: formData.get('businessType'),
+                source: 'pricing_calculator',
+                timestamp: new Date().toISOString(),
+                leadMagnet: 'pricing_guide_excel'
+            };
+
+            // Track with Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'lead_capture', {
+                    'source': 'pricing_calculator',
+                    'lead_magnet': 'pricing_guide_excel',
+                    'business_type': data.businessType
+                });
+            }
+
+            showPricingSuccess(data);
+        }
+
+        function showPricingSuccess(data) {
+            const formContainer = document.getElementById('pricingEmailForm').parentElement;
+            formContainer.innerHTML = `
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+                    <h2 style="color: #e65100; margin-bottom: 1rem; font-size: 1.8rem;">תודה רבה, ${data.firstName}!</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #424242; line-height: 1.6;">
+                        מדריך התמחור המקצועי ותבנית Excel נשלחו אליכם למייל <strong>${data.email}</strong>
+                    </p>
+                    <div style="background: #fff3e0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem; border: 2px solid #ff9800;">
+                        <p style="margin: 0; color: #e65100; font-size: 1rem; line-height: 1.6;">
+                            📧 בדקו את תיבת הדואר שלכם (כולל תיקיית ספאם)<br>
+                            💰 המדריך כולל 15+ אסטרטגיות תמחור מתקדמות<br>
+                            📞 נתקשר אליכם תוך 24 שעות לייעוץ חינמי<br>
+                            📊 תקבלו גם טיפים שבועיים לשיפור הרווחיות
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
     </script>
 </body>
 </html>
