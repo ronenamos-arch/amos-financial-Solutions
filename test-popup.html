@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Email Popup - Amos Financial Solutions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+            padding: 50px;
+            background: #f8f9fa;
+        }
+        .test-button {
+            background: #2C5282;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .test-button:hover {
+            background: #1a365d;
+        }
+        .instructions {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: right;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>בדיקת מערכת לכידת מיילים</h1>
+    
+    <div class="instructions">
+        <h2>הוראות לבדיקה:</h2>
+        <ol>
+            <li><strong>בדיקה מהירה:</strong> לחצו על "הצג פופאפ מיד" כדי לראות איך הפופאפ נראה</li>
+            <li><strong>בדיקת זמן:</strong> לחצו על "בדיקת 5 שניות" כדי לראות איך זה יופיע אחרי זמן</li>
+            <li><strong>בדיקת יציאה:</strong> לחצו על "בדיקת יציאה" ואז תעבירו את העכבר מחוץ לחלון הדפדפן</li>
+            <li><strong>בדיקת טופס:</strong> מלאו את הטופס ובדקו שהתודה מופיעה כראוי</li>
+        </ol>
+        
+        <h3>מה לבדוק:</h3>
+        <ul>
+            <li>✅ הפופאפ מופיע בזמן הנכון</li>
+            <li>✅ העיצוב נראה מקצועי ומותאם לאתר</li>
+            <li>✅ הטקסט בעברית מיושר נכון</li>
+            <li>✅ הטופס עובד ומציג הודעת תודה</li>
+            <li>✅ הפופאפ נסגר כשצריך</li>
+            <li>✅ זה עובד טוב במובייל</li>
+        </ul>
+    </div>
+
+    <button class="test-button" onclick="showPopupImmediate()">הצג פופאפ מיד</button>
+    <button class="test-button" onclick="testDelayedPopup()">בדיקת 5 שניות</button>
+    <button class="test-button" onclick="testExitIntent()">בדיקת יציאה</button>
+    <button class="test-button" onclick="resetTests()">איפוס בדיקות</button>
+
+    <script>
+        // Copy the exact popup code from index.html for testing
+        document.write(`
+        <style>
+        /* Email Capture Popup Styles */
+        .email-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(3px);
+        }
+
+        .email-popup {
+            background: white;
+            max-width: 600px;
+            width: 90%;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: popupSlideIn 0.4s ease-out;
+            direction: rtl;
+        }
+
+        @keyframes popupSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            padding: 5px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-close:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .popup-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .popup-title {
+            font-size: 1.8rem;
+            color: #2C5282;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .popup-subtitle {
+            font-size: 1.1rem;
+            color: #68D391;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .popup-benefits {
+            text-align: right;
+            margin: 1.5rem 0;
+            background: linear-gradient(135deg, #f7fafc 0%, #e6f7ff 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid #68D391;
+        }
+
+        .popup-benefit {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            color: #2d3748;
+        }
+
+        .popup-benefit:last-child {
+            margin-bottom: 0;
+        }
+
+        .popup-benefit .checkmark {
+            color: #68D391;
+            font-weight: bold;
+            margin-left: 8px;
+            font-size: 1.2rem;
+        }
+
+        .popup-form {
+            margin: 1.5rem 0;
+        }
+
+        .popup-form-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .popup-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .popup-input:focus {
+            outline: none;
+            border-color: #68D391;
+            box-shadow: 0 0 0 3px rgba(104, 211, 145, 0.1);
+        }
+
+        .popup-select {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: right;
+            direction: rtl;
+            background: white;
+        }
+
+        .popup-button {
+            width: 100%;
+            background: linear-gradient(135deg, #2C5282 0%, #68D391 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .popup-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 82, 130, 0.3);
+        }
+
+        .popup-privacy {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .popup-urgency {
+            background: linear-gradient(135deg, #fed7d7 0%, #fbb6ce 100%);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: #c53030;
+            font-weight: 500;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .email-popup {
+                padding: 2rem 1.5rem;
+                margin: 20px;
+            }
+
+            .popup-title {
+                font-size: 1.5rem;
+            }
+
+            .popup-form-row {
+                flex-direction: column;
+            }
+
+            .popup-input, .popup-select {
+                width: 100%;
+            }
+        }
+        </style>
+
+        <!-- Email Capture Popup -->
+        <div id="emailPopupOverlay" class="email-popup-overlay">
+            <div class="email-popup">
+                <button class="popup-close" onclick="closeEmailPopup()">&times;</button>
+                
+                <div class="popup-icon">📊</div>
+                
+                <h2 class="popup-title">קבלו תבנית Power BI מקצועית - בחינם!</h2>
+                <p class="popup-subtitle">דשבורד פיננסי מלא לעסקים ישראליים</p>
+                
+                <div class="popup-benefits">
+                    <div class="popup-benefit">
+                        <span class="checkmark">✅</span>
+                        <span>חוסך 10 שעות חודשיות בדיווח פיננסי</span>
+                    </div>
+                    <div class="popup-benefit">
+                        <span class="checkmark">✅</span>
+                        <span>שווה ₪3,000 - חינם לזמן מוגבל</span>
+                    </div>
+                    <div class="popup-benefit">
+                        <span class="checkmark">✅</span>
+                        <span>כולל מדריך התקנה מפורט בעברית</span>
+                    </div>
+                    <div class="popup-benefit">
+                        <span class="checkmark">✅</span>
+                        <span>מותאם לתקנות ישראליות ומע"מ</span>
+                    </div>
+                </div>
+
+                <div class="popup-urgency">
+                    ⏰ מוגבל ל-100 הורדות ראשונות החודש - נותרו 47 מקומות
+                </div>
+
+                <form class="popup-form" id="emailCaptureForm" onsubmit="submitEmailCapture(event)">
+                    <div class="popup-form-row">
+                        <input type="text" class="popup-input" name="firstName" placeholder="השם הפרטי שלכם" required>
+                        <input type="email" class="popup-input" name="email" placeholder="כתובת האימייל שלכם" required>
+                    </div>
+                    
+                    <div class="popup-form-row">
+                        <select class="popup-select" name="businessType" required>
+                            <option value="">סוג העסק שלכם</option>
+                            <option value="freelancer">עצמאי/פרילנסר</option>
+                            <option value="small-business">חברה קטנה (עד 20 עובדים)</option>
+                            <option value="medium-business">חברה בינונית (20-100 עובדים)</option>
+                            <option value="startup">סטארטאפ/חברה חדשה</option>
+                            <option value="other">אחר</option>
+                        </select>
+                    </div>
+
+                    <input type="tel" class="popup-input" name="phone" placeholder="מספר טלפון (אופציונלי)" style="width: 100%; margin-bottom: 15px;">
+
+                    <button type="submit" class="popup-button">
+                        🎁 קבלו את התבנית עכשיו - חינם
+                    </button>
+                </form>
+
+                <div class="popup-privacy">
+                    🔒 <span>לא נשלח ספאם. ביטול מנוי בכל עת. מדיניות פרטיות מלאה</span>
+                </div>
+            </div>
+        </div>
+        `);
+
+        // Popup functionality
+        let popupShown = false;
+
+        function showPopupImmediate() {
+            resetTests();
+            document.getElementById('emailPopupOverlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            popupShown = true;
+        }
+
+        function testDelayedPopup() {
+            resetTests();
+            alert('הפופאפ יופיע תוך 5 שניות...');
+            setTimeout(() => {
+                showPopupImmediate();
+            }, 5000);
+        }
+
+        function testExitIntent() {
+            resetTests();
+            alert('העבירו את העכבר מחוץ לחלון הדפדפן כדי להפעיל את הפופאפ');
+            
+            document.addEventListener('mouseleave', (e) => {
+                if (e.clientY <= 0 && !popupShown) {
+                    showPopupImmediate();
+                }
+            });
+        }
+
+        function closeEmailPopup() {
+            document.getElementById('emailPopupOverlay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            popupShown = false;
+        }
+
+        function resetTests() {
+            closeEmailPopup();
+            popupShown = false;
+            localStorage.removeItem('emailPopupClosed');
+        }
+
+        // Close popup when clicking overlay
+        document.getElementById('emailPopupOverlay').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('emailPopupOverlay')) {
+                closeEmailPopup();
+            }
+        });
+
+        // Form submission
+        function submitEmailCapture(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {
+                firstName: formData.get('firstName'),
+                email: formData.get('email'),
+                businessType: formData.get('businessType'),
+                phone: formData.get('phone'),
+                source: 'test_page',
+                timestamp: new Date().toISOString()
+            };
+
+            showSuccessMessage(data);
+        }
+
+        function showSuccessMessage(data) {
+            const popup = document.querySelector('.email-popup');
+            popup.innerHTML = `
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+                    <h2 style="color: #2C5282; margin-bottom: 1rem;">תודה רבה, ${data.firstName}!</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #4a5568;">
+                        תבנית ה-Power BI נשלחה אליכם למייל <strong>${data.email}</strong>
+                    </p>
+                    <div style="background: #f0fff4; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 2px solid #68D391;">
+                        <p style="margin: 0; color: #2d3748;">
+                            📧 בדקו את תיבת הדואר שלכם (כולל תיקיית ספאם)<br>
+                            📋 המדריך כולל הוראות התקנה פשוטות<br>
+                            📞 נתקשר אליכם תוך 24 שעות לייעוץ חינמי
+                        </p>
+                    </div>
+                    <button onclick="closeEmailPopup()" style="background: #2C5282; color: white; padding: 12px 24px; border: none; border-radius: 25px; cursor: pointer; font-size: 1rem;">
+                        סגירה
+                    </button>
+                    <button onclick="resetTests()" style="background: #68D391; color: white; padding: 12px 24px; border: none; border-radius: 25px; cursor: pointer; font-size: 1rem; margin-right: 10px;">
+                        בדיקה נוספת
+                    </button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
