@@ -590,6 +590,34 @@
                 <a href="https://ronenamos-arch.github.io/amos-financial-Solutions/index.html#blog" class="cta-button">כל המאמרים</a>
             </div>
         </div>
+        
+        <!-- Inline Email Capture Form for Financial Planning Article -->
+        <div class="email-capture-section" style="background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%); padding: 3rem 2rem; margin: 3rem 0; border-radius: 20px; text-align: center; border: 2px solid #68D391;">
+            <h3 style="color: #2C5282; margin-bottom: 1rem; font-size: 1.5rem;">💡 רוצה עוד טיפים לתכנון פיננסי חכם?</h3>
+            <p style="color: #4a5568; margin-bottom: 2rem; font-size: 1.1rem;">הצטרף לרשימת התפוצה וקבל מדריכים מקצועיים, תבניות Power BI ועדכונים בנושא הגדלת הכנסות</p>
+            
+            <form onsubmit="submitArticleEmail(event)" style="max-width: 500px; margin: 0 auto;">
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <input type="text" name="firstName" placeholder="השם שלך" required style="padding: 1rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; text-align: right;">
+                    <input type="email" name="email" placeholder="כתובת המייל שלך" required style="padding: 1rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; text-align: right;">
+                    
+                    <select name="interest" style="padding: 1rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; text-align: right;">
+                        <option value="financial_planning">תכנון פיננסי מתקדם</option>
+                        <option value="income_growth">הגדלת הכנסות</option>
+                        <option value="automation">אוטומציה פיננסית</option>
+                        <option value="power_bi">דשבורדים ו-Power BI</option>
+                        <option value="tax_optimization">אופטימיזציית מס</option>
+                        <option value="general">כללי</option>
+                    </select>
+                    
+                    <button type="submit" style="background: linear-gradient(135deg, #68D391 0%, #2C5282 100%); color: white; padding: 1rem 2rem; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.3s ease;">
+                        🚀 קבל את המדריכים בחינם
+                    </button>
+                </div>
+            </form>
+            
+            <p style="font-size: 0.9rem; color: #718096; margin-top: 1rem;">לא נשלח ספאם • ניתן לבטל בכל עת • המידע שלך מוגן</p>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -606,6 +634,40 @@
     </footer>
 
     <script>
+        // Email capture form submission for Financial Planning Article
+        function submitArticleEmail(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = {
+                firstName: formData.get('firstName'),
+                email: formData.get('email'),
+                interest: formData.get('interest'),
+                source: 'financial_planning_article',
+                timestamp: new Date().toISOString(),
+                leadMagnet: 'financial_planning_guides'
+            };
+            
+            // Track with Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'lead_capture', {
+                    'source': 'financial_planning_article',
+                    'lead_magnet': 'financial_planning_guides',
+                    'interest_category': data.interest
+                });
+            }
+            
+            // Show success message
+            const button = event.target.querySelector('button');
+            button.innerHTML = '✅ תודה! נבדוק איתך בקרוב';
+            button.style.background = '#68D391';
+            
+            setTimeout(() => {
+                window.location.href = 'thank-you.html?source=financial_planning_article';
+            }, 2000);
+            
+            console.log('Financial Planning Article Email Capture:', data);
+        }
+
         // Simple analytics tracking
         if (typeof gtag !== 'undefined') {
             gtag('event', 'page_view', {

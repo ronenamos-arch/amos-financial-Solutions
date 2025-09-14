@@ -62,17 +62,9 @@
             color: #2C5282;
         }
 
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #2C5282 0%, #68D391 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
+        .logo img {
+            height: 72px;  /* 20% increase from 60px */
+            width: auto;
         }
 
         .logo-text h1 {
@@ -316,7 +308,7 @@
         <div class="container">
             <div class="header-content">
                 <a href="index.html" class="logo">
-                    <img src="assets/images/logo-compact.svg" alt="רונן עמוס - פתרונות פיננסיים" style="height: 50px; width: auto;">
+                    <img src="logo.svg" alt="רונן עמוס - פתרונות פיננסיים">
                 </a>
 
                 <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
@@ -526,6 +518,69 @@
         </div>
     </section>
 
+    <!-- Email Capture Section for Blog -->
+    <section style="background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%); padding: 4rem 0;">
+        <div class="container">
+            <div style="background: white; border-radius: 20px; padding: 3rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 800px; margin: 0 auto;">
+                <div style="font-size: 3rem; margin-bottom: 1.5rem;">📚</div>
+                <h2 style="color: #2C5282; font-size: 2rem; margin-bottom: 1rem;">רוצים לקבל עוד תוכן מקצועי?</h2>
+                <p style="color: #666; font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.6;">
+                    הירשמו לרשימת התפוצה שלנו וקבלו מאמרים מקצועיים, טיפים פיננסיים וכלי עבודה חינמיים ישירות למייל
+                </p>
+                
+                <div style="background: #f8f9fa; padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minMax(200px, 1fr)); gap: 15px; text-align: right;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="color: #4caf50; font-weight: bold; font-size: 1.2rem;">✅</span>
+                            <span style="color: #333;">מאמרים חדשים כל שבוע</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="color: #4caf50; font-weight: bold; font-size: 1.2rem;">✅</span>
+                            <span style="color: #333;">תבניות Excel מקצועיות</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="color: #4caf50; font-weight: bold; font-size: 1.2rem;">✅</span>
+                            <span style="color: #333;">טיפים לחיסכון במס</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="color: #4caf50; font-weight: bold; font-size: 1.2rem;">✅</span>
+                            <span style="color: #333;">עדכונים על חוקי מס</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="blogEmailForm" onsubmit="submitBlogEmail(event)" style="display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 0 auto;">
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" name="firstName" placeholder="השם הפרטי שלכם" required 
+                               style="flex: 1; padding: 12px 15px; border: 2px solid #e1e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl;">
+                        <input type="email" name="email" placeholder="כתובת האימייל שלכם" required 
+                               style="flex: 1; padding: 12px 15px; border: 2px solid #e1e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl;">
+                    </div>
+                    
+                    <select name="interest" required 
+                            style="width: 100%; padding: 12px 15px; border: 2px solid #e1e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl; background: white;">
+                        <option value="">מה הכי מעניין אתכם?</option>
+                        <option value="tax-tips">טיפים למס הכנסה</option>
+                        <option value="business-finance">ניהול פיננסי עסקי</option>
+                        <option value="tech-tools">כלים טכנולוגיים</option>
+                        <option value="startup-advice">ייעוץ לסטארטאפים</option>
+                        <option value="freelancer-tips">עצמאים ופרילנסרים</option>
+                        <option value="all">הכל מעניין אותי</option>
+                    </select>
+
+                    <button type="submit" 
+                            style="background: linear-gradient(135deg, #2C5282 0%, #68D391 100%); color: white; padding: 15px 30px; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.3s ease;">
+                        📧 הירשמו לקבלת תוכן מקצועי
+                    </button>
+                </form>
+
+                <div style="font-size: 0.85rem; color: #666; margin-top: 1rem;">
+                    🔒 לא נשלח ספאם. ביטול מנוי בכל עת. מידע מאובטח לחלוטין.
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -555,6 +610,40 @@
                 navMenu.classList.remove('active');
             }
         });
+
+        // Blog email capture form handler
+        function submitBlogEmail(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {
+                firstName: formData.get('firstName'),
+                email: formData.get('email'),
+                interest: formData.get('interest'),
+                source: 'blog_page',
+                timestamp: new Date().toISOString(),
+                leadMagnet: 'blog_subscription'
+            };
+
+            // Track with Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'lead_capture', {
+                    'source': 'blog_page',
+                    'lead_magnet': 'blog_subscription',
+                    'interest_category': data.interest
+                });
+            }
+
+            // Show success message
+            event.target.innerHTML = `
+                <div style="text-align: center; padding: 2rem; background: #f0f8ff; border-radius: 10px; color: #2C5282;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎉</div>
+                    <h3>תודה רבה, ${data.firstName}!</h3>
+                    <p>נרשמתם בהצלחה לרשימת התפוצה שלנו!</p>
+                    <p>תקבלו תוכן מקצועי מותאם למייל <strong>${data.email}</strong></p>
+                </div>
+            `;
+        }
     </script>
 </body>
 </html>

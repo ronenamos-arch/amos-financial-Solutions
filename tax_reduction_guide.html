@@ -666,7 +666,70 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Inline Email Capture Form for Tax Reduction Guide -->
+        <div class="email-capture-section" style="background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%); padding: 3rem 2rem; margin: 3rem 0; border-radius: 20px; text-align: center; border: 2px solid #68D391;">
+            <h3 style="color: #2C5282; margin-bottom: 1rem; font-size: 1.5rem;">💰 רוצה עוד טיפים להפחתת מס חוקית?</h3>
+            <p style="color: #4a5568; margin-bottom: 2rem; font-size: 1.1rem;">הצטרף לרשימת התפוצה וקבל מדריכי מס מתקדמים, תבניות Power BI ועדכונים רלוונטיים לעצמאיים</p>
+            
+            <form onsubmit="submitTaxGuideEmail(event)" style="max-width: 500px; margin: 0 auto;">
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <input type="text" name="firstName" placeholder="השם שלך" required style="padding: 1rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; text-align: right;">
+                    <input type="email" name="email" placeholder="כתובת המייל שלך" required style="padding: 1rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; text-align: right;">
+                    
+                    <select name="interest" style="padding: 1rem; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; text-align: right;">
+                        <option value="tax_reduction">הפחתות מס וחיסכון</option>
+                        <option value="business_expenses">הוצאות עסקיות מוכרות</option>
+                        <option value="automation">אוטומציה פיננסית</option>
+                        <option value="quarterly_reports">דוחות רבעוניים</option>
+                        <option value="vat_optimization">אופטימיזציית מעמ</option>
+                        <option value="general">כללי</option>
+                    </select>
+                    
+                    <button type="submit" style="background: linear-gradient(135deg, #68D391 0%, #2C5282 100%); color: white; padding: 1rem 2rem; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.3s ease;">
+                        💡 קבל מדריכי מס מתקדמים
+                    </button>
+                </div>
+            </form>
+            
+            <p style="font-size: 0.9rem; color: #718096; margin-top: 1rem;">לא נשלח ספאם • ניתן לבטל בכל עת • המידע שלך מוגן</p>
+        </div>
     </main>
+
+    <script>
+        // Email capture form submission for Tax Reduction Guide
+        function submitTaxGuideEmail(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = {
+                firstName: formData.get('firstName'),
+                email: formData.get('email'),
+                interest: formData.get('interest'),
+                source: 'tax_reduction_guide',
+                timestamp: new Date().toISOString(),
+                leadMagnet: 'tax_optimization_guides'
+            };
+            
+            // Track with Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'lead_capture', {
+                    'source': 'tax_reduction_guide',
+                    'lead_magnet': 'tax_optimization_guides',
+                    'interest_category': data.interest
+                });
+            }
+            
+            // Show success message
+            const button = event.target.querySelector('button');
+            button.innerHTML = '✅ תודה! נבדוק איתך בקרוב';
+            button.style.background = '#68D391';
+            
+            setTimeout(() => {
+                window.location.href = 'thank-you.html?source=tax_reduction_guide';
+            }, 2000);
+            
+            console.log('Tax Reduction Guide Email Capture:', data);
+        }
 
     <script>
         // FAQ functionality
