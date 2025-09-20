@@ -293,11 +293,11 @@
         <div class="header">
             <div class="logo-section">
                 <img src="logo.svg" alt="Amos Financial Solutions" style="height: 72px; width: auto;">
-                <h1>🏦 IBAN Checker</h1>
+                <h1> IBAN Checker</h1>
             </div>
             <p>Professional Israeli & International Banking Tool</p>
             <a href="https://ronenamos-arch.github.io/amos-financial-Solutions/index.html" target="_blank" class="website-btn">
-                🌐 Visit Amos Financial Solutions
+                 Visit Amos Financial Solutions
             </a>
         </div>
 
@@ -318,6 +318,10 @@
                 <div class="form-group">
                     <label for="calc-bank">Bank Code:</label>
                     <input type="text" id="calc-bank" placeholder="e.g., 012 (Bank Hapoalim) or 010 (Bank Leumi)">
+                </div>
+                <div class="form-group">
+                    <label for="calc-branch">Branch Code:</label>
+                    <input type="text" id="calc-branch" placeholder="e.g., 681 (Branch code)">
                 </div>
                 <div class="form-group">
                     <label for="calc-account">Account Number:</label>
@@ -382,7 +386,7 @@
         </div>
 
         <div class="footer">
-            <p>© 2025 IBAN Checker - Professional Banking Tool for Israeli Market</p>
+            <p> 2025 IBAN Checker - Professional Banking Tool for Israeli Market</p>
         </div>
     </div>
 
@@ -450,9 +454,10 @@
             return parseInt(remainder, 10) % 97;
         }
 
-        function calculateCheckDigits(countryCode, bankCode, accountNumber) {
-            // Move country code and check digits to end, replace letters with numbers
-            const rearranged = bankCode + accountNumber + countryCode + '00';
+        function calculateCheckDigits(countryCode, bankCode, branchCode, accountNumber) {
+            // For Israeli IBAN: IL + 2 check digits + 3 bank code + 3 branch code + 13 account number
+            const bban = bankCode + branchCode + accountNumber.padStart(13, '0');
+            const rearranged = bban + countryCode + '00';
             let numericString = '';
             
             for (let i = 0; i < rearranged.length; i++) {
@@ -489,10 +494,11 @@
         function calculateIBAN() {
             const country = document.getElementById('calc-country').value;
             const bankCode = document.getElementById('calc-bank').value.trim();
+            const branchCode = document.getElementById('calc-branch').value.trim();
             const accountNumber = document.getElementById('calc-account').value.trim();
 
             if (!bankCode || !accountNumber) {
-                displayResult('<div class="error">Please fill in all fields.</div>');
+                displayResult('<div class="error">Please fill in Bank Code and Account Number.</div>');
                 return;
             }
 
@@ -506,8 +512,30 @@
             const bank = countryData.banks.find(b => b.code === bankCode);
             
             try {
-                const checkDigits = calculateCheckDigits(country, bankCode, accountNumber);
-                const iban = country + checkDigits + bankCode + accountNumber;
+                let iban;
+                let branchInfo = '';
+                
+                if (country === 'IL') {
+                    // Israeli IBAN requires branch code
+                    if (!branchCode) {
+                        displayResult('<div class="error">Branch code is required for Israeli IBANs.</div>');
+                        return;
+                    }
+                    
+                    // Ensure branch code is 3 digits
+                    const paddedBranchCode = branchCode.padStart(3, '0');
+                    const checkDigits = calculateCheckDigits(country, bankCode, paddedBranchCode, accountNumber);
+                    iban = country + checkDigits + bankCode + paddedBranchCode + accountNumber.padStart(13, '0');
+                    branchInfo = `<p><strong>Branch Code:</strong> ${paddedBranchCode}</p>`;
+                } else {
+                    // For other countries, use original logic without branch code
+                    const checkDigits = calculateCheckDigits(country, bankCode, '', accountNumber);
+                    iban = country + checkDigits + bankCode + accountNumber;
+                    
+                    if (branchCode) {
+                        branchInfo = `<p><strong>Branch Code:</strong> ${branchCode} (informational)</p>`;
+                    }
+                }
 
                 let bankInfo = '';
                 if (bank) {
@@ -522,14 +550,15 @@
 
                 displayResult(`
                     <div class="success">
-                        <h4>✓ IBAN Generated Successfully</h4>
+                        <h4> IBAN Generated Successfully</h4>
                         <p style="font-size: 1.2rem; font-weight: bold; margin: 10px 0; letter-spacing: 1px;">
                             ${iban.replace(/(.{4})/g, '$1 ').trim()}
                         </p>
                         <p><strong>Country:</strong> ${countryData.country}</p>
                         <p><strong>Bank Code:</strong> ${bankCode}</p>
+                        ${branchInfo}
                         <p><strong>Account Number:</strong> ${accountNumber}</p>
-                        <p><strong>Check Digits:</strong> ${checkDigits}</p>
+                        <p><strong>Check Digits:</strong> ${iban.slice(2, 4)}</p>
                     </div>
                     ${bankInfo}
                 `);
@@ -557,7 +586,7 @@
             if (!countryData) {
                 displayResult(`
                     <div class="error">
-                        <h4>✗ Country not supported</h4>
+                        <h4> Country not supported</h4>
                         <p>The country code "${countryCode}" is not in our database.</p>
                     </div>
                 `);
@@ -569,7 +598,7 @@
             if (!isValid) {
                 displayResult(`
                     <div class="error">
-                        <h4>✗ Invalid IBAN</h4>
+                        <h4> Invalid IBAN</h4>
                         <p>The IBAN checksum is incorrect.</p>
                         <p><strong>IBAN:</strong> ${iban.replace(/(.{4})/g, '$1 ').trim()}</p>
                     </div>
@@ -579,7 +608,21 @@
 
             // Parse IBAN components
             const checkDigits = iban.slice(2, 4);
-            const bankCode = iban.slice(4, 7); // First 3 digits after check digits for IL
+            let bankCode, branchCode, accountNumber;
+            let branchInfo = '';
+            
+          if (countryCode === 'IL') {
+    // Israeli IBAN format: IL + 2 check + 2 bank + 3 branch + 16 account
+    bankCode = iban.slice(4, 6);
+    branchCode = iban.slice(6, 9);
+    accountNumber = iban.slice(9);
+    branchInfo = `<p><strong>Branch Code:</strong> ${branchCode}</p>`;
+}
+ else {
+                // Other countries - first 3 digits after check digits as bank code
+                bankCode = iban.slice(4, 7);
+                accountNumber = iban.slice(7);
+            }
             
             // Find bank info
             const bank = countryData.banks.find(b => b.code === bankCode);
@@ -597,14 +640,15 @@
 
             displayResult(`
                 <div class="success">
-                    <h4>✓ Valid IBAN</h4>
+                    <h4> Valid IBAN</h4>
                     <p style="font-size: 1.2rem; font-weight: bold; margin: 10px 0; letter-spacing: 1px;">
                         ${iban.replace(/(.{4})/g, '$1 ').trim()}
                     </p>
                     <p><strong>Country:</strong> ${countryData.country} (${countryCode})</p>
                     <p><strong>Check Digits:</strong> ${checkDigits}</p>
                     <p><strong>Bank Code:</strong> ${bankCode}</p>
-                    <p><strong>Account Number:</strong> ${iban.slice(7)}</p>
+                    ${branchInfo}
+                    <p><strong>Account Number:</strong> ${accountNumber}</p>
                 </div>
                 ${bankInfo}
             `);
@@ -650,7 +694,7 @@
             }
 
             const resultClass = isValid ? 'success' : 'error';
-            const icon = isValid ? '✓' : '✗';
+            const icon = isValid ? '' : '';
 
             displayResult(`
                 <div class="${resultClass}">
@@ -695,7 +739,7 @@
 
             let resultHTML = `
                 <div class="success">
-                    <h4>✓ Found ${results.length} bank(s) in ${countryData.country}</h4>
+                    <h4> Found ${results.length} bank(s) in ${countryData.country}</h4>
                 </div>
                 <div class="bank-result">
             `;
