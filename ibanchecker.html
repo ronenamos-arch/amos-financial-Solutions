@@ -286,6 +286,107 @@
             opacity: 0.8;
             font-size: 0.9rem;
         }
+        /* ---------- UNIVERSAL FOOTER STYLES ---------- */
+        #site-footer {
+          box-sizing: border-box;
+          width: 100%;
+          padding: 18px 16px;
+          background: linear-gradient(90deg, #1a365d 0%, #38a169 100%);
+          color: #ffffff;
+          font-family: inherit;
+          font-size: 14px;
+          line-height: 1.4;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-inner {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          align-items: center;
+          justify-content: center;
+          padding: 6px 12px;
+        }
+
+        .footer-nav {
+          display: flex;
+          gap: 12px;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          direction: rtl;
+        }
+
+        .footer-link {
+          color: #ffffff;
+          text-decoration: none;
+          padding: 8px 10px;
+          border-radius: 8px;
+          min-height: 44px;
+          display: inline-flex;
+          align-items: center;
+          transition: background-color 160ms ease, transform 120ms ease;
+          font-weight: 500;
+        }
+
+        .footer-link:hover,
+        .footer-link:focus {
+          background: rgba(255,255,255,0.08);
+          transform: translateY(-1px);
+          outline: 3px solid rgba(255,255,255,0.06);
+          outline-offset: 2px;
+          text-decoration: none;
+        }
+
+        .footer-sep {
+          color: rgba(245,245,245,0.7);
+          margin: 0 4px;
+        }
+
+        .footer-copyright {
+          color: #f5f5f5;
+          font-size: 13px;
+          text-align: center;
+          opacity: 0.95;
+          padding-bottom: 4px;
+        }
+
+        @media (min-width: 720px) {
+          .footer-inner {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+          }
+          .footer-nav {
+            gap: 18px;
+          }
+          .footer-link {
+            padding: 8px 12px;
+          }
+        }
+
+        @media print {
+          #site-footer {
+            background: none !important;
+            color: #000 !important;
+            -webkit-print-color-adjust: exact;
+            border-top: 1px solid #ccc;
+            padding: 8px 0;
+          }
+          .footer-link {
+            color: #000 !important;
+            text-decoration: underline;
+          }
+        }
+
+        .footer-link:focus {
+          box-shadow: 0 0 0 3px rgba(255,255,255,0.12);
+        }
     </style>
 </head>
 <body>
@@ -293,11 +394,11 @@
         <div class="header">
             <div class="logo-section">
                 <img src="logo.svg" alt="Amos Financial Solutions" style="height: 72px; width: auto;">
-                <h1>🏦 IBAN Checker</h1>
+                <h1> IBAN Checker</h1>
             </div>
             <p>Professional Israeli & International Banking Tool</p>
             <a href="https://ronenamos-arch.github.io/amos-financial-Solutions/index.html" target="_blank" class="website-btn">
-                🌐 Visit Amos Financial Solutions
+                 Visit Amos Financial Solutions
             </a>
         </div>
 
@@ -318,6 +419,10 @@
                 <div class="form-group">
                     <label for="calc-bank">Bank Code:</label>
                     <input type="text" id="calc-bank" placeholder="e.g., 012 (Bank Hapoalim) or 010 (Bank Leumi)">
+                </div>
+                <div class="form-group">
+                    <label for="calc-branch">Branch Code:</label>
+                    <input type="text" id="calc-branch" placeholder="e.g., 681 (Branch code)">
                 </div>
                 <div class="form-group">
                     <label for="calc-account">Account Number:</label>
@@ -382,7 +487,7 @@
         </div>
 
         <div class="footer">
-            <p>© 2025 IBAN Checker - Professional Banking Tool for Israeli Market</p>
+            <p> 2025 IBAN Checker - Professional Banking Tool for Israeli Market</p>
         </div>
     </div>
 
@@ -450,9 +555,10 @@
             return parseInt(remainder, 10) % 97;
         }
 
-        function calculateCheckDigits(countryCode, bankCode, accountNumber) {
-            // Move country code and check digits to end, replace letters with numbers
-            const rearranged = bankCode + accountNumber + countryCode + '00';
+        function calculateCheckDigits(countryCode, bankCode, branchCode, accountNumber) {
+            // For Israeli IBAN: IL + 2 check digits + 3 bank code + 3 branch code + 13 account number
+            const bban = bankCode + branchCode + accountNumber.padStart(13, '0');
+            const rearranged = bban + countryCode + '00';
             let numericString = '';
             
             for (let i = 0; i < rearranged.length; i++) {
@@ -489,10 +595,11 @@
         function calculateIBAN() {
             const country = document.getElementById('calc-country').value;
             const bankCode = document.getElementById('calc-bank').value.trim();
+            const branchCode = document.getElementById('calc-branch').value.trim();
             const accountNumber = document.getElementById('calc-account').value.trim();
 
             if (!bankCode || !accountNumber) {
-                displayResult('<div class="error">Please fill in all fields.</div>');
+                displayResult('<div class="error">Please fill in Bank Code and Account Number.</div>');
                 return;
             }
 
@@ -506,8 +613,30 @@
             const bank = countryData.banks.find(b => b.code === bankCode);
             
             try {
-                const checkDigits = calculateCheckDigits(country, bankCode, accountNumber);
-                const iban = country + checkDigits + bankCode + accountNumber;
+                let iban;
+                let branchInfo = '';
+                
+                if (country === 'IL') {
+                    // Israeli IBAN requires branch code
+                    if (!branchCode) {
+                        displayResult('<div class="error">Branch code is required for Israeli IBANs.</div>');
+                        return;
+                    }
+                    
+                    // Ensure branch code is 3 digits
+                    const paddedBranchCode = branchCode.padStart(3, '0');
+                    const checkDigits = calculateCheckDigits(country, bankCode, paddedBranchCode, accountNumber);
+                    iban = country + checkDigits + bankCode + paddedBranchCode + accountNumber.padStart(13, '0');
+                    branchInfo = `<p><strong>Branch Code:</strong> ${paddedBranchCode}</p>`;
+                } else {
+                    // For other countries, use original logic without branch code
+                    const checkDigits = calculateCheckDigits(country, bankCode, '', accountNumber);
+                    iban = country + checkDigits + bankCode + accountNumber;
+                    
+                    if (branchCode) {
+                        branchInfo = `<p><strong>Branch Code:</strong> ${branchCode} (informational)</p>`;
+                    }
+                }
 
                 let bankInfo = '';
                 if (bank) {
@@ -522,14 +651,15 @@
 
                 displayResult(`
                     <div class="success">
-                        <h4>✓ IBAN Generated Successfully</h4>
+                        <h4> IBAN Generated Successfully</h4>
                         <p style="font-size: 1.2rem; font-weight: bold; margin: 10px 0; letter-spacing: 1px;">
                             ${iban.replace(/(.{4})/g, '$1 ').trim()}
                         </p>
                         <p><strong>Country:</strong> ${countryData.country}</p>
                         <p><strong>Bank Code:</strong> ${bankCode}</p>
+                        ${branchInfo}
                         <p><strong>Account Number:</strong> ${accountNumber}</p>
-                        <p><strong>Check Digits:</strong> ${checkDigits}</p>
+                        <p><strong>Check Digits:</strong> ${iban.slice(2, 4)}</p>
                     </div>
                     ${bankInfo}
                 `);
@@ -557,7 +687,7 @@
             if (!countryData) {
                 displayResult(`
                     <div class="error">
-                        <h4>✗ Country not supported</h4>
+                        <h4> Country not supported</h4>
                         <p>The country code "${countryCode}" is not in our database.</p>
                     </div>
                 `);
@@ -569,7 +699,7 @@
             if (!isValid) {
                 displayResult(`
                     <div class="error">
-                        <h4>✗ Invalid IBAN</h4>
+                        <h4> Invalid IBAN</h4>
                         <p>The IBAN checksum is incorrect.</p>
                         <p><strong>IBAN:</strong> ${iban.replace(/(.{4})/g, '$1 ').trim()}</p>
                     </div>
@@ -579,7 +709,21 @@
 
             // Parse IBAN components
             const checkDigits = iban.slice(2, 4);
-            const bankCode = iban.slice(4, 7); // First 3 digits after check digits for IL
+            let bankCode, branchCode, accountNumber;
+            let branchInfo = '';
+            
+          if (countryCode === 'IL') {
+    // Israeli IBAN format: IL + 2 check + 2 bank + 3 branch + 16 account
+    bankCode = iban.slice(4, 6);
+    branchCode = iban.slice(6, 9);
+    accountNumber = iban.slice(9);
+    branchInfo = `<p><strong>Branch Code:</strong> ${branchCode}</p>`;
+}
+ else {
+                // Other countries - first 3 digits after check digits as bank code
+                bankCode = iban.slice(4, 7);
+                accountNumber = iban.slice(7);
+            }
             
             // Find bank info
             const bank = countryData.banks.find(b => b.code === bankCode);
@@ -597,14 +741,15 @@
 
             displayResult(`
                 <div class="success">
-                    <h4>✓ Valid IBAN</h4>
+                    <h4> Valid IBAN</h4>
                     <p style="font-size: 1.2rem; font-weight: bold; margin: 10px 0; letter-spacing: 1px;">
                         ${iban.replace(/(.{4})/g, '$1 ').trim()}
                     </p>
                     <p><strong>Country:</strong> ${countryData.country} (${countryCode})</p>
                     <p><strong>Check Digits:</strong> ${checkDigits}</p>
                     <p><strong>Bank Code:</strong> ${bankCode}</p>
-                    <p><strong>Account Number:</strong> ${iban.slice(7)}</p>
+                    ${branchInfo}
+                    <p><strong>Account Number:</strong> ${accountNumber}</p>
                 </div>
                 ${bankInfo}
             `);
@@ -650,7 +795,7 @@
             }
 
             const resultClass = isValid ? 'success' : 'error';
-            const icon = isValid ? '✓' : '✗';
+            const icon = isValid ? '' : '';
 
             displayResult(`
                 <div class="${resultClass}">
@@ -695,7 +840,7 @@
 
             let resultHTML = `
                 <div class="success">
-                    <h4>✓ Found ${results.length} bank(s) in ${countryData.country}</h4>
+                    <h4> Found ${results.length} bank(s) in ${countryData.country}</h4>
                 </div>
                 <div class="bank-result">
             `;
@@ -723,5 +868,25 @@
             }
         });
     </script>
+
+    <!-- UNIVERSAL FOOTER START -->
+    <footer id="site-footer" role="contentinfo" aria-label="Footer" dir="rtl">
+      <div class="footer-inner">
+        <nav class="footer-nav" aria-label="Footer Links">
+          <a href="privacy_policy.html" class="footer-link">מדיניות פרטיות</a>
+          <span class="footer-sep" aria-hidden="true">|</span>
+          <a href="terms_of_service.html" class="footer-link">תקנון שימוש</a>
+          <span class="footer-sep" aria-hidden="true">|</span>
+          <a href="mailto:ronenamos@gmail.com" class="footer-link">צור קשר</a>
+        </nav>
+
+        <div class="footer-copyright" aria-hidden="false">
+          © 2025 רונן עמוס - פתרונות פיננסיים. כל הזכויות שמורות
+        </div>
+      </div>
+    </footer>
+    <!-- UNIVERSAL FOOTER END -->
+
+    <script src="cookies.js"></script>
 </body>
 </html>

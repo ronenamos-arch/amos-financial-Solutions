@@ -292,6 +292,107 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* ---------- UNIVERSAL FOOTER STYLES ---------- */
+        #site-footer {
+          box-sizing: border-box;
+          width: 100%;
+          padding: 18px 16px;
+          background: linear-gradient(90deg, #1a365d 0%, #38a169 100%);
+          color: #ffffff;
+          font-family: inherit;
+          font-size: 14px;
+          line-height: 1.4;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-inner {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          align-items: center;
+          justify-content: center;
+          padding: 6px 12px;
+        }
+
+        .footer-nav {
+          display: flex;
+          gap: 12px;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          direction: rtl;
+        }
+
+        .footer-link {
+          color: #ffffff;
+          text-decoration: none;
+          padding: 8px 10px;
+          border-radius: 8px;
+          min-height: 44px;
+          display: inline-flex;
+          align-items: center;
+          transition: background-color 160ms ease, transform 120ms ease;
+          font-weight: 500;
+        }
+
+        .footer-link:hover,
+        .footer-link:focus {
+          background: rgba(255,255,255,0.08);
+          transform: translateY(-1px);
+          outline: 3px solid rgba(255,255,255,0.06);
+          outline-offset: 2px;
+          text-decoration: none;
+        }
+
+        .footer-sep {
+          color: rgba(245,245,245,0.7);
+          margin: 0 4px;
+        }
+
+        .footer-copyright {
+          color: #f5f5f5;
+          font-size: 13px;
+          text-align: center;
+          opacity: 0.95;
+          padding-bottom: 4px;
+        }
+
+        @media (min-width: 720px) {
+          .footer-inner {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+          }
+          .footer-nav {
+            gap: 18px;
+          }
+          .footer-link {
+            padding: 8px 12px;
+          }
+        }
+
+        @media print {
+          #site-footer {
+            background: none !important;
+            color: #000 !important;
+            -webkit-print-color-adjust: exact;
+            border-top: 1px solid #ccc;
+            padding: 8px 0;
+          }
+          .footer-link {
+            color: #000 !important;
+            text-decoration: underline;
+          }
+        }
+
+        .footer-link:focus {
+          box-shadow: 0 0 0 3px rgba(255,255,255,0.12);
+        }
     </style>
 </head>
 <body>
@@ -436,5 +537,25 @@
             }
         });
     </script>
+
+    <!-- UNIVERSAL FOOTER START -->
+    <footer id="site-footer" role="contentinfo" aria-label="Footer" dir="rtl">
+      <div class="footer-inner">
+        <nav class="footer-nav" aria-label="Footer Links">
+          <a href="privacy_policy.html" class="footer-link">מדיניות פרטיות</a>
+          <span class="footer-sep" aria-hidden="true">|</span>
+          <a href="terms_of_service.html" class="footer-link">תקנון שימוש</a>
+          <span class="footer-sep" aria-hidden="true">|</span>
+          <a href="mailto:ronenamos@gmail.com" class="footer-link">צור קשר</a>
+        </nav>
+
+        <div class="footer-copyright" aria-hidden="false">
+          © 2025 רונן עמוס - פתרונות פיננסיים. כל הזכויות שמורות
+        </div>
+      </div>
+    </footer>
+    <!-- UNIVERSAL FOOTER END -->
+
+    <script src="cookies.js"></script>
 </body>
 </html>

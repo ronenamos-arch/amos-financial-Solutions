@@ -1,0 +1,13 @@
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+        <p dir="rtl">אנו משתמשים בקובצי עוגיות כדי לשפר את חוויית הגלישה שלך באתר רונן עמוס - פתרונות פיננסיים. העוגיות כוללות עוגיות חיוניות לתפקוד האתר ועוגיות ניתוח (כגון Google Analytics) לשיפור השירות. <a href="https://ronenamos-arch.github.io/amos-financial-Solutions/privacy_policy.html" class="privacy-link" target="_blank">קרא את מדיניות הפרטיות המלאה</a> שלנו.</p>
+        <div class="cookie-buttons">
+            <button id="essential-only" class="btn-essential">עוגיות חיוניות בלבד</button>
+            <button id="accept-all" class="btn-accept">אישור כל העוגיות</button>
+        </div>
+    </div>
+</div>
+
+<!-- Load Cookie Consent Script -->
+<script src="https://ronenamos-arch.github.io/amos-financial-Solutions/cookies.js"></script>
