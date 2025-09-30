@@ -1,100 +1,21 @@
-# Robots.txt for Ronen Amos Financial Solutions
-# Website: https://ronenamos-arch.github.io/amos-financial-Solutions/
-
-# Allow all web crawlers access to the site
 User-agent: *
 Allow: /
 
-# Sitemap location - Updated with comprehensive page list
+# Sitemap
 Sitemap: https://ronenamos-arch.github.io/amos-financial-Solutions/sitemap.xml
 
-# Major Search Engine Bots - Optimized crawling
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Slurp
-Allow: /
-Crawl-delay: 2
-
-User-agent: DuckDuckBot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Baiduspider
-Allow: /
-Crawl-delay: 3
-
-User-agent: YandexBot
-Allow: /
-Crawl-delay: 2
-
-# Social Media Crawlers
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-User-agent: WhatsApp
-Allow: /
-
-# Block access to development/test files
-Disallow: /test-*
-Disallow: /*test*
-Disallow: /backup*/
-Disallow: /_site/
-Disallow: /.git/
+# Block admin areas if exist
+User-agent: *
 Disallow: /admin/
-Disallow: /private/
-
-# Block sensitive files and configurations
-Disallow: /*.yml$
-Disallow: /*.yaml$
 Disallow: /*.json$
-Disallow: /Gemfile*
-Disallow: /README.md
-Disallow: /package*.json
-Disallow: /.*
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /backup*/
+Disallow: /test-*
+Disallow: /OLD/
 
-# Allow important assets for rendering
-Allow: /assets/
+# Allow important resources
 Allow: /css/
 Allow: /js/
 Allow: /images/
-Allow: /fonts/
-Allow: /*.css$
-Allow: /*.js$
-Allow: /*.png$
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.gif$
-Allow: /*.svg$
-Allow: /*.webp$
-Allow: /*.ico$
-Allow: /*.pdf$
-
-# Allow Google Analytics and tracking
-Allow: /gtag/
-Allow: /analytics/
-
-# Special directive for important pages
-# These pages are critical for local SEO and lead generation
-User-agent: Googlebot
-Allow: /roeh-heshbon-*
-Allow: /*calculator*
-Allow: /*article*
-Allow: /blog.html
-Allow: /thank-you.html
-
-# Crawl budget optimization
-# Focus on high-value pages first
-User-agent: *
-Crawl-delay: 1
+Allow: /assets/
