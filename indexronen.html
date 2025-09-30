@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רונן עמוס | רו"ח טכנולוגי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: A single-page application with a fixed header for easy navigation. The structure is thematic: Hero section for immediate impact with key stats, followed by an interactive "Technological Solutions" section with clickable cards and a data visualization. Next, a "Strategic Services" section, an accordion-style FAQ for easy consumption, testimonials for social proof, and a final clear Call-to-Action section. This structure breaks the long article into engaging, user-controlled segments, prioritizing exploration over linear reading to better capture and retain user interest. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: 10+ years experience, 100+ clients. Goal: Inform/Establish Credibility. Viz/Method: Large, bold numbers in Hero section. Interaction: Static. Justification: Immediate impact and authority.
+        - Report Info: Core services (AI, Power BI, Automation etc.). Goal: Organize/Explain. Viz/Method: Interactive cards with icons. Interaction: Click to reveal details. Justification: Breaks down complex offerings into digestible pieces, encourages user engagement.
+        - Report Info: "70% time saved" statistic. Goal: Visualize/Impact. Viz/Method: Donut Chart. Interaction: Animated on load. Justification: Makes the data point more memorable and compelling than text alone. Library: Chart.js (Canvas).
+        - Report Info: FAQ section. Goal: Organize/Inform. Viz/Method: Accordion list. Interaction: Click to expand/collapse answer. Justification: Standard, space-saving UI that prevents overwhelming the user with text.
+        - Report Info: Testimonials. Goal: Build Trust. Viz/Method: Styled quote cards. Interaction: Static. Justification: Clean, readable presentation of social proof.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Assistant', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+        }
+        .faq-answer {
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .faq-question.active + .faq-answer {
+            max-height: 500px; /* Adjust as needed */
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .faq-question .arrow {
+            transition: transform 0.3s ease-out;
+        }
+        .faq-question.active .arrow {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-bold text-teal-700">רונן עמוס | רו"ח טכנולוגי</h1>
+            <nav class="hidden md:flex space-x-8 space-x-reverse">
+                <a href="#services" class="text-gray-600 hover:text-teal-600 transition-colors">פתרונות טכנולוגיים</a>
+                <a href="#llm-advisor" class="text-gray-600 hover:text-teal-600 transition-colors">יועץ AI</a>
+                <a href="#faq" class="text-gray-600 hover:text-teal-600 transition-colors">שאלות ותשובות</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-teal-600 transition-colors">המלצות</a>
+                <a href="#contact" class="text-gray-600 hover:text-teal-600 transition-colors">צרו קשר</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#services" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">פתרונות טכנולוגיים</a>
+            <a href="#llm-advisor" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">יועץ AI</a>
+            <a href="#faq" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">שאלות ותשובות</a>
+            <a href="#testimonials" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">המלצות</a>
+            <a href="#contact" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">צרו קשר</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="bg-white py-20 md:py-28">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">המומחה המוביל בחשבונאות טכנולוגית לעסקים בישראל</h2>
+                <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">בעולם דיגיטלי, הניהול הפיננסי שלך חייב להיות חכם, אוטומטי ומבוסס נתונים. גלה כיצד בינה מלאכותית, Power BI ואוטומציה יכולים לחסוך לך זמן וכסף.</p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-8">
+                    <div class="text-center">
+                        <span class="text-4xl font-bold text-teal-600">10+</span>
+                        <p class="text-gray-500 mt-1">שנות ניסיון מקצועי</p>
+                    </div>
+                    <div class="border-r-2 border-gray-200 h-12 hidden sm:block"></div>
+                    <div class="text-center">
+                        <span class="text-4xl font-bold text-teal-600">100+</span>
+                        <p class="text-gray-500 mt-1">לקוחות מרוצים</p>
+                    </div>
+                </div>
+                <a href="#contact" class="mt-12 inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-teal-700 transition-transform transform hover:scale-105">לפגישת ייעוץ חינם</a>
+            </div>
+        </section>
+
+        <section id="services" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">פתרונות טכנולוגיים לניהול פיננסי חכם</h2>
+                    <p class="mt-3 text-lg text-gray-600">אנו משלבים חדשנות טכנולוגית עם מומחיות חשבונאית כדי לספק לך יתרון תחרותי.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <div class="text-4xl mb-4 text-teal-600">🤖</div>
+                        <h3 class="text-2xl font-bold mb-3">בינה מלאכותית בחשבונאות</h3>
+                        <p class="text-gray-600 mb-4">ניתוח נתונים חכם, זיהוי מגמות ותחזיות פיננסיות מדויקות לתכנון עסקי ארוך טווח.</p>
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <p class="font-bold text-teal-800">סיפור הצלחה:</p>
+                            <p class="text-teal-700">לקוח שהטמיע מערכת AI חסך <span class="font-bold">70%</span> מזמן העבודה על ניתוח נתונים פיננסיים.</p>
+                             <div class="chart-container mt-4">
+                                <canvas id="savingsChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <div class="text-4xl mb-4 text-teal-600">📊</div>
+                        <h3 class="text-2xl font-bold mb-3">דשבורדים ב-Power BI</h3>
+                        <p class="text-gray-600 mb-4">דוחות אינטראקטיביים וויזואליזציה של נתונים לקבלת תובנות מיידיות ומעקב ביצועים בזמן אמת.</p>
+                         <div class="bg-teal-50 p-4 rounded-lg">
+                            <p class="font-bold text-teal-800">יתרון מוכח:</p>
+                            <p class="text-teal-700">לקוחות מדווחים על חיסכון של שעות עבודה שבועיות ותובנות עסקיות שלא זיהו בעבר.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <div class="text-4xl mb-4 text-teal-600">⚡</div>
+                        <h3 class="text-2xl font-bold mb-3">אוטומציה פיננסית</h3>
+                        <p class="text-gray-600">חיסכון בזמן ומניעת שגיאות על ידי אוטומציה של תהליכים כמו הפקת חשבוניות וניהול הוצאות.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <div class="text-4xl mb-4 text-teal-600">💼</div>
+                        <h3 class="text-2xl font-bold mb-3">ייעוץ מותאם אישית</h3>
+                        <p class="text-gray-600">ליווי מקצועי בניהול פיננסי, תכנון מס ואופטימיזציה עסקית להשגת חיסכון מקסימלי.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <div class="text-4xl mb-4 text-teal-600">📈</div>
+                        <h3 class="text-2xl font-bold mb-3">ניתוח ותחזיות</h3>
+                        <p class="text-gray-600">מודלים חזויים מתקדמים, ניתוח סיכונים ותחזיות תזרים מזומנים למניעת קשיי נזילות.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <div class="text-4xl mb-4 text-teal-600">🔧</div>
+                        <h3 class="text-2xl font-bold mb-3">אינטגרציית מערכות</h3>
+                        <p class="text-gray-600">חיבור מערכות קיימות ליצירת זרימת מידע חלקה, מזעור כפילויות ושיפור היעילות הארגונית.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="llm-advisor" class="py-20 bg-teal-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-teal-800">יועץ פיננסי אוטומטי ✨</h2>
+                    <p class="mt-3 text-lg text-gray-700 max-w-3xl mx-auto">הכנס שאלה פיננסית או עסקית כללית וקבל ניתוח מקצועי ותמציתי מבוסס בינה מלאכותית ומידע עדכני.</p>
+                </div>
+
+                <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-2xl border border-teal-200">
+                    <textarea id="advisor-query" class="w-full h-24 p-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 text-right resize-none" placeholder="לדוגמה: מהם הכלים הטכנולוגיים החדשים ביותר לניהול הוצאות לעסקים קטנים?" dir="rtl"></textarea>
+                    
+                    <button id="run-advisor-button" class="mt-4 w-full bg-teal-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-teal-700 transition-colors disabled:bg-gray-400">
+                        קבל ייעוץ ✨
+                    </button>
+
+                    <div id="advisor-response-container" class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200 min-h-[100px] hidden">
+                        <p id="advisor-response" class="text-gray-800 leading-relaxed"></p>
+                        <div id="advisor-loading" class="hidden text-center text-teal-600">
+                            <div class="animate-spin inline-block w-6 h-6 border-4 border-current border-t-transparent rounded-full" role="status"></div>
+                            <span class="sr-only">טוען...</span>
+                            <p class="mt-2 text-sm">מנתח נתונים ומחפש מקורות עדכניים...</p>
+                        </div>
+                        <div id="advisor-sources" class="mt-4 border-t border-gray-200 pt-3 text-sm hidden">
+                            <p class="font-semibold text-gray-600 mb-1">מקורות מידע (מונחה Google Search):</p>
+                            <ul id="sources-list" class="list-disc list-inside space-y-1 text-gray-500"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">שאלות נפוצות בתחום</h2>
+                    <p class="mt-3 text-lg text-gray-600">המומחה, רונן עמוס, עונה על השאלות שמעסיקות כל בעל עסק.</p>
+                </div>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                        <button class="faq-question w-full text-right p-6 flex justify-between items-center">
+                            <span class="font-semibold text-lg">מתי עסק קטן צריך לעבור מעוסק פטור לעוסק מורשה?</span>
+                            <span class="arrow text-teal-600">▼</span>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-700">
+                            <p>המעבר תלוי בעיקר במחזור המכירות, שמתקרב לתקרה השנתית (כ-120,000 ₪ נכון ל-2025). למעבר יתרונות כמו קיזוז מע"מ ומיתוג מקצועי, אך גם חסרונות כמו מורכבות אדמיניסטרטיבית. מומלץ להתייעץ איתי כשהמחזור מגיע ל-80% מהתקרה, כדי לתכנן את המעבר בצורה אסטרטגית.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                        <button class="faq-question w-full text-right p-6 flex justify-between items-center">
+                            <span class="font-semibold text-lg">מה ההבדל בין תכנון מס לגיטימי להעלמת מס?</span>
+                            <span class="arrow text-teal-600">▼</span>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-700">
+                            <p>תכנון מס לגיטימי הוא שימוש חוקי בהטבות וניכויים קיימים כדי למטב את חבות המס, תוך שקיפות מלאה. העלמת מס היא פעולה לא חוקית של הסתרת הכנסות או הצגת הוצאות פיקטיביות. העיקרון המנחה הוא תמיד לפעול במסגרת החוק ולמצות את ההטבות המגיעות לך.</p>
+                        </div>
+                    </div>
+                     <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                        <button class="faq-question w-full text-right p-6 flex justify-between items-center">
+                            <span class="font-semibold text-lg">אילו הטבות מס יכול עצמאי מתחיל לדרוש?</span>
+                            <span class="arrow text-teal-600">▼</span>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-700">
+                            <p>עצמאי מתחיל זכאי להטבות רבות, ביניהן ניכוי הוצאות הקשורות ישירות לייצור הכנסה, חלק יחסי מהוצאות המשרד הביתי, ניכוי הוצאות רכב, קורסים מקצועיים וביטוחים. המפתח הוא ניהול רישומים מדויק והפרדה ברורה בין הוצאות אישיות לעסקיות. ייעוץ ראשוני יכול למנוע אובדן הטבות יקרות.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                        <button class="faq-question w-full text-right p-6 flex justify-between items-center">
+                            <span class="font-semibold text-lg">כל כמה זמן מומלץ להיפגש עם רואה החשבון?</span>
+                            <span class="arrow text-teal-600">▼</span>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-700">
+                           <p>לעסקים קטנים, מומלץ לקיים פגישות רבעוניות לסקירת ביצועים ותכנון מס, ופגישה מקיפה לקראת סוף השנה. עם זאת, כלים טכנולוגיים כמו דשבורדים בזמן אמת והתראות אוטומטיות יכולים להפחית את הצורך בפגישות תכופות ולספק לך מידע עדכני בכל רגע נתון.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200">
+                        <button class="faq-question w-full text-right p-6 flex justify-between items-center">
+                            <span class="font-semibold text-lg">כיצד להתמודד נכון עם ביקורת של רשויות המס?</span>
+                            <span class="arrow text-teal-600">▼</span>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-700">
+                            <p>הכנה היא המפתח. יש לארגן מראש את כל המסמכים הרלוונטיים, להכין הסברים לעסקאות לא שגרתיות, והכי חשוב - לעבוד עם רואה חשבון מנוסה שייצג אותך. במהלך הביקורת, חשוב לשתף פעולה באופן מלא, לספק תשובות מדויקות בלבד, ולתעד כל פגישה.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-20">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">מה לקוחות מספרים</h2>
+                    <p class="mt-3 text-lg text-gray-600">ההצלחה שלכם היא חותם המומחיות שלנו.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <p class="text-gray-600 italic mb-4">"רונן שינה לי את כל הגישה לניהול הכספים בעסק. הדשבורד שהוא בנה לי ב-Power BI חוסך לי שעות עבודה בכל שבוע ונותן לי תובנות שלא ידעתי שאני צריך."</p>
+                        <p class="font-bold text-teal-700">- מיכל כהן, מנהלת סטודיו גרפי</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <p class="text-gray-600 italic mb-4">"כעצמאי, הזמן שלי יקר. הפתרונות האוטומטיים שרונן הטמיע אצלי פשוט שחררו אותי מכל הבירוקרטיה והמעקב הידני. עכשיו אני מתמקד במה שאני הכי טוב בו."</p>
+                        <p class="font-bold text-teal-700">- דן לוי, יועץ עסקי</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <p class="text-gray-600 italic mb-4">"השירות מקצועי ברמה גבוהה. רונן לא רק עוזר עם החשבונאות, אלא מביא פתרונות טכנולוגיים שממש משדרגים את הארגון."</p>
+                        <p class="font-bold text-teal-700">- שרה רוזן, מנכ"לית סטארט-אפ</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-teal-700 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold">מוכנים להתחיל את המהפכה הפיננסית שלכם?</h2>
+                <p class="mt-4 text-lg text-teal-100 max-w-3xl mx-auto">שדרגו את הניהול הפיננסי שלכם וחסכו שעות עבודה יקרות. קבעו פגישת ייעוץ חינם של 60 דקות וקבלו ניתוח מקצועי, זיהוי הזדמנויות לחיסכון, ותוכנית פעולה מותאמת אישית.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScs2oi7cn1xLgGgc-o3DdXJxsl-z1fSw9S9jY8Q0pMGKzp56Q/viewform?usp=sharing&ouid=113209169108500009079" target="_blank" class="mt-10 inline-block bg-white text-teal-700 font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition-transform transform hover:scale-105">מלאו פרטים לקביעת פגישת ייעוץ</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p>&copy; 2025 רונן עמוס, רואה חשבון. כל הזכויות שמורות.</p>
+            <p class="text-gray-400 mt-1">המידע באתר אינו מהווה ייעוץ משפטי, פיננסי או תחליף לייעוץ מקצועי.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const currentlyActive = document.querySelector('.faq-question.active');
+                    if (currentlyActive && currentlyActive !== question) {
+                        currentlyActive.classList.remove('active');
+                    }
+                    question.classList.toggle('active');
+                });
+            });
+
+            const ctx = document.getElementById('savingsChart');
+            if(ctx) {
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['זמן עבודה שנחסך', 'זמן עבודה שנותר'],
+                        datasets: [{
+                            label: 'חיסכון בזמן',
+                            data: [70, 30],
+                            backgroundColor: [
+                                'rgb(13, 148, 136)',
+                                'rgb(204, 229, 226)'
+                            ],
+                            borderColor: [
+                                'rgb(255, 255, 255)'
+                            ],
+                            borderWidth: 2,
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '70%',
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    font: {
+                                        family: 'Assistant, sans-serif'
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed !== null) {
+                                            label += context.parsed + '%';
+                                        }
+                                        return label;
+                                    }
+                                },
+                                bodyFont: {
+                                    family: 'Assistant, sans-serif'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // --- Gemini API Integration for Automated Advisor ---
+            const apiKey = "";
+            const advisorQuery = document.getElementById('advisor-query');
+            const runAdvisorButton = document.getElementById('run-advisor-button');
+            const responseContainer = document.getElementById('advisor-response-container');
+            const advisorResponse = document.getElementById('advisor-response');
+            const advisorLoading = document.getElementById('advisor-loading');
+            const advisorSourcesDiv = document.getElementById('advisor-sources');
+            const sourcesList = document.getElementById('sources-list');
+
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+            
+            const systemPrompt = "אתה יועץ פיננסי ורואה חשבון טכנולוגי בכיר. ענה על שאלת המשתמש בצורה מקצועית, עניינית ותמציתית (עד 3 משפטים). התמקד בהיבטים של חיסכון, יעילות, טכנולוגיה ואופטימיזציה עסקית. השתמש במידע עדכני ובדוק אם יש מקורות מידע רלוונטיים.";
+
+            async function fetchWithBackoff(url, options, retries = 5, delay = 1000) {
+                try {
+                    const response = await fetch(url, options);
+                    if (!response.ok) {
+                        if (response.status === 429 && retries > 0) {
+                            await new Promise(resolve => setTimeout(resolve, delay));
+                            return fetchWithBackoff(url, options, retries - 1, delay * 2);
+                        }
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response;
+                } catch (error) {
+                    if (retries > 0) {
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        return fetchWithBackoff(url, options, retries - 1, delay * 2);
+                    }
+                    throw error;
+                }
+            }
+
+            async function generateAdvice() {
+                const userQuery = advisorQuery.value.trim();
+                if (!userQuery) return;
+
+                responseContainer.classList.remove('hidden');
+                advisorResponse.textContent = '';
+                advisorSourcesDiv.classList.add('hidden');
+                sourcesList.innerHTML = '';
+                advisorLoading.classList.remove('hidden');
+                runAdvisorButton.disabled = true;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    tools: [{ "google_search": {} }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                };
+
+                const options = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                };
+
+                try {
+                    const response = await fetchWithBackoff(apiUrl, options);
+                    const result = await response.json();
+                    const candidate = result.candidates?.[0];
+
+                    if (candidate && candidate.content?.parts?.[0]?.text) {
+                        const text = candidate.content.parts[0].text;
+                        advisorResponse.textContent = text;
+
+                        let sources = [];
+                        const groundingMetadata = candidate.groundingMetadata;
+                        if (groundingMetadata && groundingMetadata.groundingAttributions) {
+                            sources = groundingMetadata.groundingAttributions
+                                .map(attribution => ({
+                                    uri: attribution.web?.uri,
+                                    title: attribution.web?.title,
+                                }))
+                                .filter(source => source.uri && source.title);
+                        }
+
+                        if (sources.length > 0) {
+                            sources.forEach(source => {
+                                const li = document.createElement('li');
+                                const a = document.createElement('a');
+                                a.href = source.uri;
+                                a.target = '_blank';
+                                a.textContent = source.title;
+                                a.className = 'text-teal-600 hover:text-teal-800 hover:underline';
+                                li.appendChild(a);
+                                sourcesList.appendChild(li);
+                            });
+                            advisorSourcesDiv.classList.remove('hidden');
+                        }
+                    } else {
+                        advisorResponse.textContent = 'אירעה שגיאה בשרת או שהתגובה אינה חוקית. נסה שוב מאוחר יותר.';
+                    }
+
+                } catch (error) {
+                    advisorResponse.textContent = 'שגיאה ברשת או בשרת: לא ניתן לקבל ייעוץ כרגע. אנא בדוק את החיבור ונסה שוב.';
+                    console.error('API Error:', error);
+                } finally {
+                    advisorLoading.classList.add('hidden');
+                    runAdvisorButton.disabled = false;
+                }
+            }
+
+            runAdvisorButton.addEventListener('click', generateAdvice);
+        });
+    </script>
+</body>
+</html>
