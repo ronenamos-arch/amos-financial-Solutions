@@ -1,164 +1,215 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage - Highest Priority -->
+
+  <!-- ========================================
+       דף הבית - עדיפות מקסימלית
+       ======================================== -->
   <url>
     <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/</loc>
-    <lastmod>2025-09-14</lastmod>
+    <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
   <url>
     <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/index.html</loc>
-    <lastmod>2025-09-14</lastmod>
+    <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- English Version - International Market -->
+  <!-- ========================================
+       גרסה אנגלית - שוק בינלאומי
+       ======================================== -->
   <url>
     <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/index-en.html</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <priority>0.9</priority>
   </url>
 
-  <!-- Main Content Pages -->
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/index-en-final.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ========================================
+       דפי תוכן מרכזיים - עדיפות גבוהה
+       ======================================== -->
   <url>
     <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/blog.html</loc>
-    <lastmod>2025-09-14</lastmod>
+    <lastmod>2025-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+
   <url>
     <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/financial_calculators_page.html</loc>
-    <lastmod>2025-09-14</lastmod>
+    <lastmod>2025-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Local SEO Pages - High Priority for Local Search -->
-  <url>
-    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/roeh-heshbon-tel-aviv.html</loc>
-    <lastmod>2025-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/roeh-heshbon-petah-tikva.html</loc>
-    <lastmod>2025-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/roeh-heshbon-bnei-brak.html</loc>
-    <lastmod>2025-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/roeh-heshbon-herzliya.html</loc>
-    <lastmod>2025-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/roeh-heshbon-givataim.html</loc>
-    <lastmod>2025-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Article Pages - High Value Content -->
-  <url>
-    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/financial_planning_article.html</loc>
-    <lastmod>2025-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/tax_reduction_guide.html</loc>
-    <lastmod>2025-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/budget_planning_article.html</loc>
-    <lastmod>2025-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/payment_collection_article.html</loc>
-    <lastmod>2025-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/ai_guide_financial_processes_article.html</loc>
-    <lastmod>2025-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Calculator Tools - High User Value -->
+  <!-- ========================================
+       מחשבונים פיננסיים - ערך גבוה למשתמשים
+       ======================================== -->
   <url>
     <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/cash_flow_calculator.html</loc>
-    <lastmod>2025-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/bank_codes_israel.html</loc>
-    <lastmod>2025-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/ibanchecker.html</loc>
-    <lastmod>2025-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/pricing_calculator.html</loc>
-    <lastmod>2025-09-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/freelancer_profitability.html</loc>
-    <lastmod>2025-09-14</lastmod>
+    <lastmod>2025-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Thank You Page - Lead Conversion -->
   <url>
-    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/thank-you.html</loc>
-    <lastmod>2025-09-14</lastmod>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/pricing_calculator.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/freelancer_profitability.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/ibanchecker.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/bank_codes_israel.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/bank_codes_israel_en.html</loc>
+    <lastmod>2025-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Legal Pages -->
+  <!-- ========================================
+       מאמרים מקצועיים - תוכן איכותי
+       ======================================== -->
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/financial_planning_article.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/budget_planning_article.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/payment_collection_article.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/tax_reduction_guide.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/ai_guide_financial_processes_article.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ========================================
+       דפי SEO מקומי - ערך גבוה לחיפוש מקומי
+       ======================================== -->
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/roeh-heshbon-tel-aviv.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/roeh-heshbon-petah-tikva.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/roeh-heshbon-bnei-brak.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/roeh-heshbon-herzliya.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/roeh-heshbon-givataim.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ========================================
+       דף תודה - המרה
+       ======================================== -->
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/thank-you.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ========================================
+       דפים משפטיים - עדיפות נמוכה
+       ======================================== -->
   <url>
     <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/privacy_policy.html</loc>
-    <lastmod>2025-09-14</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/terms_of_service.html</loc>
-    <lastmod>2025-09-14</lastmod>
+    <lastmod>2025-09-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
-  <!-- Google Verification File -->
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/terms_of_service.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- ========================================
+       קובץ אימות גוגל - עדיפות נמוכה
+       ======================================== -->
   <url>
     <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/googlecb1f67947761c1ca.html</loc>
-    <lastmod>2025-09-14</lastmod>
+    <lastmod>2025-09-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.1</priority>
   </url>
+
+  <!-- הערה: דפי test- אינם נכללים כי הם חסומים ב-robots.txt -->
+
 </urlset>
