@@ -545,13 +545,13 @@
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-bottom: 2rem;
         }
 
         .footer-section h3 {
-            color: #68D391;
+            color: white;
             margin-bottom: 1rem;
         }
 
@@ -965,19 +965,12 @@
     <header class="header">
         <nav class="nav-container">
             <a href="#home" class="logo">
-                <div class="logo-container">
-                    <div class="chart-bars">
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                        <div class="bar"></div>
-                    </div>
-                    <div class="growth-arrow"></div>
-                </div>
-                <div class="logo-text">
-                    <div class="main-title">RONEN AMOS</div>
-                    <div class="subtitle">פתרונות פיננסיים לעסקים קטנים</div>
-                </div>
-            </a>
+      <img src="LOGO.jpg" alt="Ronen Amos Logo" style="height: 105px; width: auto; border-radius: 12px;">
+      <div class="logo-text">
+          <div class="main-title">RONEN AMOS</div>
+          <div class="subtitle">פתרונות פיננסיים לעסקים קטנים</div>
+      </div>
+  </a>
             <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
@@ -1440,18 +1433,6 @@ style="position:absolute;top:18px;left:20px;background:none;border:none;font-siz
 
 <!--/Comet-Edit-->
 
-        <!-- Privacy Policy Section -->
-        <section id="privacy" class="section" style="background: white;">
-            <div class="container">
-                <div class="legal-content">
-                   
-        </section>
-
-        <!-- Terms Section -->
-        <section id="terms" class="section" style="background: #f7fafc;">
-            <div class="container">
-                <div class="legal-content">
-<!-- Comet-Edit: מידע מוסתר – לא יוצג עד לחיצה -->
 <!-- Terms Modal -->
 <div id="termsModal" style="display:none; position:fixed;top:0;right:0;width:100vw;height:100vh;background:rgba(0,0,0,.6);z-index:99999;">
 <div style="max-width:520px;margin:80px auto;background:#fff;padding:30px 24px;border-radius:13px;position:relative;">
@@ -1507,43 +1488,32 @@ style="position:absolute;top:18px;left:20px;background:none;border:none;font-siz
                         <strong>תאריך עדכון אחרון:</strong> ינואר 2025
                     </p>
             </div>
+</div>
 <!--/Comet-Edit-->
 
-                   
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div>
+                <div class="footer-section">
                     <h3>קישורים מהירים</h3>
                     <p><a href="#home">בית</a></p>
                     <p><a href="#about">אודות</a></p>
                     <p><a href="#services">שירותים</a></p>
                     <p><a href="#contact">יצירת קשר</a></p>
                 </div>
-                
-                <div>
-                    <h3>מידע משפטי</h3>
-<a href="#" onclick="document.getElementById('privacyModal').style.display='block'; return false;">הצג מדיניות פרטיות</a>
-|
-<a href="#" onclick="document.getElementById('termsModal').style.display='block'; return false;">הצג תקנון</a>
 
-                    <p><a href="#faq">שאלות נפוצות</a></p>
-                </div>
-                
-                <div>
+                <div class="footer-section">
                     <h3>פרטי התקשרות</h3>
                     <p>רונן עמוס - רואה חשבון טכנולוגי</p>
                     <p>ronenamos@gmail.com</p>
                     <p>050-5500344</p>
                     <p>צבי 8, רמת גן</p>
                 </div>
-                
-                <div>
+
+                <div class="footer-section">
                     <h3>השירותים שלנו</h3>
                     <p>בינה מלאכותית בחשבונאות</p>
                     <p>אוטומציה פיננסית</p>
@@ -1749,31 +1719,10 @@ style="position:absolute;top:18px;left:20px;background:none;border:none;font-siz
                 ⏰ מוגבל ל-100 הורדות ראשונות החודש - נותרו 47 מקומות
             </div>
 
-            <form class="popup-form" id="emailCaptureForm" onsubmit="submitEmailCapture(event)">
-                <div class="popup-form-row">
-                    <input type="text" class="popup-input" name="firstName" placeholder="השם הפרטי שלכם" required>
-                    <input type="email" class="popup-input" name="email" placeholder="כתובת האימייל שלכם" required>
-                </div>
-                
-                <div class="popup-form-row">
-                    <select class="popup-select" name="businessType" required>
-                        <option value="">סוג העסק שלכם</option>
-                        <option value="freelancer">עצמאי/פרילנסר</option>
-                        <option value="small-business">חברה קטנה (עד 20 עובדים)</option>
-                        <option value="medium-business">חברה בינונית (20-100 עובדים)</option>
-                        <option value="startup">סטארטאפ/חברה חדשה</option>
-                        <option value="other">אחר</option>
-                    </select>
-                </div>
+            <!-- Google Form Embedded -->
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdDLPMVhiHYEQVRdIKUB-xWX5z8jSgMhc_Y-wGZAh4mZvJZ1Q/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" style="border-radius: 12px;">טוען…</iframe>
 
-                <input type="tel" class="popup-input" name="phone" placeholder="מספר טלפון (אופציונלי)" style="width: 100%; margin-bottom: 15px;">
-
-                <button type="submit" class="popup-button">
-                    🎁 קבלו את התבנית עכשיו - חינם
-                </button>
-            </form>
-
-            <div class="popup-privacy">
+            <div class="popup-privacy" style="margin-top: 15px;">
                 🔒 <span>לא נשלח ספאם. ביטול מנוי בכל עת. מדיניות פרטיות מלאה</span>
             </div>
         </div>
@@ -1837,64 +1786,7 @@ style="position:absolute;top:18px;left:20px;background:none;border:none;font-siz
             }
         });
 
-        // Form submission
-        function submitEmailCapture(event) {
-            event.preventDefault();
-            
-            const formData = new FormData(event.target);
-            const data = {
-                firstName: formData.get('firstName'),
-                email: formData.get('email'),
-                businessType: formData.get('businessType'),
-                phone: formData.get('phone'),
-                source: 'homepage_popup',
-                timestamp: new Date().toISOString()
-            };
-
-            // Track conversion in Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'email_signup', {
-                    event_category: 'conversion',
-                    event_label: 'powerbi_template_download',
-                    value: 1
-                });
-            }
-
-            // For now, just show success message (later integrate with email service)
-            showSuccessMessage(data);
-        }
-
-        function showSuccessMessage(data) {
-            const popup = document.querySelector('.email-popup');
-            popup.innerHTML = `
-                <div style="text-align: center; padding: 2rem;">
-                    <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
-                    <h2 style="color: #2C5282; margin-bottom: 1rem;">תודה רבה, ${data.firstName}!</h2>
-                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; color: #4a5568;">
-                        תבנית ה-Power BI נשלחה אליכם למייל <strong>${data.email}</strong>
-                    </p>
-                    <div style="background: #f0fff4; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 2px solid #68D391;">
-                        <p style="margin: 0; color: #2d3748;">
-                            📧 בדקו את תיבת הדואר שלכם (כולל תיקיית ספאם)<br>
-                            📋 המדריך כולל הוראות התקנה פשוטות<br>
-                            📞 נתקשר אליכם תוך 24 שעות לייעוץ חינמי
-                        </p>
-                    </div>
-                    <button onclick="closeEmailPopup()" style="background: #2C5282; color: white; padding: 12px 24px; border: none; border-radius: 25px; cursor: pointer; font-size: 1rem;">
-                        סגירה
-                    </button>
-                </div>
-            `;
-
-            // Auto-close after 8 seconds
-            setTimeout(() => {
-                closeEmailPopup();
-            }, 8000);
-        }
-
-        // Show popup for testing (remove in production)
-        // Uncomment the line below to test the popup immediately
-        // setTimeout(() => showEmailPopup(), 2000);
+        // Google Form is now embedded - no custom submission needed
     </script>
 
     <!-- Schema Markup - LocalBusiness -->
