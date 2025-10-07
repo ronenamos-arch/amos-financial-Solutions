@@ -489,6 +489,36 @@
             </div>
         </div>
 
+        <!-- Official Resources Section -->
+        <div class="tool-card" style="margin-top: 30px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
+            <h3 style="color: #2d3748;">📚 Official Israeli Banking Resources</h3>
+            <div class="info-box" style="background: white; margin-bottom: 15px;">
+                <h4 style="color: #2d3748;">Bank of Israel - Payment Systems & IBAN Information</h4>
+                <p style="margin-bottom: 10px;">Access official guidance on Israeli banking identification codes, IBAN standards, and payment system regulations directly from the Bank of Israel's supervision authority.</p>
+                <a href="https://www.boi.org.il/roles/supervisionregulation/payment-systems-oversight/psaccess/identification-code/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   style="color: #5a67d8; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; padding: 8px 0;">
+                    🔗 Visit Bank of Israel - Identification Code Resources
+                    <span style="margin-left: 5px;">↗</span>
+                </a>
+            </div>
+            <div class="info-box" style="background: white;">
+                <h4 style="color: #2d3748;">Ministry of Finance - Israel</h4>
+                <p style="margin-bottom: 10px;">Explore official financial regulations, banking policies, and government resources for Israeli financial services and compliance.</p>
+                <a href="https://www.gov.il/he/departments/ministry_of_finance"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   style="color: #5a67d8; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; padding: 8px 0;">
+                    🔗 Visit Ministry of Finance Official Portal
+                    <span style="margin-left: 5px;">↗</span>
+                </a>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #666; font-style: italic;">
+                These official resources provide authoritative information on Israeli banking standards, IBAN validation protocols, and financial regulations to ensure accurate and compliant banking operations.
+            </p>
+        </div>
+
         <div class="footer">
             <p> 2025 IBAN Checker - Professional Banking Tool for Israeli Market</p>
         </div>
@@ -625,11 +655,12 @@
                         displayResult('<div class="error">Branch code is required for Israeli IBANs.</div>');
                         return;
                     }
-                    
-                    // Ensure branch code is 3 digits
+
+                    // Ensure bank code and branch code are 3 digits
+                    const paddedBankCode = bankCode.padStart(3, '0');
                     const paddedBranchCode = branchCode.padStart(3, '0');
-                    const checkDigits = calculateCheckDigits(country, bankCode, paddedBranchCode, accountNumber);
-                    iban = country + checkDigits + bankCode + paddedBranchCode + accountNumber.padStart(13, '0');
+                    const checkDigits = calculateCheckDigits(country, paddedBankCode, paddedBranchCode, accountNumber);
+                    iban = country + checkDigits + paddedBankCode + paddedBranchCode + accountNumber.padStart(13, '0');
                     branchInfo = `<p><strong>Branch Code:</strong> ${paddedBranchCode}</p>`;
                 } else {
                     // For other countries, use original logic without branch code
@@ -716,10 +747,10 @@
             let branchInfo = '';
             
           if (countryCode === 'IL') {
-    // Israeli IBAN format: IL + 2 check + 2 bank + 3 branch + 16 account
-    bankCode = iban.slice(4, 6);
-    branchCode = iban.slice(6, 9);
-    accountNumber = iban.slice(9);
+    // Israeli IBAN format: IL + 2 check + 3 bank + 3 branch + 13 account
+    bankCode = iban.slice(4, 7);
+    branchCode = iban.slice(7, 10);
+    accountNumber = iban.slice(10);
     branchInfo = `<p><strong>Branch Code:</strong> ${branchCode}</p>`;
 }
  else {
