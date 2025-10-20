@@ -822,29 +822,18 @@
                         </div>
                     </div>
 
-                    <form id="pricingEmailForm" onsubmit="submitPricingEmail(event)" style="display: flex; flex-direction: column; gap: 15px;">
-                        <div style="display: flex; gap: 10px;">
-                            <input type="text" name="firstName" placeholder="השם הפרטי שלכם" required 
-                                   style="flex: 1; padding: 12px 15px; border: 2px solid #e1e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl;">
-                            <input type="email" name="email" placeholder="כתובת האימייל שלכם" required 
-                                   style="flex: 1; padding: 12px 15px; border: 2px solid #e1e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl;">
-                        </div>
+                       <!-- Embedded Google Form -->
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSevs-Ma-mkgaLzGI9fgksmYQZ7vWpWS8OPCVYXHqHizW1SgPQ/viewform?embedded=true"
+              width="100%" height="800"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              style="border-radius: 15px; background: white;">
+        טוען…
+      </iframe>
+    </div>
                         
-                        <select name="businessType" required 
-                                style="width: 100%; padding: 12px 15px; border: 2px solid #e1e8f0; border-radius: 8px; font-size: 1rem; text-align: right; direction: rtl; background: white;">
-                            <option value="">סוג העסק שלכם</option>
-                            <option value="product-business">עסק מוצרים</option>
-                            <option value="service-business">עסק שירותים</option>
-                            <option value="consulting">ייעוץ ושירותים מקצועיים</option>
-                            <option value="retail">קמעונאות ומכירות</option>
-                            <option value="manufacturing">ייצור ותעשייה</option>
-                            <option value="other">אחר</option>
-                        </select>
-
-                        <button type="submit" 
-                                style="background: linear-gradient(135deg, #e65100 0%, #ff9800 100%); color: white; padding: 15px 30px; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.3s ease;">
-                            💰 קבלו את המדריך עכשיו - חינם!
-                        </button>
+ 
                     </form>
 
                     <div style="font-size: 0.85rem; color: #666; margin-top: 1rem;">
