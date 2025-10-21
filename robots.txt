@@ -1,21 +1,64 @@
+# Robots.txt for Amos Financial Solutions
+# Website: https://ronenamos-arch.github.io/amos-financial-Solutions/
+# Last Updated: 2025-10-21
+
 User-agent: *
 Allow: /
 
-# Sitemap
+# ========================================
+# XML SITEMAP
+# ========================================
 Sitemap: https://ronenamos-arch.github.io/amos-financial-Solutions/sitemap.xml
 
-# Block admin areas if exist
+# ========================================
+# BLOCKED DIRECTORIES & FILES
+# ========================================
+
+# Administrative and system directories
 User-agent: *
 Disallow: /admin/
-Disallow: /*.json$
-Disallow: /node_modules/
 Disallow: /.git/
+Disallow: /node_modules/
+
+# Backup and deprecated content
 Disallow: /backup*/
-Disallow: /test-*
+Disallow: /backup-20250912/
 Disallow: /OLD/
 
-# Allow important resources
+# Test and development files
+Disallow: /test-*
+Disallow: /indexronen.html
+Disallow: /index-en-final.html
+
+# Configuration and data files
+Disallow: /*.json$
+
+# ========================================
+# EXPLICITLY ALLOWED RESOURCES
+# ========================================
+
+# Static assets (CSS, JS, Images)
 Allow: /css/
 Allow: /js/
 Allow: /images/
 Allow: /assets/
+
+# Public pages and articles
+Allow: /pages/
+Allow: /articles/
+
+# ========================================
+# CRAWL RATE (Optional)
+# ========================================
+# Crawl-delay: 1
+
+# ========================================
+# USER AGENT SPECIFIC RULES (Optional)
+# ========================================
+
+# Block bad bots (uncomment if needed)
+# User-agent: SemrushBot
+# Disallow: /
+#
+# User-agent: AhrefsBot
+# Disallow: /
