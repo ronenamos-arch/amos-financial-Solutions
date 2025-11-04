@@ -1,6 +1,6 @@
 # Robots.txt for Amos Financial Solutions
 # Website: https://ronenamos-arch.github.io/amos-financial-Solutions/
-# Last Updated: 2025-10-21
+# Last Updated: 2025-11-04
 
 User-agent: *
 Allow: /
