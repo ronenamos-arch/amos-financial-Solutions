@@ -1,0 +1,30 @@
+# Amos Financial Solutions - AI-Powered Accounting & Financial Automation
+
+## About
+Professional accounting services combining AI technology and financial automation.
+Contact: ronenamos@gmail.com | Located in Ramat Gan, Israel
+
+## Main Pages
+
+https://ronenamos-arch.github.io/amos-financial-Solutions/
+https://ronenamos-arch.github.io/amos-financial-Solutions/pages/blog.html
+
+## Interactive Tools
+
+https://ronenamos-arch.github.io/amos-financial-Solutions/pages/ibanchecker.html
+https://ronenamos-arch.github.io/amos-financial-Solutions/pages/financial_calculators_page.html
+
+## Blog Articles - Financial Insights & Guides
+
+https://ronenamos-arch.github.io/amos-financial-Solutions/articles/cfo_outsourced_vs_inhouse_article.html
+https://ronenamos-arch.github.io/amos-financial-Solutions/articles/budget_planning_article.html
+https://ronenamos-arch.github.io/amos-financial-Solutions/articles/financial_planning_article.html
+https://ronenamos-arch.github.io/amos-financial-Solutions/articles/tax_reduction_guide.html
+https://ronenamos-arch.github.io/amos-financial-Solutions/articles/cash_law_article.html
+https://ronenamos-arch.github.io/amos-financial-Solutions/articles/payment_collection_article.html
+https://ronenamos-arch.github.io/amos-financial-Solutions/articles/ai_guide_financial_processes_article.html
+
+## Legal
+
+https://ronenamos-arch.github.io/amos-financial-Solutions/pages/privacy_policy.html
+https://ronenamos-arch.github.io/amos-financial-Solutions/pages/terms_of_service.html
