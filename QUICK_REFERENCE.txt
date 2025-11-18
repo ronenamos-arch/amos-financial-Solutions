@@ -1,0 +1,107 @@
+╔════════════════════════════════════════════════════════════════════╗
+║                   GAMMA API - QUICK REFERENCE CARD                 ║
+╚════════════════════════════════════════════════════════════════════╝
+
+📍 PROJECT LOCATION
+   C:\Users\Ronen\amos-financial-Solutions\
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 HOW TO USE (INTERACTIVE MENU)
+
+   1. Open Terminal (Git Bash or Command Prompt)
+
+   2. Navigate to folder:
+      cd amos-financial-Solutions
+
+   3. Run the script:
+      python gamma_api_client.py
+
+   4. Follow the menu options!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚡ QUICK ONE-LINE COMMANDS
+
+   Create Presentation (via terminal):
+   ──────────────────────────────────
+   cd amos-financial-Solutions && python -c "from gamma_api_client import GammaClient; client = GammaClient(); result = client.create_presentation(topic='YOUR TOPIC', num_slides=10); print('View:', result['gammaUrl'])"
+
+   Create Website:
+   ───────────────
+   cd amos-financial-Solutions && python -c "from gamma_api_client import GammaClient; client = GammaClient(); result = client.create_website(content='YOUR CONTENT'); print('View:', result['gammaUrl'])"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🤖 ASK CLAUDE CODE TO RUN IT FOR YOU
+
+   Just say in Claude Code:
+
+   "Create a presentation about [TOPIC] with [NUMBER] slides using
+    the Gamma API in amos-financial-Solutions folder"
+
+   Claude will run the script automatically!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 MENU OPTIONS (when you run the script)
+
+   1. Create Presentation    - Make slide decks
+   2. Create Website         - Generate websites
+   3. Create Document        - Create documents
+   4. Create Social Post     - Social media content
+   5. Advanced Generation    - Full customization
+   6. Check Status           - Monitor progress
+   7. View Account Info      - See API limits
+   8. Exit                   - Close the program
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 IMPORTANT FILES
+
+   .env                          - Your API key (DO NOT SHARE!)
+   gamma_api_client.py           - Main script
+   GAMMA_API_README.md           - Full documentation
+   GAMMA_API_DOCUMENTATION.md    - API reference
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚙️ DOES IT RUN ALL THE TIME?
+
+   ❌ NO! It only runs when YOU start it
+   ✅ Use it → It works → Closes automatically
+   ✅ No background processes
+   ✅ No servers running
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💳 YOUR API INFO
+
+   Credits Remaining: Check by running the script
+   Daily Limit: 50 generations (Pro account)
+   API Key Location: .env file
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❓ TROUBLESHOOTING
+
+   "API key not found"
+   → Check that .env file exists and has your key
+
+   "Rate limit exceeded"
+   → You hit 50 generations/day limit, wait 24 hours
+
+   "Script not found"
+   → Make sure you're in the right folder (cd amos-financial-Solutions)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📞 NEED HELP?
+
+   - Read: GAMMA_API_README.md (in this folder)
+   - Visit: https://developers.gamma.app
+   - Ask: Claude Code!
+
+╔════════════════════════════════════════════════════════════════════╗
+║  TIP: Bookmark this file for easy access to commands!              ║
+╚════════════════════════════════════════════════════════════════════╝

@@ -1,0 +1,17 @@
+ant to see these tips early? Subscribe to the newsletter!
+Hey friends, this week I'm teaching you a simple workflow that will transform a messy spreadsheet into a polished tracker in seconds using a single sentence!
+What's Changed
+I've been using Gemini in Google Sheets to execute complex, multi-step requests from a single prompt written in plain English. Instead of applying formats, filters, and formulas one by one, I just describe my end goal, and Gemini performs all the actions at once.
+How It Works
+Here are two real-world examples to illustrate this feature:
+Example 1: Clean Up a Sales Report
+You have a messy sales report with outdated information. Instead of manually filtering, deleting, and highlighting, you can ask Gemini:
+"Delete all rows for inactive reps, then highlight any rep who is above 120% of their quota in green, and add a new 'Follow-up Notes' column at the end."
+Example 2: Organize Team Brainstorming Notes
+You've collected raw feedback from your team in a sheet with columns for 'Idea', 'Submitter', and 'Category'. You can instantly organize it by asking Gemini:
+"Sort this sheet by 'Category' alphabetically, then find and replace all instances of 'U/X' with 'User Experience', and add a 'Vote' column with a checkbox in each cell."
+Why This Matters
+This feature allows you to combine dozens of manual clicks into a single instruction. You can execute complex formatting and data cleaning tasks instantly, which means you reclaim valuable time and eliminate the mental friction of navigating menus.
+💡
+Pro tip: Combine cleaning and formatting in one shot. Try: "Remove all duplicate rows, format the entire sheet as a table with alternating row colors, and convert the 'Due Date' column to 'Month, Day, Year' format."
+Give this a try with your next messy spreadsheet and let me know how it goes!

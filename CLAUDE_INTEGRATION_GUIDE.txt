@@ -1,0 +1,184 @@
+╔════════════════════════════════════════════════════════════════════╗
+║          HOW TO USE GAMMA API WITH CLAUDE CODE                     ║
+╚════════════════════════════════════════════════════════════════════╝
+
+🤖 WHAT IS THIS?
+
+   Claude Code can automatically run the Gamma API script for you!
+   Just ask Claude in plain English, and it will create presentations.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ HOW IT WORKS
+
+   You → Ask Claude Code → Claude runs Python script → You get link!
+
+   NO manual terminal commands needed!
+   NO copy-pasting commands!
+   Just TALK to Claude!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📝 EXAMPLE REQUESTS (Just copy and paste to Claude Code)
+
+   ┌─────────────────────────────────────────────────────────────┐
+   │  SIMPLE PRESENTATION                                        │
+   └─────────────────────────────────────────────────────────────┘
+
+   "Create a 10-slide presentation about Digital Marketing using
+    the Gamma API. Make it professional."
+
+   ┌─────────────────────────────────────────────────────────────┐
+   │  PRESENTATION WITH DETAILS                                   │
+   └─────────────────────────────────────────────────────────────┘
+
+   "Use the Gamma API to create a 15-slide presentation about
+    AI in Healthcare. Use a casual tone and include no images."
+
+   ┌─────────────────────────────────────────────────────────────┐
+   │  WEBSITE                                                     │
+   └─────────────────────────────────────────────────────────────┘
+
+   "Create a website about my photography portfolio using
+    Gamma API. Make it creative and visual."
+
+   ┌─────────────────────────────────────────────────────────────┐
+   │  DOCUMENT                                                    │
+   └─────────────────────────────────────────────────────────────┘
+
+   "Generate a business document about Q4 2025 sales report
+    using Gamma API. Professional tone, 8 pages."
+
+   ┌─────────────────────────────────────────────────────────────┐
+   │  MULTIPLE PRESENTATIONS                                      │
+   └─────────────────────────────────────────────────────────────┘
+
+   "Create 3 presentations using Gamma API:
+    1. Introduction to Python (10 slides)
+    2. Web Development Basics (12 slides)
+    3. Database Design (8 slides)"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 WHAT CLAUDE WILL DO FOR YOU
+
+   ✅ Navigate to the folder
+   ✅ Run the Python script
+   ✅ Pass your requirements
+   ✅ Wait for the presentation to be created
+   ✅ Give you the link
+   ✅ Show you credits remaining
+
+   ALL AUTOMATICALLY!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 ADVANCED: CUSTOMIZATION OPTIONS
+
+   You can specify:
+
+   📊 Number of slides: "10 slides", "15 slides", etc.
+   🎨 Tone: "professional", "casual", "humorous"
+   👥 Audience: "executives", "students", "general public"
+   🖼️  Images: "with images", "without images"
+   📄 Format: "presentation", "website", "document"
+
+   Example:
+   "Create a 20-slide presentation about Climate Change
+    with a professional tone for executives, include images"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚡ QUICK TEMPLATES
+
+   Copy these and modify the topic:
+
+   Basic:
+   ──────
+   "Create a presentation about [TOPIC] using Gamma API"
+
+   Professional:
+   ─────────────
+   "Create a [NUMBER]-slide professional presentation about
+    [TOPIC] using Gamma API"
+
+   Creative:
+   ─────────
+   "Create a creative website about [TOPIC] using Gamma API
+    with lots of images"
+
+   Business:
+   ─────────
+   "Create a business document about [TOPIC] using Gamma API
+    for executives"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 PRO TIPS
+
+   1. Be specific about what you want
+      ❌ "Make a presentation"
+      ✅ "Create a 10-slide presentation about AI"
+
+   2. Specify the tone if it matters
+      "Make it professional" or "Make it casual"
+
+   3. Mention images if you have a preference
+      "Include images" or "No images"
+
+   4. Claude remembers context - you can say:
+      "Now make another one about Marketing"
+      (It will use Gamma API automatically)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎓 LEARNING BY EXAMPLE
+
+   Session 1:
+   ──────────
+   You: "Create a presentation about Social Media Marketing
+         using Gamma API"
+
+   Claude: *runs script*
+         "Done! Here's your presentation:
+          https://gamma.app/docs/..."
+
+   Session 2:
+   ──────────
+   You: "Now create one about Email Marketing, 15 slides"
+
+   Claude: *runs script again*
+         "Here you go: https://gamma.app/docs/..."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❓ FAQ
+
+   Q: Do I need to open terminal?
+   A: NO! Claude does it for you.
+
+   Q: Do I need to remember commands?
+   A: NO! Just ask in plain English.
+
+   Q: Can Claude create multiple presentations?
+   A: YES! Just ask for what you need.
+
+   Q: Will this use my API credits?
+   A: YES - each generation uses your Gamma API credits.
+
+   Q: Can I see how many credits I have left?
+   A: YES - Claude will show you after each generation.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 READY TO START?
+
+   Just open Claude Code and say:
+
+   "Create a presentation about [YOUR TOPIC] using Gamma API"
+
+   That's it! Claude will handle the rest!
+
+╔════════════════════════════════════════════════════════════════════╗
+║  Remember: Claude Code = Your AI assistant that runs code for you  ║
+╚════════════════════════════════════════════════════════════════════╝

@@ -84,15 +84,29 @@ class GammaClient:
         Initialize Gamma API client
 
         Args:
-            api_key: Gamma API key (if not provided, reads from GAMMA_API_KEY env var)
+            api_key: Gamma API key (if not provided, reads from GAMMA_API_KEY env var or .env file)
         """
         self.api_key = api_key or os.getenv("GAMMA_API_KEY")
+
+        # If not found, try to load from .env file
+        if not self.api_key:
+            env_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), '.env')
+            if os.path.exists(env_file):
+                with open(env_file, 'r') as f:
+                    for line in f:
+                        line = line.strip()
+                        if line and not line.startswith('#') and '=' in line:
+                            key, value = line.split('=', 1)
+                            if key.strip() == 'GAMMA_API_KEY':
+                                self.api_key = value.strip()
+                                break
+
         if not self.api_key:
             raise GammaAPIError(
-                "API key not found. Set GAMMA_API_KEY environment variable or pass api_key parameter."
+                "API key not found. Set GAMMA_API_KEY environment variable, create a .env file, or pass api_key parameter."
             )
 
-        self.base_url = "https://api.gamma.app/public-api/v0.1"
+        self.base_url = "https://public-api.gamma.app/v1.0"
         self.headers = {
             "X-API-KEY": self.api_key,
             "Content-Type": "application/json"
@@ -146,36 +160,42 @@ class GammaClient:
         if len(input_text) > 400000:
             raise GammaAPIError("input_text must not exceed 400,000 characters")
 
+        # v1.0 API simplified format - include preferences in inputText
+        enhanced_input = input_text
+
+        # Add preferences as natural language instructions
+        instructions = []
+        if tone:
+            instructions.append(f"Use a {tone} tone")
+        if audience:
+            instructions.append(f"Target audience: {audience}")
+        if text_amount:
+            instructions.append(f"Content length: {text_amount}")
+        if language and language != "en":
+            instructions.append(f"Output language: {language}")
+        if image_model == "none":
+            instructions.append("Do not include images")
+        elif image_style:
+            instructions.append(f"Image style: {image_style}")
+        if card_dimension and card_dimension != "fluid":
+            instructions.append(f"Aspect ratio: {card_dimension}")
+        if additional_instructions:
+            instructions.append(additional_instructions)
+
+        if instructions:
+            enhanced_input += "\n\nInstructions: " + "; ".join(instructions)
+
+        # v1.0 API only accepts these parameters
         payload = {
-            "inputText": input_text,
+            "inputText": enhanced_input,
             "format": format,
             "numCards": num_cards,
-            "textMode": text_mode,
-            "textAmount": text_amount,
-            "language": language,
-            "imageModel": image_model,
-            "cardDimension": card_dimension,
-            "exportPdf": export_pdf,
-            "exportPptx": export_pptx
+            "textMode": text_mode
         }
-
-        # Add optional parameters if provided
-        if tone:
-            payload["tone"] = tone
-        if audience:
-            payload["audience"] = audience
-        if image_style:
-            payload["imageStyle"] = image_style
-        if theme:
-            payload["theme"] = theme
-        if additional_instructions:
-            payload["additionalInstructions"] = additional_instructions
-        if editor_mode:
-            payload["editorMode"] = editor_mode
 
         try:
             response = requests.post(
-                f"{self.base_url}/generate",
+                f"{self.base_url}/generations",
                 headers=self.headers,
                 json=payload,
                 timeout=30
