@@ -12,6 +12,10 @@
   gtag('config', 'G-4RTCLV7Q4P');
 </script>
 
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5636620811297354"
+     crossorigin="anonymous"></script>
+
 <!-- Meta Tags -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -171,6 +175,52 @@
         .nav-menu a:hover {
             color: #2c5282;
             border-bottom-color: #68D391;
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            z-index: 1000;
+            list-style: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            padding: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #4a5568;
+            text-decoration: none;
+            border-bottom: none;
+            transition: background 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f7fafc;
+            color: #2c5282;
         }
 
         /* Hero Section */
@@ -606,7 +656,7 @@
             .hamburger {
                 display: flex;
             }
-            
+
             .nav-menu {
                 display: none;
                 position: absolute;
@@ -618,29 +668,52 @@
                 flex-direction: column;
                 padding: 1rem 0;
             }
-            
+
             .nav-menu.active {
                 display: flex;
             }
-            
+
             .nav-menu li {
                 text-align: center;
                 padding: 0.5rem 0;
             }
-            
+
+            /* Mobile Dropdown Styles */
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: #f7fafc;
+                margin-top: 0;
+                padding: 0;
+                border-radius: 0;
+            }
+
+            .dropdown-menu a {
+                padding: 0.5rem 1rem;
+                font-size: 0.95rem;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                display: none;
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
-            
+
             .logo-container {
                 width: 60px;
                 height: 60px;
             }
-            
+
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .stats-grid {
                 grid-template-columns: 1fr;
             }
@@ -651,210 +724,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Email Capture Popup Styles */
-        .email-popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 10000;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(3px);
-        }
-
-        .email-popup {
-            background: white;
-            max-width: 600px;
-            width: 90%;
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: popupSlideIn 0.4s ease-out;
-            direction: rtl;
-        }
-
-        @keyframes popupSlideIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8) translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        .popup-close {
-            position: absolute;
-            top: 15px;
-            left: 20px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #666;
-            padding: 5px;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .popup-close:hover {
-            background: #f0f0f0;
-            color: #333;
-        }
-
-        .popup-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .popup-title {
-            font-size: 1.8rem;
-            color: #2C5282;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .popup-subtitle {
-            font-size: 1.1rem;
-            color: #68D391;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
-
-        .popup-benefits {
-            text-align: right;
-            margin: 1.5rem 0;
-            background: linear-gradient(135deg, #f7fafc 0%, #e6f7ff 100%);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 2px solid #68D391;
-        }
-
-        .popup-benefit {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.8rem;
-            font-size: 1rem;
-            color: #2d3748;
-        }
-
-        .popup-benefit:last-child {
-            margin-bottom: 0;
-        }
-
-        .popup-benefit .checkmark {
-            color: #68D391;
-            font-weight: bold;
-            margin-left: 8px;
-            font-size: 1.2rem;
-        }
-
-        .popup-form {
-            margin: 1.5rem 0;
-        }
-
-        .popup-form-row {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .popup-input {
-            flex: 1;
-            padding: 12px 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
-            text-align: right;
-            direction: rtl;
-        }
-
-        .popup-input:focus {
-            outline: none;
-            border-color: #68D391;
-            box-shadow: 0 0 0 3px rgba(104, 211, 145, 0.1);
-        }
-
-        .popup-select {
-            flex: 1;
-            padding: 12px 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-size: 1rem;
-            text-align: right;
-            direction: rtl;
-            background: white;
-        }
-
-        .popup-button {
-            width: 100%;
-            background: linear-gradient(135deg, #2C5282 0%, #68D391 100%);
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .popup-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(44, 82, 130, 0.3);
-        }
-
-        .popup-privacy {
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        .popup-urgency {
-            background: linear-gradient(135deg, #fed7d7 0%, #fbb6ce 100%);
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin: 1rem 0;
-            font-size: 0.9rem;
-            color: #c53030;
-            font-weight: 500;
-        }
-
-        /* Mobile Optimization */
-        @media (max-width: 768px) {
-            .email-popup {
-                padding: 2rem 1.5rem;
-                margin: 20px;
-            }
-
-            .popup-title {
-                font-size: 1.5rem;
-            }
-
-            .popup-form-row {
-                flex-direction: column;
-            }
-
-            .popup-input, .popup-select {
-                width: 100%;
-            }
-        }
 
         /* ---------- UNIVERSAL FOOTER STYLES ---------- */
         #site-footer {
@@ -976,10 +845,16 @@
                 <li><a href="#about">אודות</a></li>
                 <li><a href="#services">שירותים</a></li>
                 <li><a href="pages/blog.html">בלוג</a></li>
-                  <li><a href="pages/ibanchecker.html">חישוב IBAN</a></li>
-                  <li><a href="pages/financial_calculators_page.html">מחשבונים</a></li>
-                 <li><a href="https://ronenamos-arch.github.io/AmosAICourses/">קורסים</a></li>
-                 <li><a href="#contact">יצירת קשר</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">כלים חינמיים ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/ibanchecker.html">חישוב IBAN</a></li>
+                        <li><a href="pages/financial_calculators_page.html">מחשבונים פיננסיים</a></li>
+                        <li><a href="pages/apps.html">Apps</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://ronenamos-arch.github.io/AmosAICourses/">קורסים</a></li>
+                <li><a href="#contact">יצירת קשר</a></li>
             </ul>
         </nav>
     </header>
@@ -1513,13 +1388,33 @@ style="position:absolute;top:18px;left:20px;background:none;border:none;font-siz
             navMenu.classList.toggle('active');
         }
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
+        // Close mobile menu when clicking on a link (except dropdown toggle)
+        document.querySelectorAll('.nav-menu a:not(.dropdown-toggle)').forEach(link => {
             link.addEventListener('click', () => {
                 const hamburger = document.querySelector('.hamburger');
                 const navMenu = document.querySelector('.nav-menu');
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+            });
+        });
+
+        // Mobile dropdown toggle
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                const dropdown = toggle.parentElement;
+
+                // On mobile, toggle the dropdown
+                if (window.innerWidth <= 768) {
+                    dropdown.classList.toggle('active');
+
+                    // Close other dropdowns
+                    document.querySelectorAll('.dropdown').forEach(other => {
+                        if (other !== dropdown) {
+                            other.classList.remove('active');
+                        }
+                    });
+                }
             });
         });
 
@@ -1657,108 +1552,7 @@ style="position:absolute;top:18px;left:20px;background:none;border:none;font-siz
         });
     </script>
 
-    <!-- Email Capture Popup -->
-    <div id="emailPopupOverlay" class="email-popup-overlay">
-        <div class="email-popup">
-            <button class="popup-close" onclick="closeEmailPopup()">&times;</button>
-            
-            <div class="popup-icon">📊</div>
-            
-            <h2 class="popup-title">קבלו תבנית Power BI מקצועית - בחינם!</h2>
-            <p class="popup-subtitle">דשבורד פיננסי מלא לעסקים ישראליים</p>
-            
-            <div class="popup-benefits">
-                <div class="popup-benefit">
-                    <span class="checkmark">✅</span>
-                    <span>חוסך 10 שעות חודשיות בדיווח פיננסי</span>
-                </div>
-                <div class="popup-benefit">
-                    <span class="checkmark">✅</span>
-                    <span>שווה ₪3,000 - חינם לזמן מוגבל</span>
-                </div>
-                <div class="popup-benefit">
-                    <span class="checkmark">✅</span>
-                    <span>כולל מדריך התקנה מפורט בעברית</span>
-                </div>
-                <div class="popup-benefit">
-                    <span class="checkmark">✅</span>
-                    <span>מותאם לתקנות ישראליות ומע"מ</span>
-                </div>
-            </div>
 
-            <div class="popup-urgency">
-                ⏰ מוגבל ל-100 הורדות ראשונות החודש - נותרו 47 מקומות
-            </div>
-
-            <!-- Google Form Embedded -->
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdDLPMVhiHYEQVRdIKUB-xWX5z8jSgMhc_Y-wGZAh4mZvJZ1Q/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" style="border-radius: 12px;">טוען…</iframe>
-
-            <div class="popup-privacy" style="margin-top: 15px;">
-                🔒 <span>לא נשלח ספאם. ביטול מנוי בכל עת. מדיניות פרטיות מלאה</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Email Popup JavaScript -->
-    <script>
-        // Email capture popup functionality
-        let popupShown = false;
-        let exitIntentTriggered = false;
-
-        // Show popup after 30 seconds
-        setTimeout(() => {
-            if (!popupShown && !localStorage.getItem('emailPopupClosed')) {
-                showEmailPopup();
-            }
-        }, 30000);
-
-        // Exit intent detection
-        document.addEventListener('mouseleave', (e) => {
-            if (e.clientY <= 0 && !exitIntentTriggered && !popupShown && !localStorage.getItem('emailPopupClosed')) {
-                exitIntentTriggered = true;
-                showEmailPopup();
-            }
-        });
-
-        function showEmailPopup() {
-            if (popupShown) return;
-            
-            popupShown = true;
-            document.getElementById('emailPopupOverlay').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            
-            // Track popup view in Google Analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'popup_view', {
-                    event_category: 'email_capture',
-                    event_label: 'powerbi_template_offer'
-                });
-            }
-        }
-
-        function closeEmailPopup() {
-            document.getElementById('emailPopupOverlay').style.display = 'none';
-            document.body.style.overflow = 'auto';
-            localStorage.setItem('emailPopupClosed', 'true');
-            
-            // Track popup close
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'popup_close', {
-                    event_category: 'email_capture',
-                    event_label: 'powerbi_template_offer'
-                });
-            }
-        }
-
-        // Close popup when clicking overlay
-        document.getElementById('emailPopupOverlay').addEventListener('click', (e) => {
-            if (e.target === document.getElementById('emailPopupOverlay')) {
-                closeEmailPopup();
-            }
-        });
-
-        // Google Form is now embedded - no custom submission needed
-    </script>
 
     <!-- Schema Markup - LocalBusiness -->
     <script type="application/ld+json">
