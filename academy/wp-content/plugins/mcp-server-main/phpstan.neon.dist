@@ -1,0 +1,17 @@
+parameters:
+	level: 9
+	paths:
+		- mcp.php
+		- src/
+	scanFiles:
+		- vendor/php-stubs/wordpress-tests-stubs/wordpress-tests-stubs.php
+	bootstrapFiles:
+		- tests/phpstan/bootstrap.php
+	reportMaybesInMethodSignatures: false
+	WPCompat:
+		requiresAtLeast: '6.7'
+	strictRules:
+		disallowedEmpty: false
+		strictArrayFilter: false
+includes:
+	- phar://phpstan.phar/conf/bleedingEdge.neon

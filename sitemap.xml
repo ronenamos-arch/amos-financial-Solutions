@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ========================================
+       HOMEPAGE - Maximum Priority
+       ======================================== -->
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/index.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ========================================
+       ENGLISH VERSION
+       ======================================== -->
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/index-en.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ========================================
+       MAIN CONTENT PAGES
+       ======================================== -->
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/blog.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/financial_calculators_page.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ========================================
+       FINANCIAL CALCULATORS
+       ======================================== -->
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/cash_flow_calculator.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/pricing_calculator.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/freelancer_profitability.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/ibanchecker.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/bank_codes_israel.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/bank_codes_israel_en.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ========================================
+       PROFESSIONAL ARTICLES
+       ======================================== -->
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/financial_planning_article.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/budget_planning_article.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/payment_collection_article.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/tax_reduction_guide.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://amosbudget.com/articles/cancel-invoice-receipt-online.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://amosbudget.com/articles/work-grant-negative-income-tax.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://amosbudget.com/articles/pnl-report-exempt-dealer.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/ai_guide_financial_processes_article.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ========================================
+       LOCAL SEO PAGES
+       ======================================== -->
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/roeh-heshbon-tel-aviv.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/roeh-heshbon-petah-tikva.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/roeh-heshbon-bnei-brak.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/roeh-heshbon-herzliya.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/roeh-heshbon-givataim.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ========================================
+       THANK YOU PAGE
+       ======================================== -->
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/thank-you.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ========================================
+       LEGAL PAGES
+       ======================================== -->
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/privacy_policy.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://ronenamos-arch.github.io/amos-financial-Solutions/terms_of_service.html</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Note: Test pages and Google verification file excluded as per robots.txt -->
+
+  <url>
+    <loc>https://amosbudget.com/articles/israel-invoice-model.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://amosbudget.com/articles/tax-refund-donations.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://amosbudget.com/articles/small-business-guide.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://amosbudget.com/articles/open-small-business.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://amosbudget.com/articles/gre-012-ptvr-mnykvy-ms-bmkvr-kl-mh-shatsmay-tsryk-ldat.html</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://amosbudget.com/articles/tax-refund-exempt-dealer.html</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://amosbudget.com/articles/gre-008-ms-tshvmvt-kyzvz-tshlvmy-mam-shl-avsk-mvrshh.html</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://amosbudget.com/articles/work-grant-negative-income-tax.html</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://amosbudget.com/articles/gre-013-kmh-ms-hknsh-mshlm-avsk-ptvr.html</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

@@ -1,0 +1,41 @@
+﻿# Amos Budget Academy
+
+> שיפור וייעול תהליכים במחלקות פיננסיות בעזרת כלי AI
+
+
+## Posts
+
+- [שיגרת יום ראשון של 13 דקות שקיבלתי מממנהל בקרן הון סיכון](https://academy.amosbudget.com/%d7%a9%d7%99%d7%92%d7%a8%d7%aa-%d7%99%d7%95%d7%9d-%d7%a8%d7%90%d7%a9%d7%95%d7%9f-%d7%a9%d7%9c-13-%d7%93%d7%a7%d7%95%d7%aa-%d7%a9%d7%a7%d7%99%d7%91%d7%9c%d7%aa%d7%99-%d7%9e%d7%9e%d7%9e%d7%a0%d7%94/)
+- [Power BI לעצמאים - מדריך מתחילים](https://academy.amosbudget.com/power-bi-%d7%9c%d7%a2%d7%a6%d7%9e%d7%90%d7%99%d7%9d-%d7%9e%d7%93%d7%a8%d7%99%d7%9a-%d7%9e%d7%aa%d7%97%d7%99%d7%9c%d7%99%d7%9d/): Power BI הוא כלי אימ לרטטטאים ועצמאים שרוצים להשקיף בדטות עטופט ובהתחטות מבוסט או טאבה. במדריך זה תלמדו כיצד לבדטט דשבורדים בביסטיבות המדבטוגות בטחום פטיה.
+- [איך להפחית תשלומי מס באופן חוקי כעצמאי ב-2025](https://academy.amosbudget.com/%d7%90%d7%99%d7%9a-%d7%9c%d7%94%d7%a4%d7%97%d7%99%d7%aa-%d7%aa%d7%a9%d7%9c%d7%95%d7%9e%d7%99-%d7%9e%d7%a1-%d7%91%d7%90%d7%95%d7%a4%d7%9f-%d7%97%d7%95%d7%a7%d7%99-%d7%9b%d7%a2%d7%a6%d7%9e%d7%90%d7%99/): מדריך מקיף לעצמאיים להפחתת מס חוקית ב-2025. אסטרטגיות מתקדמות עם AI, אוטומציה פיננסית ו-Power BI. ייעוץ מרואה חשבון טכנולוגי מוביל.
+
+## Pages
+
+- [Member Dashboard](https://academy.amosbudget.com/member-dashboard/): [simple-membership-profile]
+- [Dashboard](https://academy.amosbudget.com/dashboard/): [simple-membership-profile]
+- [Pricing](https://academy.amosbudget.com/pricing/): [simple-membership-pricing-table] [simple-membership-checkout]
+- [Login](https://academy.amosbudget.com/login/): [simple-membership-login redirect=&quot;member-dashboard&quot;]
+- [Register](https://academy.amosbudget.com/register/): [simple-membership-register redirect=&quot;member-dashboard&quot;]
+- [Thank You](https://academy.amosbudget.com/thank-you/)
+- [איתחול סיסמא](https://academy.amosbudget.com/membership-login/password-reset/)
+- [פרופיל](https://academy.amosbudget.com/membership-login/membership-profile/)
+- [כניסת משתמש רשום](https://academy.amosbudget.com/membership-login/)
+- [Registration](https://academy.amosbudget.com/membership-join/membership-registration/)
+- [Join Us](https://academy.amosbudget.com/membership-join/): This page and the content has been automatically generated for you to give you a basic idea of how a &quot;Join Us&quot; page should look like. You can customize this page however you like it by editing this page from your WordPress page editor. If you change the URL of this page, make sure to update the URL value in the settings menu of the plugin. If you delete any of the essential pages required by the plugin, this documentation will guide you in recreating them. Free Membership You get unlimited access to free membership content Price: Free! Link the...
+- [חדשנות טכנולוגית ו‑AI בשפה פשוטה | AI Finance Transformation](https://academy.amosbudget.com/%d7%97%d7%93%d7%a9%d7%a0%d7%95%d7%aa-%d7%98%d7%9b%d7%a0%d7%95%d7%9c%d7%95%d7%92%d7%99%d7%aa-%d7%95-ai-%d7%91%d7%a9%d7%a4%d7%94-%d7%a4%d7%a9%d7%95%d7%98%d7%94-ai-finance-transformation/): הבלוג הזה נולד מתוך הרצון להפוך חדשנות טכנולוגית ובינה מלאכותית למשהו שכל אחד יכול להבין ולהשתמש בו בחיי היום‑יום, בלי צורך ברקע טכנולוגי או שפת “הייטק”. כאן תמצאו הסברים פשוטים, דוגמאות מעשיות וכלים מומלצים שיעזרו לכם לעבוד חכם יותר, לקבל החלטות טובות יותר, ולנצל את הכוח של הטכנולוגיה וה‑AI לטובת החיים האישיים והעסקיים – בשפה ברורה, עניינית ובלי רעש מיותר. מי אני ומה תקבלו בבלוג הזה העולם סביבנו משתנה בקצב שלא הכרנו – צ’אטבוטים שמסכמים לנו טקסטים, כלים שמייצרים תמונות וסרטונים בלחיצת כפתור, ואפליקציות שיעזרו לנו ללמוד שפה, להתמצא בכספים או לארגן את היום בצורה חכמה יותר. המטרה כאן היא...
+- [אודות רונן עמוס - AI Finance Transformation](https://academy.amosbudget.com/%d7%90%d7%95%d7%93%d7%95%d7%aa-%d7%a8%d7%95%d7%a0%d7%9f-%d7%a2%d7%9e%d7%95%d7%a1-ai-finance-transformation/): רונן עמוס, CPA רואה חשבון טכנולוגי | מומחה AI Finance מייסד Amos Financial Solutions ומנחה הקורס AI Finance Transformation   מי אני – רואה חשבון שחי את עולם ה-AI   נעים מאוד, אני רונן עמוס, רואה חשבון (CPA) ומייסד Amos Financial Solutions, עם יותר מ-13 שנות ניסיון בניהול כספים, ליווי סטארטאפים וחברות שירותים, והטמעת אוטומציה ודשבורדים חכמים. במהלך השנים חיברתי בין שני עולמות – חשבונאות קלאסית וניהול כספים – לבין כלים מתקדמים של AI, אוטומציה ו-BI, כדי לחסוך לעסקים עשרות שעות בחודש ולקבל החלטות טובות יותר על בסיס נתונים. מה אני מביא לשולחן ניסיון פיננסי עמוק ניהול כספים מלא בסטארטאפים...
+- [דף הבית](https://academy.amosbudget.com/): שנה את הדרך שבה אתה מנהל את הפיננסים שלך הפוך מנהל כספים ורואה חשבון מומחה ב-AI, אוטומציה פיננסית ו-Power BI למד איך להטמיע בינה מלאכותית בתהליכים הפיננסיים שלך וחסוך עשרות שעות בחודש התחל עכשיו למד עוד  קורס AI Finance Transformation קורס מקיף להטמעת בינה מלאכותית בתהליכים הפיננסיים. למד איך להשתמש ב-ChatGPT, Claude ו-AI נוספים לאוטומציה של משימות חוזרות דשבורדים ב-Power BI בניית דשבורדים פיננסיים מתקדמים שמספקים תובנות בזמן אמת. הפוך נתונים גולמיים להחלטות עסקיות חכמות אוטומציה פיננסית הטמעת אוטומציות שחוסכות עשרות שעות בחודש. חיבור מערכות, דוחות אוטומטיים והתראות חכמות ייעוץ פיננסי אישי ליווי אישי לסטארטאפים וחברות. ניהול כספים מלא, תכנון...
+- [Order Failed](https://academy.amosbudget.com/order-failed/): Your transaction failed, please try again or contact support.
+- [Order Confirmation](https://academy.amosbudget.com/order-confirmation/): Thank you for your order!
+- [Checkout](https://academy.amosbudget.com/checkout/)
+- [Member Directory](https://academy.amosbudget.com/member-directory/)
+- [My Account](https://academy.amosbudget.com/account/)
+- [Reset Password](https://academy.amosbudget.com/reset-password/)
+- [Sign Up](https://academy.amosbudget.com/sign-up/)
+- [Log In](https://academy.amosbudget.com/log-in/)
+
+## Optional
+
+- [Agent (MCP protocol)](websites-agents.hostinger.com/academy.amosbudget.com/mcp)
+
+[comment]: # (Generated by Hostinger Tools Plugin)
