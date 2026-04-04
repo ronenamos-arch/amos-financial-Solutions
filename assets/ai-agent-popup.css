@@ -73,6 +73,11 @@
   color: #3d7f1f;
 }
 
+#aiAgentClose:focus {
+  outline: 2px solid #3d7f1f;
+  outline-offset: 2px;
+}
+
 /* Text Direction - RTL */
 #aiAgentPopup {
   direction: rtl;
@@ -125,6 +130,11 @@
 
 .aiAgent-button:active {
   transform: translateY(0);
+}
+
+.aiAgent-button:focus {
+  outline: 2px solid #3d7f1f;
+  outline-offset: 2px;
 }
 
 /* Form Container */
