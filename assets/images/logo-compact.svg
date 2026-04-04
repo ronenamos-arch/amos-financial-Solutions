@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <!-- Background square for logo icon -->
+  <rect x="5" y="5" width="50" height="50" rx="8" ry="8" fill="#2C5282"/>
+  
+  <!-- Chart bars -->
+  <rect x="12" y="35" width="6" height="15" fill="#68D391" rx="1"/>
+  <rect x="21" y="30" width="6" height="20" fill="#68D391" rx="1"/>
+  <rect x="30" y="25" width="6" height="25" fill="#68D391" rx="1"/>
+  
+  <!-- Growth arrow -->
+  <path d="M15 18 L45 18 L45 12 L50 18 L45 24 L45 21 L15 21 Z" fill="white"/>
+  
+  <!-- Main text -->
+  <text x="65" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2C5282">RONEN AMOS</text>
+  <text x="65" y="40" font-family="Arial, sans-serif" font-size="8" fill="#68D391">פתרונות פיננסיים לעסקים קטנים</text>
+</svg>
