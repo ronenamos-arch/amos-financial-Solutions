@@ -109,5 +109,88 @@ const aiAgentPopup = {
       overlay.remove();
     }
     this.isVisible = false;
+  },
+
+  /**
+   * Create popup DOM structure
+   */
+  createDOM: function() {
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'aiAgentOverlay';
+    document.body.appendChild(overlay);
+
+    // Create popup modal
+    const popup = document.createElement('div');
+    popup.id = 'aiAgentPopup';
+
+    // Create close button
+    const closeBtn = document.createElement('button');
+    closeBtn.id = 'aiAgentClose';
+    closeBtn.innerHTML = '×';
+    closeBtn.setAttribute('aria-label', 'סגור');
+
+    // Create content container
+    const content = document.createElement('div');
+    content.id = 'aiAgentContent';
+
+    // Add close button to popup
+    popup.appendChild(closeBtn);
+    popup.appendChild(content);
+    overlay.appendChild(popup);
+
+    // Render initial form state
+    this.renderFormState();
+  },
+
+  /**
+   * Render form state
+   */
+  renderFormState: function() {
+    const content = document.getElementById('aiAgentContent');
+    if (!content) return;
+
+    content.innerHTML = `
+      <div class="aiAgent-icon">🤖</div>
+      <h2 class="aiAgent-headline">סוכני AI לניהול פיננסי</h2>
+      <p class="aiAgent-subheadline">מדריך להקמת סוכני AI לאוטומציה חשבונאית חכמה</p>
+      <button class="aiAgent-button aiAgent-whatsapp-btn" type="button">
+        הצטרף לקהילת AI FINANCE TRANSFORMATION
+      </button>
+      <div id="aiAgentFormContainer">
+        <iframe
+          id="aiAgentForm"
+          src="${aiAgentPopupConfig.googleFormUrl}"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          style="width: 100%; min-height: 600px;"
+          title="AI Agent Signup Form">
+          Loading...
+        </iframe>
+      </div>
+    `;
+  },
+
+  /**
+   * Render thank you state
+   */
+  renderThankYouState: function() {
+    const content = document.getElementById('aiAgentContent');
+    if (!content) return;
+
+    content.innerHTML = `
+      <div id="aiAgentThankYou">
+        <div class="aiAgent-icon">✓</div>
+        <h2 class="aiAgent-headline">תודה על ההרשמה!</h2>
+        <p class="aiAgent-subheadline">המדריך זמין לך עכשיו</p>
+        <button class="aiAgent-button aiAgent-guide-btn" type="button">
+          פתח את המדריך
+        </button>
+        <button class="aiAgent-button aiAgent-whatsapp-btn" type="button">
+          הצטרף לקהילת AI FINANCE TRANSFORMATION
+        </button>
+      </div>
+    `;
   }
 };
