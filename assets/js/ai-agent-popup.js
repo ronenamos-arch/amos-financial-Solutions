@@ -1,10 +1,18 @@
 (function() {
     'use strict';
 
-    // Check if popup was already shown
-    if (localStorage.getItem('aiAgentPopupShown')) {
-        return;
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initPopup);
+    } else {
+        initPopup();
     }
+
+    function initPopup() {
+        // Check if popup was already shown
+        if (localStorage.getItem('aiAgentPopupShown')) {
+            return;
+        }
 
     // Inject CSS
     const css = `
@@ -367,4 +375,6 @@
         }
     });
 
-})();
+    } // End of initPopup function
+
+})(); // End of IIFE
