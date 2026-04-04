@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4RTCLV7Q4P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4RTCLV7Q4P');
+</script>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5636620811297354"
+     crossorigin="anonymous"></script>
+
+<!-- Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Title Tag -->
+<title>TextSwitcher - המרת טקסט עברית-אנגלית מהירה ויציבה | רונן עמוס</title>
+
+<!-- Meta Description -->
+<meta name="description" content="AmosTextSwitcher - כלי חינמי ויציב להמרת פריסת מקלדת עברית-אנגלית עם ניהול תבניות טקסט. קל משקל, מהיר, וללא קריסות. הורד עכשיו!">
+
+<!-- SEO Meta Tags -->
+<meta name="robots" content="index, follow">
+<meta name="author" content="רונן עמוס">
+<meta name="keywords" content="TextSwitcher, המרת טקסט, עברית אנגלית, פריסת מקלדת, LangOver alternative">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://amosbudget.com/pages/textswitcher.html">
+
+<!-- Open Graph Tags -->
+<meta property="og:title" content="TextSwitcher - המרת טקסט עברית-אנגלית">
+<meta property="og:description" content="כלי חינמי ויציב להמרת פריסת מקלדת עם ניהול תבניות">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amosbudget.com/pages/textswitcher.html">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f9fa;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Header */
+    .header {
+        background: white;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #2C5282;
+        text-decoration: none;
+    }
+
+    .nav-links a {
+        color: #333;
+        text-decoration: none;
+        margin: 0 15px;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #3182CE;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(135deg, #2C5282 0%, #3182CE 100%);
+        color: white;
+        padding: 80px 20px;
+        text-align: center;
+        border-radius: 20px;
+        margin: 20px auto;
+        max-width: 1200px;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        font-weight: 800;
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        opacity: 0.95;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        padding: 15px 40px;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: transform 0.2s, box-shadow 0.2s;
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background: white;
+        color: #2C5282;
+    }
+
+    .btn-secondary {
+        background: rgba(255,255,255,0.2);
+        color: white;
+        border: 2px solid white;
+    }
+
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Stats Section */
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .stat-card {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .stat-number {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #3182CE;
+        margin-bottom: 10px;
+    }
+
+    .stat-label {
+        color: #666;
+        font-size: 1.1rem;
+    }
+
+    /* Features Section */
+    .features {
+        padding: 80px 20px;
+        background: white;
+    }
+
+    .features h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+        color: #2C5282;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .feature-card {
+        padding: 30px;
+        background: #f8f9fa;
+        border-radius: 15px;
+        transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: #2C5282;
+    }
+
+    .feature-card p {
+        color: #666;
+        line-height: 1.8;
+    }
+
+    /* Comparison Table */
+    .comparison {
+        padding: 80px 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .comparison h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        color: #2C5282;
+    }
+
+    .comparison-table {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .comparison-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .comparison-table th {
+        background: #2C5282;
+        color: white;
+        padding: 20px;
+        font-size: 1.2rem;
+    }
+
+    .comparison-table td {
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    .comparison-table tr:nth-child(even) {
+        background: #f8f9fa;
+    }
+
+    .check {
+        color: #22C55E;
+        font-size: 1.5rem;
+    }
+
+    .cross {
+        color: #EF4444;
+        font-size: 1.5rem;
+    }
+
+    /* Installation Guide */
+    .installation {
+        padding: 80px 20px;
+        background: white;
+    }
+
+    .installation h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+        color: #2C5282;
+    }
+
+    .steps {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .step {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 40px;
+        align-items: start;
+    }
+
+    .step-number {
+        background: linear-gradient(135deg, #2C5282 0%, #3182CE 100%);
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+
+    .step-content h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: #2C5282;
+    }
+
+    .step-content p {
+        color: #666;
+        line-height: 1.8;
+    }
+
+    .step-content a {
+        color: #3182CE;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .step-content a:hover {
+        text-decoration: underline;
+    }
+
+    /* CTA Section */
+    .cta {
+        background: linear-gradient(135deg, #2C5282 0%, #3182CE 100%);
+        color: white;
+        padding: 80px 20px;
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .cta p {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        opacity: 0.95;
+    }
+
+    /* Footer */
+    .footer {
+        background: #1a202c;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .footer a {
+        color: #3182CE;
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .features-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .stats {
+            grid-template-columns: 1fr;
+        }
+
+        .step {
+            flex-direction: column;
+        }
+    }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <div class="nav-container">
+        <a href="../index.html" class="logo-text">רונן עמוס - ייעוץ פיננסי</a>
+        <nav class="nav-links">
+            <a href="../index.html">בית</a>
+            <a href="blog.html">בלוג</a>
+            <a href="#download">הורד TextSwitcher</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>AmosTextSwitcher</h1>
+        <p>המרת טקסט עברית-אנגלית מהירה, יציבה, וחינמית</p>
+        <p style="font-size: 1.2rem; opacity: 0.9;">✨ עם ניהול תבניות טקסט מתקדם</p>
+        <div class="hero-buttons">
+            <a href="#download-section" class="btn btn-primary">
+                📥 קבל קישור להורדה
+            </a>
+            <a href="https://github.com/ronenamos-arch/AmosTextSwitcher" class="btn btn-secondary">
+                📂 צפה בקוד ב-GitHub
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<section class="stats">
+    <div class="stat-card">
+        <div class="stat-number">~200KB</div>
+        <div class="stat-label">גודל הקובץ</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">0</div>
+        <div class="stat-label">קריסות</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">קוד פתוח</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">תבניות</div>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="features">
+    <h2>✨ תכונות מתקדמות</h2>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🔄</div>
+            <h3>המרת טקסט מיידית</h3>
+            <p>לחצו F10 והטקסט יומר אוטומטית מעברית לאנגלית או להיפך. פשוט, מהיר, ויעיל.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">📋</div>
+            <h3>ניהול תבניות טקסט</h3>
+            <p>שמרו טקסטים נפוצים כתבניות והדביקו אותם בקליק אחד. מושלם לחתימות, כתובות, ותגובות מוכנות.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>חיפוש מתקדם</h3>
+            <p>חפשו תבניות לפי שם או תוכן. מצאו בקלות את הטקסט שאתם צריכים.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">💾</div>
+            <h3>ייבוא וייצוא</h3>
+            <p>גבו את התבניות שלכם והעתיקו אותן בין מחשבים. הכל בפורמט JSON פשוט.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>מעקב שימוש</h3>
+            <p>ראו אילו תבניות אתם משתמשים הכי הרבה ושפרו את היעילות שלכם.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>מהיר וקל משקל</h3>
+            <p>רק ~200KB, ללא השפעה על ביצועי המחשב. עובד בשקט ברקע.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Comparison Table -->
+<section class="comparison">
+    <h2>📊 למה AmosTextSwitcher?</h2>
+    <div class="comparison-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>תכונה</th>
+                    <th>AmosTextSwitcher</th>
+                    <th>TextSwitcher מקורי</th>
+                    <th>LangOver</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>גודל קובץ</td>
+                    <td>~200 KB</td>
+                    <td>~150 KB</td>
+                    <td>5+ MB</td>
+                </tr>
+                <tr>
+                    <td>יציבות (ללא קריסות)</td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="cross">✗</span></td>
+                </tr>
+                <tr>
+                    <td>ניהול תבניות</td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="cross">✗</span></td>
+                    <td><span class="cross">✗</span></td>
+                </tr>
+                <tr>
+                    <td>חלון גישה מהירה</td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="cross">✗</span></td>
+                    <td><span class="cross">✗</span></td>
+                </tr>
+                <tr>
+                    <td>חיפוש תבניות</td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="cross">✗</span></td>
+                    <td><span class="cross">✗</span></td>
+                </tr>
+                <tr>
+                    <td>ייבוא/ייצוא</td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="cross">✗</span></td>
+                    <td><span class="cross">✗</span></td>
+                </tr>
+                <tr>
+                    <td>מעקב שימוש</td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="cross">✗</span></td>
+                    <td><span class="cross">✗</span></td>
+                </tr>
+                <tr>
+                    <td>קוד פתוח</td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="cross">✗</span></td>
+                </tr>
+                <tr>
+                    <td>חינמי לחלוטין</td>
+                    <td><span class="check">✓</span></td>
+                    <td><span class="check">✓</span></td>
+                    <td>גרסה מוגבלת</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- Installation Guide -->
+<section class="installation">
+    <h2>🚀 איך להתקין?</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <h3>הורד את .NET 8 Runtime</h3>
+                <p>
+                    הורד והתקן את
+                    <a href="https://dotnet.microsoft.com/download/dotnet/8.0/runtime" target="_blank">.NET 8 Desktop Runtime</a>
+                    (אם עדיין לא מותקן במחשב)
+                </p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <h3>הורד את AmosTextSwitcher</h3>
+                <p>
+                    השאר פרטים ב<a href="#download-section">טופס ההורדה</a> וקבל קישור להורדה
+                </p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <h3>חלץ והרץ</h3>
+                <p>חלץ את הקובץ המכווץ והפעל את AmosTextSwitcher.exe - זהו!</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+                <h3>התחל להשתמש</h3>
+                <p>
+                    לחץ F10 להמרת טקסט | לחיצה כפולה על האייקון במגש המערכת לחלון הגישה המהירה
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <div class="container">
+        <h2>מוכנים לשדרג את חוויית ההקלדה?</h2>
+        <p>הצטרפו לאלפי משתמשים שכבר נהנים מ-AmosTextSwitcher</p>
+        <a href="#download-section" class="btn btn-primary">
+            📥 קבל קישור להורדה (חינם לחלוטין)
+        </a>
+    </div>
+</section>
+
+<!-- Download Section with Email Capture -->
+<section id="download-section" class="section" style="background: white; padding: 80px 20px;">
+    <div class="container" style="max-width: 700px;">
+        <h2 style="text-align: center; font-size: 2.5rem; color: #2C5282; margin-bottom: 1rem;">
+            📥 הורד את AmosTextSwitcher
+        </h2>
+        <p style="text-align: center; color: #4a5568; font-size: 1.2rem; margin-bottom: 3rem;">
+            השאירו את הפרטים שלכם וקבלו קישור להורדה מיידית
+        </p>
+
+        <!-- Google Form Embed - Replace YOUR_FORM_ID with actual Google Form ID -->
+        <div style="background: #f7fafc; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <iframe
+                id="downloadForm"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSevs-Ma-mkgaLzGI9fgksmYQZ7vWpWS8OPCVYXHqHizW1SgPQ/viewform?embedded=true"
+                width="100%"
+                height="600"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0"
+                style="border-radius: 10px;">
+                טוען טופס...
+            </iframe>
+
+            <!-- Button to reveal download link after form submission -->
+            <div id="revealButton" style="margin-top: 2rem; text-align: center;">
+                <button
+                    onclick="showDownloadLink()"
+                    class="btn btn-primary"
+                    style="background: linear-gradient(135deg, #2C5282 0%, #68D391 100%); color: white; padding: 15px 40px; font-size: 1.1rem; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">
+                    ✅ שלחתי את הטופס - הצג קישור להורדה
+                </button>
+                <p style="margin-top: 1rem; color: #666; font-size: 0.95rem;">לחצו על הכפתור רק לאחר שליחת הטופס</p>
+            </div>
+
+            <!-- Download Link (shown after clicking button) -->
+            <div id="downloadLinkSection" style="display: none; margin-top: 2rem; text-align: center;">
+                <div style="background: linear-gradient(135deg, #68D391 0%, #2C5282 100%); padding: 2rem; border-radius: 15px; color: white;">
+                    <h3 style="margin-bottom: 1rem; font-size: 1.8rem;">🎉 תודה רבה!</h3>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">הטופס נשלח בהצלחה. הנה קישור ההורדה שלך:</p>
+                    <a href="../assets/AmosTextSwitcher-v2.1-Windows.zip"
+                       class="btn btn-primary"
+                       style="background: white; color: #2C5282; display: inline-block; margin-bottom: 1rem;"
+                       download>
+                        💾 לחץ כאן להורדת AmosTextSwitcher
+                    </a>
+                    <p style="font-size: 0.9rem; opacity: 0.9;">מועבר לדף הבית בעוד <span id="countdown">5</span> שניות...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div style="margin-top: 2rem; text-align: center; color: #666;">
+            <p>🔒 המידע שלכם מאובטח ולא ישותף עם צדדים שלישיים</p>
+            <p style="margin-top: 0.5rem;">💡 לאחר שליחת הטופס תקבלו קישור להורדה מיידית</p>
+        </div>
+    </div>
+</section>
+
+<script>
+function showDownloadLink() {
+    // Hide the reveal button
+    document.getElementById('revealButton').style.display = 'none';
+
+    // Show download link section
+    document.getElementById('downloadLinkSection').style.display = 'block';
+
+    // Countdown and redirect to homepage
+    let seconds = 5;
+    const countdownElement = document.getElementById('countdown');
+
+    const countdownInterval = setInterval(function() {
+        seconds--;
+        countdownElement.textContent = seconds;
+
+        if (seconds <= 0) {
+            clearInterval(countdownInterval);
+            window.location.href = '../index.html';
+        }
+    }, 1000);
+
+    // Track download in Google Analytics
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'download', {
+            event_category: 'TextSwitcher',
+            event_label: 'v2.1'
+        });
+    }
+
+    // Scroll to download section smoothly
+    document.getElementById('downloadLinkSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+</script>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>פותח על ידי <a href="../index.html">רונן עמוס, CPA</a> |
+        קוד פתוח תחת <a href="https://github.com/ronenamos-arch/AmosTextSwitcher/blob/main/LICENSE" target="_blank">רישיון MIT</a></p>
+        <p style="margin-top: 10px;">מבוסס על TextSwitcher המקורי של duz</p>
+        <p style="margin-top: 20px;">
+            <a href="https://github.com/ronenamos-arch/AmosTextSwitcher">GitHub</a> |
+            <a href="mailto:ronenamos@gmail.com">צור קשר</a>
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

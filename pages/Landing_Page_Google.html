@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <meta name="description" content="מדריך AI לאנשי כספים - 15 פרומפטים מעשיים לחיסכון של 10 שעות שבוע">
+    <title>מדריך AI לאנשי כספים - 15 פרומפטים מעשיים | רונן עמוס</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            direction: rtl;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 80px;
+        }
+        
+        .contact-info {
+            text-align: left;
+            direction: ltr;
+        }
+        
+        .contact-info p {
+            margin: 5px 0;
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 42px;
+            color: #667eea;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .hero-content h2 {
+            font-size: 24px;
+            color: #764ba2;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+        
+        .avatar-container {
+            text-align: center;
+        }
+        
+        .avatar {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .benefits h3 {
+            font-size: 28px;
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .benefit-item {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-right: 4px solid #667eea;
+        }
+        
+        .benefit-item h4 {
+            color: #764ba2;
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .benefit-item p {
+            color: #4a5568;
+            font-size: 15px;
+        }
+        
+        .icon {
+            font-size: 24px;
+        }
+        
+        /* Form Section */
+        .form-section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            margin-bottom: 40px;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        
+        .form-header h3 {
+            font-size: 32px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .form-header p {
+            font-size: 18px;
+            color: #4a5568;
+        }
+        
+        .google-form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .google-form-wrapper {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+        
+        .google-form-wrapper iframe {
+            width: 100%;
+            min-height: 800px;
+            border: none;
+            border-radius: 15px;
+        }
+        
+        .download-info {
+            background: linear-gradient(135deg, #48bb7810 0%, #38a16910 100%);
+            border: 2px solid #48bb78;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+            text-align: center;
+        }
+        
+        .download-info h4 {
+            color: #38a169;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .download-info p {
+            color: #2d3748;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        .download-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            background: linear-gradient(135deg, #ffd70020 0%, #ffd70030 100%);
+            border: 2px solid #ffd700;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .social-proof p {
+            font-size: 20px;
+            color: #2d3748;
+            font-weight: 600;
+        }
+        
+        .social-proof .highlight {
+            color: #667eea;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        /* What's Inside */
+        .whats-inside {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .whats-inside h3 {
+            font-size: 28px;
+            color: #667eea;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .feature {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #667eea20;
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        
+        .feature h4 {
+            color: #764ba2;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .feature p {
+            color: #4a5568;
+            font-size: 14px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .footer-logo {
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        
+        .footer p {
+            color: #4a5568;
+            margin: 10px 0;
+        }
+        
+        .footer .contact {
+            font-size: 18px;
+            color: #667eea;
+            font-weight: 600;
+            margin: 15px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+            
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-info {
+                text-align: center;
+                direction: rtl;
+                margin-top: 15px;
+            }
+            
+            .google-form-wrapper iframe {
+                min-height: 1000px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="https://page.gensparksite.com/v1/base64_upload/e5e675db41bfcac9389c7c977ba06473" alt="Amos Financial Services" class="logo">
+            <div class="contact-info">
+                <p>📧 ronenamos@gmail.com</p>
+                <p>📱 050-5500344</p>
+            </div>
+        </div>
+        
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1>רוצים לחסוך 10 שעות שבוע בעבודה הפיננסית?</h1>
+                <h2>קבלו 15 פרומפטים מוכנים לשימוש מיידי + דוגמאות מהחיים האמיתיים</h2>
+                <p>
+                    <strong>בחינם ללא התחייבות:</strong> מדריך מקיף עם פרומפטים בדוקים לתחזיות, דיווח, 
+                    אוטומציה, FP&A, ורגולציה - כל מה שאנשי כספים צריכים כדי להתחיל לעבוד עם AI מחר בבוקר.
+                </p>
+                <p style="font-size: 16px; color: #667eea;">
+                    ✅ בדוק על ידי רו"ח מוסמך<br>
+                    ✅ מותאם לסביבה הישראלית<br>
+                    ✅ מוכן להעתקה ישירה לכל כלי AI
+                </p>
+            </div>
+            <div class="avatar-container">
+                <img src="https://page.gensparksite.com/v1/base64_upload/41d7002af31720d186b514a632fdd67f" alt="רונן עמוס" class="avatar">
+            </div>
+        </div>
+        
+        <!-- Social Proof -->
+        <div class="social-proof">
+            <p>🔥 <span class="highlight">מעל 250+</span> אנשי כספים כבר משתמשים בפרומפטים האלה</p>
+        </div>
+        
+        <!-- Benefits Section -->
+        <div class="benefits">
+            <h3>⚡ מה הבעיות שהמדריך פותר?</h3>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h4><span class="icon">⏰</span> בזבוז זמן על משימות חוזרות</h4>
+                    <p>אוטומציה של התאמת בנקים, קטגוריזציה של הוצאות, ויצירת דוחות - בשניות במקום שעות</p>
+                </div>
+                <div class="benefit-item">
+                    <h4><span class="icon">📊</span> קושי בתחזיות מדויקות</h4>
+                    <p>פרומפטים לתחזית תזרים, הכנסות, וניתוח סטיות - עם התחשבות בעונתיות ומגמות</p>
+                </div>
+                <div class="benefit-item">
+                    <h4><span class="icon">📝</span> דיווח ידני ומייגע</h4>
+                    <p>יצירה אוטומטית של דוחות ניהוליים, סיכומים לדירקטוריון, וניתוח יחסים פיננסיים</p>
+                </div>
+                <div class="benefit-item">
+                    <h4><span class="icon">🤔</span> חוסר ידע איך להתחיל עם AI</h4>
+                    <p>15 פרומפטים מוכנים עם דוגמאות קונקרטיות - פשוט להעתיק ולהדביק</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- What's Inside -->
+        <div class="whats-inside">
+            <h3>🎁 מה תקבלו במדריך?</h3>
+            <div class="features-list">
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h4>תחזיות ותכנון</h4>
+                    <p>3 פרומפטים לתחזית תזרים, הכנסות, וניתוח סטיות תקציביות</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📝</div>
+                    <h4>דיווח ובקרה</h4>
+                    <p>3 פרומפטים לסיכום דוחות, ניתוח יחסים, ודוחות ניהוליים</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔄</div>
+                    <h4>אוטומציה</h4>
+                    <p>3 פרומפטים להתאמת בנקים, קטגוריזציה, ונוסחאות Excel</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📈</div>
+                    <h4>FP&A מתקדם</h4>
+                    <p>3 פרומפטים לניתוח רווחיות, תמחור, והערכת ROI</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚖️</div>
+                    <h4>רגולציה וציות</h4>
+                    <p>2 פרומפטים לבדיקת IFRS וניהול סיכוני מטבע</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h4>אסטרטגיה</h4>
+                    <p>פרומפט לבניית תוכנית צמצומים חכמה ומדורגת</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Form Section with Google Form -->
+        <div class="form-section">
+            <div class="form-header">
+                <h3>📥 קבלו את המדריך המלא בחינם</h3>
+                <p>מלאו את הפרטים בטופס ותקבלו את המדריך מיד</p>
+            </div>
+            
+            <div class="google-form-container">
+                <div class="google-form-wrapper">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSevs-Ma-mkgaLzGI9fgksmYQZ7vWpWS8OPCVYXHqHizW1SgPQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">טוען…</iframe>
+                </div>
+                
+                <div class="download-info">
+                    <h4>✅ סיימתם למלא את הטופס?</h4>
+                    <p>לחצו כאן להורדת המדריך מיד</p>
+                    <a href="https://drive.google.com/uc?export=download&id=1JYHa6zhh-5QoKNF3yKxUYtEx5Gc1m9uN" class="download-button" target="_blank">📥 הורדת המדריך (PDF)</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <img src="https://page.gensparksite.com/v1/base64_upload/e5e675db41bfcac9389c7c977ba06473" alt="Amos Financial Services" class="footer-logo">
+            <p><strong>רונן עמוס</strong></p>
+            <p>Financial Technology Consultant, CPA & AI Automation Expert</p>
+            <p class="contact">📧 ronenamos@gmail.com | 📱 050-5500344</p>
+            <p style="margin-top: 20px; color: #718096; font-size: 14px;">
+                🔒 אנחנו מכבדים את הפרטיות שלכם - המייל שלכם לא יימסר לצד שלישי
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Track page view
+        console.log('Landing Page Loaded - Google Form Version');
+        
+        // Optional: Add analytics tracking
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'page_view', {
+                'page_title': 'Landing Page - AI Guide',
+                'page_location': window.location.href
+            });
+        }
+        
+        // Smooth scroll to form
+        function scrollToForm() {
+            document.querySelector('.form-section').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+        
+        // Track download button clicks
+        document.querySelector('.download-button').addEventListener('click', function() {
+            console.log('Download button clicked');
+            
+            // Optional: Send analytics event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'download', {
+                    'event_category': 'Guide',
+                    'event_label': 'AI Finance Guide PDF'
+                });
+            }
+        });
+    </script>
+</body>
+</html>
