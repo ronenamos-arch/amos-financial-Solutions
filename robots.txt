@@ -1,0 +1,64 @@
+# Robots.txt for Amos Financial Solutions
+# Website: https://amosbudget.com/
+# Last Updated: 2026-04-04
+
+User-agent: *
+Allow: /
+
+# ========================================
+# XML SITEMAP
+# ========================================
+Sitemap: https://amosbudget.com/sitemap.xml
+
+# ========================================
+# BLOCKED DIRECTORIES & FILES
+# ========================================
+
+# Administrative and system directories
+User-agent: *
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Backup and deprecated content
+Disallow: /backup*/
+Disallow: /backup-20250912/
+Disallow: /OLD/
+
+# Test and development files
+Disallow: /test-*
+Disallow: /indexronen.html
+Disallow: /index-en-final.html
+
+# Configuration and data files
+Disallow: /*.json$
+
+# ========================================
+# EXPLICITLY ALLOWED RESOURCES
+# ========================================
+
+# Static assets (CSS, JS, Images)
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /assets/
+
+# Public pages and articles
+Allow: /pages/
+Allow: /articles/
+
+# ========================================
+# CRAWL RATE (Optional)
+# ========================================
+# Crawl-delay: 1
+
+# ========================================
+# USER AGENT SPECIFIC RULES (Optional)
+# ========================================
+
+# Block bad bots (uncomment if needed)
+# User-agent: SemrushBot
+# Disallow: /
+#
+# User-agent: AhrefsBot
+# Disallow: /
