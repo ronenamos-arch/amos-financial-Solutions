@@ -192,5 +192,86 @@ const aiAgentPopup = {
         </button>
       </div>
     `;
+  },
+
+  /**
+   * Attach event listeners to buttons
+   */
+  attachEventListeners: function() {
+    // Close button
+    const closeBtn = document.getElementById('aiAgentClose');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        this.close();
+      });
+    }
+
+    // WhatsApp button (form state)
+    const whatsappBtns = document.querySelectorAll('.aiAgent-whatsapp-btn');
+    whatsappBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        window.open(aiAgentPopupConfig.whatsappUrl, '_blank');
+      });
+    });
+
+    // Guide button (thank you state)
+    const guideBtn = document.querySelector('.aiAgent-guide-btn');
+    if (guideBtn) {
+      guideBtn.addEventListener('click', () => {
+        window.open(aiAgentPopupConfig.gammaGuideUrl, '_blank');
+      });
+    }
+
+    // Listen for form submission (iframe load after submit)
+    this.watchFormSubmission();
+  },
+
+  /**
+   * Watch for form submission
+   */
+  watchFormSubmission: function() {
+    const iframe = document.getElementById('aiAgentForm');
+    if (!iframe) return;
+
+    // Listen for iframe load/reload (triggered after form submission)
+    let initialLoadDone = false;
+
+    iframe.addEventListener('load', () => {
+      if (!initialLoadDone) {
+        initialLoadDone = true;
+        return; // Skip first load (form initial load)
+      }
+
+      // Form submitted, transition to thank you
+      this.transitionToThankYou();
+    });
+  },
+
+  /**
+   * Transition to thank you state
+   */
+  transitionToThankYou: function() {
+    this.currentState = 'thankYou';
+    const content = document.getElementById('aiAgentContent');
+
+    if (content) {
+      // Fade out current content
+      content.style.opacity = '0';
+      content.style.transition = 'opacity 0.3s ease';
+
+      setTimeout(() => {
+        this.renderThankYouState();
+        content.style.opacity = '1';
+        this.attachEventListeners();
+      }, 300);
+    }
+  },
+
+  /**
+   * Close popup and mark as seen
+   */
+  close: function() {
+    this.markAsSeen();
+    this.hide();
   }
 };
