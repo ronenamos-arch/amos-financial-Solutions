@@ -307,6 +307,7 @@
 
     // Global functions
     window.closeAIAgentPopup = function() {
+        console.log('AI Agent Popup: Closing popup');
         document.getElementById('aiAgentPopupOverlay').style.display = 'none';
         document.body.style.overflow = 'auto';
         localStorage.setItem('aiAgentPopupShown', 'true');
@@ -318,6 +319,13 @@
                 event_label: 'user_closed'
             });
         }
+    };
+
+    // Manual trigger for testing
+    window.testAIAgentPopup = function() {
+        console.log('AI Agent Popup: Manual test trigger');
+        localStorage.removeItem('aiAgentPopupShown');
+        showPopup();
     };
 
     window.showThankYou = function() {
