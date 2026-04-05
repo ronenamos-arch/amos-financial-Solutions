@@ -11,11 +11,10 @@
     function initPopup() {
         console.log('AI Agent Popup: Initializing...');
 
-        // TEMPORARILY DISABLE localStorage check for testing
-        // if (localStorage.getItem('aiAgentPopupShown')) {
-        //     console.log('AI Agent Popup: Already shown, skipping');
-        //     return;
-        // }
+        if (localStorage.getItem('aiAgentPopupShown')) {
+            console.log('AI Agent Popup: Already shown, skipping');
+            return;
+        }
 
         console.log('AI Agent Popup: Setting up popup...');
 
@@ -335,6 +334,9 @@
         document.querySelector('.ai-agent-popup-benefits').style.display = 'none';
         document.getElementById('thankYouSection').style.display = 'block';
 
+        // Mark popup as shown after signup
+        localStorage.setItem('aiAgentPopupShown', 'true');
+
         // Track conversion
         if (typeof gtag !== 'undefined') {
             gtag('event', 'popup_conversion', {
@@ -348,11 +350,10 @@
     function showPopup() {
         console.log('AI Agent Popup: showPopup called');
 
-        // TEMPORARILY DISABLE localStorage check for testing
-        // if (localStorage.getItem('aiAgentPopupShown')) {
-        //     console.log('AI Agent Popup: Already shown in localStorage, not showing');
-        //     return;
-        // }
+        if (localStorage.getItem('aiAgentPopupShown')) {
+            console.log('AI Agent Popup: Already shown in localStorage, not showing');
+            return;
+        }
 
         console.log('AI Agent Popup: Showing popup');
         document.getElementById('aiAgentPopupOverlay').style.display = 'flex';
@@ -371,21 +372,21 @@
     let popupShown = false;
     let exitIntentTriggered = false;
 
-    // Show after 30 seconds - TEMPORARILY CHANGED TO 5 seconds for testing
+    // Show after 30 seconds
     setTimeout(() => {
-        console.log('AI Agent Popup: 5 second timer triggered');
-        if (!popupShown) { // Removed localStorage check
+        console.log('AI Agent Popup: 30 second timer triggered');
+        if (!popupShown && !localStorage.getItem('aiAgentPopupShown')) {
             showPopup();
             popupShown = true;
         } else {
             console.log('AI Agent Popup: Timer triggered but popup already shown');
         }
-    }, 5000);
+    }, 30000);
 
     // Exit intent detection
     document.addEventListener('mouseleave', (e) => {
         console.log('AI Agent Popup: Mouse leave detected', e.clientY);
-        if (e.clientY <= 0 && !exitIntentTriggered && !popupShown) { // Removed localStorage check
+        if (e.clientY <= 0 && !exitIntentTriggered && !popupShown && !localStorage.getItem('aiAgentPopupShown')) {
             console.log('AI Agent Popup: Exit intent triggered');
             exitIntentTriggered = true;
             showPopup();
