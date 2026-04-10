@@ -50,7 +50,12 @@ Derive the following from the content:
 7. **`<MONTH_YEAR_HE>`** — Hebrew month + year (e.g. `אפריל 2026`)
 8. **`<READ_TIME>`** — Estimate: Hebrew word count ÷ 200, round up to nearest whole number
 9. **`<CATEGORY>`** — Choose from the list above
-10. **Full HTML** — Generate the complete article using the template in Step 5
+10. **`<CTA_HEADING>`** — Short Hebrew question or hook tied specifically to the post topic. Max ~60 chars. Examples:
+    - Tax refund post → `רוצה לבדוק אם מגיע לך החזר מס?`
+    - Accounting costs → `רוצה לדעת כמה תחסוך עם הנהלת חשבונות אוטומטית?`
+    - VAT guidance → `שאלות על מע"מ? נשמח לעזור בלי עלות.`
+11. **`<CTA_SUBTEXT>`** — One natural follow-up sentence (~80–100 chars). Example: `צור קשר היום לייעוץ ראשוני ללא עלות.`
+12. **Full HTML** — Generate the complete article using the template in Step 5
 
 ---
 
@@ -213,10 +218,10 @@ Create `articles/<slug>.html` using this exact template:
 
             </div>
 
-            <!-- CTA — copy verbatim, do not change -->
+            <!-- CTA — WhatsApp link is fixed; heading and sub-text are customized per post topic -->
             <div class="cta-section">
-                <h2 style="color:white; border-bottom:none;">מוכן לקבל ייעוץ מקצועי?</h2>
-                <p style="color:white; opacity:0.9;">צור קשר היום לייעוץ ראשוני ללא עלות.</p>
+                <h2 style="color:white; border-bottom:none;"><CTA_HEADING></h2>
+                <p style="color:white; opacity:0.9;"><CTA_SUBTEXT></p>
                 <a href="https://wa.me/972505500344?text=שלום%20רונן,%20אשמח%20לייעוץ" class="cta-button" target="_blank">
                     💬 WhatsApp לייעוץ מהיר
                 </a>
@@ -309,6 +314,6 @@ If push fails (network), retry up to 4 times with 2s → 4s → 8s → 16s backo
 - **Post date:** Always use today's date.
 - **Slug uniqueness:** Check `articles/` directory before confirming slug.
 - **Push to `main` only** — no intermediate branches or PRs.
-- **CTA block:** Copy verbatim from the template above. Do not rephrase or localize it per post.
+- **CTA block:** The WhatsApp link is fixed — never change it. The heading (`<CTA_HEADING>`) and subtext (`<CTA_SUBTEXT>`) must be written fresh per post to match the topic.
 - **No premium gating** — all posts are free, no gating logic needed.
 - **No IndexNow** — not configured on this project.
